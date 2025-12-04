@@ -1,30 +1,47 @@
-# @data-platform/ui-shell
+# @tot/ui-kit
 
-Общий пакет с `Layout`, `ScMainMenu`, `MainMenuFull` и вспомогательными компонентами (`UpperMenu`, `PageLabel`).
+Общий UI‑кит с `Layout`, `ScMainMenu`, `MainMenuFull` и вспомогательными компонентами (`UpperMenu`, `PageLabel` и т.д.).
 
-## Установка
+## Установка в проект
 
-Когда репозиторий используется как Yarn workspace:
+### Вариант 1 — через Git URL (текущий рабочий)
 
 ```bash
-yarn workspace new-frontend add @data-platform/ui-shell
+npm install git+ssh://git@github.com/RaufERK/tot-ui-kit.git
 ```
 
-Для внешних проектов пакет можно опубликовать в приватный npm-реестр и поставить через `yarn add @data-platform/ui-shell`.
+Или в `package.json`:
+
+```jsonc
+"dependencies": {
+  "@tot/ui-kit": "git+ssh://git@github.com/RaufERK/tot-ui-kit.git",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1"
+}
+```
+
+### Подключение глобальных стилей
+
+Входной файл приложения (например, `src/main.tsx`):
+
+```ts
+import '@tot/ui-kit/global.css';
+```
 
 ## Быстрый старт
 
 ```tsx
-import { Layout } from "@data-platform/ui-shell";
-import { apiData } from "@/api/ApiData";
+import { Layout } from '@tot/ui-kit';
+
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:4000';
 
 export const App = () => (
   <Layout
     menuProps={{
-      baseUrl: apiData.server,
-      menuId: "VKIIw4zpK-wnEuFag4GXO",
-      activeAppId: "sc",
-      systemTitle: "Центр установок",
+      baseUrl: API_BASE,
+      menuId: 'VKIIw4zpK-wnEuFag4GXO',
+      activeAppId: 'sc',
+      systemTitle: 'Центр установок',
     }}
   >
     {/* контент страниц */}
@@ -41,32 +58,38 @@ export const App = () => (
 - `ScMainMenu`
   - `baseUrl` + `menuId` (по умолчанию `VKIIw4zpK-wnEuFag4GXO`) или `dataUrl` — откуда забрать данные о приложениях.
   - `apps` — можно передать готовый список вместо загрузки.
+  - `useMockData` — включить встроенный mock‑режим на основе `singleMenuData.json` (для разработки/демо без бэка).
   - `iconResolver` — функция, которая строит `AppDescriptor` из ответа бэка.
   - `onLayoutChange`, `onThemeChange` — события переключения состояния меню.
 
-## Дальше
+## Скрипты разработки и релиза
 
-## Публикация
+Из корня `tot-ui-kit`:
 
-### Локальная проверка пакета
 ```bash
-cd packages/main-menu
-yarn build        # (если решим собирать dist)
-yarn pack         # создаёт tgz
+npm run dev         # локальная разработка библиотеки (watch-сборка через tsup)
+npm run typecheck   # проверка типов (tsc --noEmit)
+npm run build       # сборка библиотеки в dist/ (ESM + CJS + d.ts)
 ```
 
-### Публикация в приватный npm/ghcr
+### Подготовка и публикация релиза
+
+Скрипты настроены под публикацию в настроенный npm‑registry (например, корпоративный Nexus):
+
 ```bash
-cd packages/main-menu
-yarn publish --tag next --access restricted
+npm run release:patch   # patch-версия: 0.0.1 -> 0.0.2
+npm run release:minor   # minor-версия: 0.0.1 -> 0.1.0
+npm run release:major   # major-версия: 0.x.y -> 1.0.0
 ```
 
-> Перед публикацией обнови `version` и пропиши `npmrc` с токеном к реестру.
+Внутри они выполняют:
+- `npm version <level>` — обновление `version` в `package.json` и создание git‑тега (если репозиторий под git),
+- `npm publish` — публикация пакета в текущий registry.
 
-## Чеклист тестирования
-- `yarn workspace @data-platform/ui-shell run typecheck`
-- `yarn workspace new-frontend run dev` — меню публичной версии подхватывается из пакета
-- Проверить навигацию между пунктами, переключение темы/раскладки, кастомные слоты
-- Проверить загрузку данных: `baseUrl` (mock-backend) и вариант с заранее переданным `apps`
+Перед любой ручной командой `npm publish` автоматически запустится:
 
-# tot-ui-kit
+```bash
+npm run prepublishOnly  # npm run typecheck && npm run build
+```
+
+Так мы гарантируем, что в реестр уходит собранная и типобезопасная версия библиотеки.

@@ -51,6 +51,8 @@ interface ScMainMenuProps extends Omit<React.ComponentProps<typeof MainMenuFull>
     menuId?: string;
     fetchOptions?: RequestInit;
     fetcher?: Fetcher;
+    useMockData?: boolean;
+    mockData?: MenuItem[];
     onAppsLoaded?: (apps: AppDescriptor[]) => void;
     onError?: (error: unknown) => void;
     iconResolver?: (item: MenuItem, index: number) => AppDescriptor;

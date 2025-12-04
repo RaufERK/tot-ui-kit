@@ -24,6 +24,46 @@ interface MenuItem {
 
 const DEFAULT_MENU_ID = 'VKIIw4zpK-wnEuFag4GXO'
 
+let defaultMockMenuData: MenuItem[] | null = null
+
+const loadDefaultMockMenuData = async (): Promise<MenuItem[]> => {
+  if (defaultMockMenuData) {
+    return defaultMockMenuData
+  }
+
+  try {
+    const module = await import('../../data/singleMenuData.json')
+    const json = (module as { default?: MenuItem[] }).default ?? ([] as MenuItem[])
+    defaultMockMenuData = json
+    return json
+  } catch (error) {
+    console.error('Не удалось загрузить mock-данные меню', error)
+    defaultMockMenuData = []
+    return []
+  }
+}
+
+const mapMenuItemsToApps = (
+  items: MenuItem[],
+  iconResolver?: (item: MenuItem, index: number) => AppDescriptor
+): AppDescriptor[] => {
+  const filtered = items
+    .filter((item) => item.available !== false)
+    .sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
+
+  return filtered.map((item, index) =>
+    iconResolver
+      ? iconResolver(item, index)
+      : {
+          id: `${item.client_id}:${index}`,
+          name: item.app_name,
+          shortName: item.app_name,
+          href: item.link,
+          iconNode: resolveIconNode(item),
+        }
+  )
+}
+
 // Маппинг иконок по имени из бекенда
 const iconMap: Record<string, React.ComponentType<SVGProps<SVGSVGElement>>> = {
   'apps-grid': AppsGridIcon,
@@ -56,6 +96,8 @@ export interface ScMainMenuProps
   menuId?: string
   fetchOptions?: RequestInit
   fetcher?: Fetcher
+  useMockData?: boolean
+  mockData?: MenuItem[]
   onAppsLoaded?: (apps: AppDescriptor[]) => void
   onError?: (error: unknown) => void
   iconResolver?: (item: MenuItem, index: number) => AppDescriptor
@@ -75,6 +117,8 @@ const ScMainMenu: React.FC<ScMainMenuProps> = (props) => {
     menuId = DEFAULT_MENU_ID,
     fetchOptions,
     fetcher,
+    useMockData,
+    mockData,
     onAppsLoaded,
     onError,
     iconResolver,
@@ -108,14 +152,30 @@ const ScMainMenu: React.FC<ScMainMenuProps> = (props) => {
   }, [apps])
 
   React.useEffect(() => {
-    if (!resolvedDataUrl) {
-      return
-    }
-
     let cancelled = false
-    const fetchFn = fetcher ?? fetch
-
     const load = async () => {
+      if (useMockData) {
+        const source =
+          mockData && mockData.length > 0
+            ? mockData
+            : await loadDefaultMockMenuData()
+
+        if (cancelled) {
+          return
+        }
+
+        const mapped = mapMenuItemsToApps(source, iconResolver)
+
+        setInternalApps(mapped)
+        onAppsLoaded?.(mapped)
+        return
+      }
+
+      if (!resolvedDataUrl) {
+        return
+      }
+
+      const fetchFn = fetcher ?? fetch
       try {
         const res = await fetchFn(resolvedDataUrl, {
           headers: { accept: '*/*' },
@@ -132,21 +192,7 @@ const ScMainMenu: React.FC<ScMainMenuProps> = (props) => {
           return
         }
 
-        const filtered = data
-          .filter((item) => item.available !== false)
-          .sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
-
-        const mapped = filtered.map((item, index) =>
-          iconResolver
-            ? iconResolver(item, index)
-            : {
-                id: `${item.client_id}:${index}`,
-                name: item.app_name,
-                shortName: item.app_name,
-                href: item.link,
-                iconNode: resolveIconNode(item),
-              }
-        )
+        const mapped = mapMenuItemsToApps(data, iconResolver)
 
         setInternalApps(mapped)
         onAppsLoaded?.(mapped)
@@ -171,6 +217,8 @@ const ScMainMenu: React.FC<ScMainMenuProps> = (props) => {
     iconResolver,
     onAppsLoaded,
     onError,
+    useMockData,
+    mockData,
   ])
 
   const toggleLayout = () => {

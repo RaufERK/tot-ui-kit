@@ -9,7 +9,8 @@
     ".": {
       "import": "./src/index.ts",
       "types": "./src/index.ts"
-    }
+    },
+    "./global.css": "./src/global.css"
   },
   "files": [
     "src"
@@ -17,10 +18,14 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --out-dir dist",
     "dev": "tsup src/index.ts --format esm,cjs --dts --out-dir dist --watch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish"
   },
   "devDependencies": {
-    "@sberbusiness/triplex-next": "^1.2.0",
+    "@sberbusiness/triplex-next": "^1.4.0",
     "@types/react": "^18.3.26",
     "@types/react-dom": "^18.3.7",
     "react": "^18.3.1",
@@ -29,11 +34,12 @@
     "typescript": "~5.9.3"
   },
   "peerDependencies": {
-    "@sberbusiness/triplex-next": "^1.2.0",
+    "@sberbusiness/triplex-next": "^1.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "css-loader": "^7.1.2"
+    "css-loader": "^7.1.2",
+    "sass-embedded": "^1.93.3"
   }
 }
