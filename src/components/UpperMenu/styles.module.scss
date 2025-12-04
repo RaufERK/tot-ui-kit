@@ -1,0 +1,26 @@
+/* src/components/UpperMenu/styles.module.scss */
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.app {
+  background-color: var(--triplex-next-color-brand-0);
+}
+
