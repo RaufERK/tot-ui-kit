@@ -1,5 +1,5 @@
 {
-  "name": "@data-platform/ui-shell",
+  "name": "@tot/ui-kit",
   "version": "0.0.1",
   "type": "module",
   "main": "src/index.ts",
@@ -15,8 +15,8 @@
     "src"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "build": "tsup src/index.ts --format esm,cjs --dts --out-dir dist",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --out-dir dist --watch",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
