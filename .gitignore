@@ -1,0 +1,26 @@
+node_modules
+dist
+
+# OS
+.DS_Store
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# editor
+.idea
+.vscode
+
+# test / coverage / cache
+coverage
+.turbo
+.cache
+.eslintcache
+
+# local bundles / tarballs
+*.tgz
+
+
