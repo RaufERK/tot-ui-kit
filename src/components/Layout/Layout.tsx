@@ -1,4 +1,4 @@
-import { useState, type PropsWithChildren, type ReactNode } from 'react'
+import { useEffect, useState, type PropsWithChildren, type ReactNode } from 'react'
 import PageLabel from '../PageLabel'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 import UpperMenu from '../UpperMenu'
@@ -33,6 +33,15 @@ const Layout = ({
     initialMenuLayout
   )
   const [theme, setTheme] = useState<Theme>(initialTheme)
+
+  useEffect(() => {
+    const root = document.documentElement
+    root.setAttribute('data-theme', theme)
+    root.classList.remove('triplex-theme-light', 'triplex-theme-dark')
+    root.classList.add(
+      theme === 'dark' ? 'triplex-theme-dark' : 'triplex-theme-light'
+    )
+  }, [theme])
 
   const sidebarWidth = menuLayout === 'full' ? 220 : 48
 

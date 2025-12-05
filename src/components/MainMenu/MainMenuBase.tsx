@@ -156,13 +156,15 @@ const MainMenuBase: React.FC<MainMenuBaseProps> = (props) => {
             <hr className={styles.divider} />
             <button
               type='button'
-              className={`${styles.toggleButton} ${
-                layout === 'full' ? styles.rotated : ''
-              }`}
+              className={styles.toggleButton}
               onClick={onLayoutToggle}
               title={layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'}
             >
-              <span className={styles.toggleIcon}>
+              <span
+                className={`${styles.toggleIcon} ${
+                  layout === 'full' ? styles.toggleIconRotated : ''
+                }`}
+              >
                 <ChevronLeftIcon width={16} height={16} />
               </span>
               <span className={styles.toggleText}>
