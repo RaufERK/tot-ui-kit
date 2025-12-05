@@ -1,9 +1,16 @@
-import { useEffect, useState, type PropsWithChildren, type ReactNode } from 'react'
+import {
+  useEffect,
+  useState,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react'
 import PageLabel from '../PageLabel'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 import UpperMenu from '../UpperMenu'
 import type { Theme } from '../MainMenu/MainMenu.types'
 import styles from './styles.module.scss'
+
+const THEME_STORAGE_KEY = 'tot-ui-kit-theme'
 
 export interface LayoutProps extends PropsWithChildren {
   menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>
@@ -34,6 +41,18 @@ const Layout = ({
   )
   const [theme, setTheme] = useState<Theme>(initialTheme)
 
+  // подхватываем сохранённую тему из localStorage
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(THEME_STORAGE_KEY)
+      if (saved === 'light' || saved === 'dark') {
+        setTheme(saved)
+      }
+    } catch {
+      /* ignore */
+    }
+  }, [])
+
   useEffect(() => {
     const root = document.documentElement
     root.setAttribute('data-theme', theme)
@@ -41,6 +60,12 @@ const Layout = ({
     root.classList.add(
       theme === 'dark' ? 'triplex-theme-dark' : 'triplex-theme-light'
     )
+
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme)
+    } catch {
+      /* ignore */
+    }
   }, [theme])
 
   const sidebarWidth = menuLayout === 'full' ? 220 : 48

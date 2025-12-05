@@ -33,7 +33,8 @@ const loadDefaultMockMenuData = async (): Promise<MenuItem[]> => {
 
   try {
     const module = await import('../../data/singleMenuData.json')
-    const json = (module as { default?: MenuItem[] }).default ?? ([] as MenuItem[])
+    const json =
+      (module as { default?: MenuItem[] }).default ?? ([] as MenuItem[])
     defaultMockMenuData = json
     return json
   } catch (error) {
