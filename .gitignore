@@ -23,5 +23,9 @@ coverage
 # local bundles / tarballs
 *.tgz
 
+# AI context files (not for sharing)
+CLAUDE.md
+.cursorrules
+
 
 

@@ -1,5 +1,5 @@
 // src/components/MainMenu/MainMenuBase.tsx
-import React from 'react'
+import { isValidElement, cloneElement, type ReactElement } from 'react'
 import styles from './MainMenu.module.css'
 import type { AppDescriptor, BaseMenuProps, Theme } from './MainMenu.types'
 import { MoonIcon, SunIcon, ChevronLeftIcon } from '../../assets/icons'
@@ -9,29 +9,23 @@ export interface MainMenuBaseProps extends BaseMenuProps {
   onLayoutToggle?: () => void
 }
 
-const getThemeClassName = (theme: Theme | undefined) => {
-  if (theme === 'dark') {
-    return styles.root_theme_dark
-  }
-  return styles.root_theme_light
-}
+const getThemeClassName = (theme: Theme | undefined) =>
+  theme === 'dark' ? styles.root_theme_dark : styles.root_theme_light
 
-const MainMenuBase: React.FC<MainMenuBaseProps> = (props) => {
-  const {
-    layout,
-    apps = [],
-    activeAppId,
-    onAppClick,
-    theme,
-    onThemeToggle,
-    systemTitle = 'Центр установок',
-    systemLogoUrl,
-    rightSlot,
-    centerOverride,
-    className,
-    onLayoutToggle,
-  } = props
-
+const MainMenuBase = ({
+  layout,
+  apps = [],
+  activeAppId,
+  onAppClick,
+  theme,
+  onThemeToggle,
+  systemTitle = 'Центр установок',
+  systemLogoUrl,
+  rightSlot,
+  centerOverride,
+  className,
+  onLayoutToggle,
+}: MainMenuBaseProps) => {
   const rootClassName = [
     styles.root,
     styles[`layout_${layout}`],
@@ -46,21 +40,13 @@ const MainMenuBase: React.FC<MainMenuBaseProps> = (props) => {
       onAppClick(app)
       return
     }
-
     if (app.href) {
       window.location.href = app.href
     }
   }
 
-  const handleThemeToggle = () => {
-    if (onThemeToggle) {
-      onThemeToggle()
-    }
-  }
-
   return (
     <nav className={rootClassName} aria-label='Главное меню приложений'>
-      {/* Верх — логотип (если есть) */}
       {systemLogoUrl && (
         <div className={styles.left}>
           <img
@@ -71,13 +57,11 @@ const MainMenuBase: React.FC<MainMenuBaseProps> = (props) => {
         </div>
       )}
 
-      {/* Центр — приложения */}
       <div className={styles.center}>
         {centerOverride ?? (
           <>
             {apps.map((app) => {
               const isActive = app.id === activeAppId
-
               const appClassName = [
                 styles.appItem,
                 isActive ? styles.appItem_active : '',
@@ -95,14 +79,11 @@ const MainMenuBase: React.FC<MainMenuBaseProps> = (props) => {
                 >
                   {app.iconNode ? (
                     <span className={styles.appIcon}>
-                      {React.isValidElement(app.iconNode)
-                        ? React.cloneElement(
-                            app.iconNode as React.ReactElement,
-                            {
-                              width: 20,
-                              height: 20,
-                            }
-                          )
+                      {isValidElement(app.iconNode)
+                        ? cloneElement(app.iconNode as ReactElement, {
+                            width: 20,
+                            height: 20,
+                          })
                         : app.iconNode}
                     </span>
                   ) : app.iconUrl ? (
@@ -113,7 +94,6 @@ const MainMenuBase: React.FC<MainMenuBaseProps> = (props) => {
                     />
                   ) : null}
 
-                  {/* подпись скрывается через CSS (display: none), но пусть будет */}
                   <span className={styles.appName}>
                     {app.shortName ?? app.name}
                   </span>
@@ -124,14 +104,13 @@ const MainMenuBase: React.FC<MainMenuBaseProps> = (props) => {
         )}
       </div>
 
-      {/* Низ — разделитель, переключатель темы, разделитель, кнопка переключения */}
       <div className={styles.right}>
         {onThemeToggle && (
           <>
             <button
               type='button'
               className={styles.appItem}
-              onClick={handleThemeToggle}
+              onClick={onThemeToggle}
               title='Переключить тему'
             >
               <span className={styles.appIcon}>

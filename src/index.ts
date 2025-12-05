@@ -3,12 +3,7 @@
 export { default as Layout } from './components/Layout'
 export type { LayoutProps } from './components/Layout/Layout'
 
-export {
-  MainMenuBase,
-  MainMenuFull,
-  MainMenuCompact,
-  ScMainMenu,
-} from './components/MainMenu'
+export { MainMenuBase, MainMenuFull, ScMainMenu } from './components/MainMenu'
 export type {
   AppDescriptor,
   BaseMenuProps,

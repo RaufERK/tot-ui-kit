@@ -93,53 +93,50 @@ export const UsersIcon = (props: SVGProps<SVGSVGElement>) => (
 
 export const DownloadsCenterIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    viewBox='0 0 32 32'
+    viewBox='0 0 20 20'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
     {...props}
   >
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M11.5 13H8.5C7.6717 12.9997 7.0003 12.3283 7 11.5V8.5C7.0003 7.6717 7.6717 7.0003 8.5 7H11.5C12.3283 7.0003 12.9997 7.6717 13 8.5V11.5C12.9997 12.3283 12.3283 12.9997 11.5 13Z'
+      d='M5.5,7h-3c-.8,0-1.5-.7-1.5-1.5v-3c0-.8.7-1.5,1.5-1.5h3c.8,0,1.5.7,1.5,1.5v3c0,.8-.7,1.5-1.5,1.5Z'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M23.5 13H17.5C16.6717 12.9997 16.0003 12.3283 16 11.5V8.5C16.0003 7.6717 16.6717 7.0003 17.5 7H23.5C24.3283 7.0003 24.9997 7.6717 25 8.5V11.5C24.9997 12.3283 24.3283 12.9997 23.5 13Z'
+      d='M17.5,7h-6c-.8,0-1.5-.7-1.5-1.5v-3c0-.8.7-1.5,1.5-1.5h6c.8,0,1.5.7,1.5,1.5v3c0,.8-.7,1.5-1.5,1.5Z'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M23.5 22H20.5C19.6717 21.9997 19.0003 21.3283 19 20.5V17.5C19.0003 16.6717 19.6717 16.0003 20.5 16H23.5C24.3283 16.0003 24.9997 16.6717 25 17.5V20.5C24.9997 21.3283 24.3283 21.9997 23.5 22Z'
+      d='M17.5,16h-3c-.8,0-1.5-.7-1.5-1.5v-3c0-.8.7-1.5,1.5-1.5h3c.8,0,1.5.7,1.5,1.5v3c0,.8-.7,1.5-1.5,1.5Z'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M14 25H9C8.46952 25.0001 7.96073 24.7895 7.58563 24.4144C7.21052 24.0393 6.99985 23.5305 7 23V18.429C6.99985 17.8985 7.21052 17.3897 7.58563 17.0146C7.96073 16.6395 8.46952 16.4289 9 16.429H14C14.5305 16.4289 15.0393 16.6395 15.4144 17.0146C15.7895 17.3897 16.0001 17.8985 16 18.429V23C16.0001 23.5305 15.7895 24.0393 15.4144 24.4144C15.0393 24.7895 14.5305 25.0001 14 25Z'
+      d='M8,19H3c-.5,0-1-.2-1.4-.6-.4-.4-.6-.9-.6-1.4v-4.6c0-.5.2-1,.6-1.4.4-.4.9-.6,1.4-.6h5c.5,0,1,.2,1.4.6.4.4.6.9.6,1.4v4.6c0,.5-.2,1-.6,1.4s-.9.6-1.4.6Z'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      d='M12.9281 19.9999L11.1431 21.7859L10.0718 20.7145'
+      d='M6.9,14l-1.8,1.8-1.1-1.1'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
   </svg>
 )
@@ -232,61 +229,66 @@ export const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
 
 export const MetadataIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    viewBox='0 0 32 32'
+    viewBox='0 0 20 20'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
     {...props}
   >
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M11 7H21C23.2091 7 25 8.79086 25 11V21C25 23.2091 23.2091 25 21 25H11C8.79086 25 7 23.2091 7 21V11C7 8.79086 8.79086 7 11 7Z'
+      d='M5,1h10c2.2,0,4,1.8,4,4v10c0,2.2-1.8,4-4,4H5c-2.2,0-4-1.8-4-4V5C1,2.8,2.8,1,5,1Z'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      d='M16 16H21'
+      d='M10,10h5'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      d='M19 11.0002H21.0008'
+      d='M13,5h2'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      d='M11 11H16'
+      d='M5,5h5'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      d='M11 16.0002H13.0008'
+      d='M5,10h2'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      d='M11 21H16'
+      d='M5,15h5'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
     <path
-      d='M19 21.0002H21.0008'
+      d='M13,15h2'
       stroke='currentColor'
       strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
+      fill='none'
     />
   </svg>
 )

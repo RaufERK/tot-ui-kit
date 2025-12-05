@@ -1,9 +1,21 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M11 7H21C23.2091 7 25 8.79086 25 11V21C25 23.2091 23.2091 25 21 25H11C8.79086 25 7 23.2091 7 21V11C7 8.79086 8.79086 7 11 7Z" stroke="#3B4750" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M16 16H21" stroke="#3B4750" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M19 11.0002H21.0008" stroke="#3B4750" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M11 11H16" stroke="#3B4750" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M11 16.0002H13.0008" stroke="#3B4750" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M11 21H16" stroke="#3B4750" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M19 21.0002H21.0008" stroke="#3B4750" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3b4750;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M5,1h10c2.2,0,4,1.8,4,4v10c0,2.2-1.8,4-4,4H5c-2.2,0-4-1.8-4-4V5C1,2.8,2.8,1,5,1Z"/>
+  <path class="cls-1" d="M10,10h5"/>
+  <path class="cls-1" d="M13,5h2"/>
+  <path class="cls-1" d="M5,5h5"/>
+  <path class="cls-1" d="M5,10h2"/>
+  <path class="cls-1" d="M5,15h5"/>
+  <path class="cls-1" d="M13,15h2"/>
 </svg>

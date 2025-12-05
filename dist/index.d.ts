@@ -1,5 +1,5 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
-import React, { ReactNode, PropsWithChildren, FC } from 'react';
+import { ReactNode, PropsWithChildren, FC } from 'react';
 
 type Theme = 'light' | 'dark';
 interface AppDescriptor {
@@ -29,22 +29,22 @@ interface BaseMenuProps {
 }
 
 interface MainMenuFullProps extends BaseMenuProps {
-    layout?: "full" | "compact";
+    layout?: 'full' | 'compact';
     onLayoutToggle?: () => void;
 }
-declare const MainMenuFull: React.FC<MainMenuFullProps>;
+declare const MainMenuFull: ({ layout, onLayoutToggle, ...restProps }: MainMenuFullProps) => react_jsx_runtime.JSX.Element;
 
 interface MenuItem {
     client_id: string;
     app_name: string;
     link: string;
     description?: string;
-    icon: string;
+    icon?: string;
     order?: number;
     available?: boolean;
 }
 type Fetcher = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
-interface ScMainMenuProps extends Omit<React.ComponentProps<typeof MainMenuFull>, 'layout' | 'onLayoutToggle' | 'theme' | 'onThemeToggle' | 'apps'> {
+interface ScMainMenuProps extends Omit<MainMenuFullProps, 'layout' | 'onLayoutToggle' | 'theme' | 'onThemeToggle' | 'apps'> {
     apps?: AppDescriptor[];
     dataUrl?: string;
     baseUrl?: string;
@@ -63,7 +63,7 @@ interface ScMainMenuProps extends Omit<React.ComponentProps<typeof MainMenuFull>
     onLayoutChange?: (layout: 'full' | 'compact') => void;
     onThemeChange?: (theme: Theme) => void;
 }
-declare const ScMainMenu: React.FC<ScMainMenuProps>;
+declare const ScMainMenu: ({ apps, dataUrl, baseUrl, menuId, fetchOptions, fetcher, useMockData, mockData, onAppsLoaded, onError, iconResolver, defaultLayout, layout, onLayoutChange, defaultTheme, theme, onThemeChange, ...rest }: ScMainMenuProps) => react_jsx_runtime.JSX.Element;
 
 interface LayoutProps extends PropsWithChildren {
     menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>;
@@ -78,16 +78,11 @@ interface LayoutProps extends PropsWithChildren {
 }
 declare const Layout: ({ children, menuProps, initialMenuLayout, initialTheme, headerTitle, headerSubtitle, upperMenuSlot, pageLabelSlot, footerLeft, footerRight, }: LayoutProps) => react_jsx_runtime.JSX.Element;
 
-interface MainMenuBaseProps$1 extends BaseMenuProps {
+interface MainMenuBaseProps extends BaseMenuProps {
     layout: 'full' | 'compact';
     onLayoutToggle?: () => void;
 }
-declare const MainMenuBase$1: React.FC<MainMenuBaseProps$1>;
-
-interface MainMenuBaseProps extends BaseMenuProps {
-    layout: 'full' | 'compact';
-}
-declare const MainMenuBase: React.FC<MainMenuBaseProps>;
+declare const MainMenuBase: ({ layout, apps, activeAppId, onAppClick, theme, onThemeToggle, systemTitle, systemLogoUrl, rightSlot, centerOverride, className, onLayoutToggle, }: MainMenuBaseProps) => react_jsx_runtime.JSX.Element;
 
 interface UpperMenuProps {
     title?: string;
@@ -102,4 +97,4 @@ type PageLabelProps = {
 };
 declare const PageLabel: FC<PageLabelProps>;
 
-export { type AppDescriptor, type BaseMenuProps, Layout, type LayoutProps, MainMenuBase$1 as MainMenuBase, MainMenuBase as MainMenuCompact, MainMenuFull, type MainMenuFullProps, PageLabel, ScMainMenu, type ScMainMenuProps, type Theme, UpperMenu, type UpperMenuProps };
+export { type AppDescriptor, type BaseMenuProps, Layout, type LayoutProps, MainMenuBase, MainMenuFull, type MainMenuFullProps, PageLabel, ScMainMenu, type ScMainMenuProps, type Theme, UpperMenu, type UpperMenuProps };

@@ -1,6 +1,6 @@
 // src/components/MainMenu/ScMainMenu.tsx
-import React, { type SVGProps } from 'react'
-import MainMenuFull from './MainMenuFull'
+import { useState, useEffect, type SVGProps, type ComponentType } from 'react'
+import MainMenuFull, { type MainMenuFullProps } from './MainMenuFull'
 import type { AppDescriptor, Theme } from './MainMenu.types'
 import {
   AppsGridIcon,
@@ -19,7 +19,7 @@ interface MenuItem {
   app_name: string
   link: string
   description?: string
-  icon: string
+  icon?: string // deprecated - иконки теперь определяются по client_id
   order?: number
   available?: boolean
 }
@@ -67,21 +67,22 @@ const mapMenuItemsToApps = (
   )
 }
 
-// Маппинг иконок по имени из бекенда
-const iconMap: Record<string, React.ComponentType<SVGProps<SVGSVGElement>>> = {
-  'apps-grid': AppsGridIcon,
+// Маппинг иконок по client_id приложения
+// Иконки прошиты в библиотеке и не зависят от бэкенда
+const appIconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  dashboard: AppsGridIcon,
   users: UsersIcon,
-  'network-squares': NetworkSquaresIcon,
+  sc: DownloadsCenterIcon,
+  dwh_bridge: NetworkSquaresIcon,
   transformation: TransformationIcon,
-  navigator: NavigatorIcon,
-  'table-manager': TableManagerIcon,
-  question: QuestionIcon,
-  'downloads-center': DownloadsCenterIcon,
+  table_manager: TableManagerIcon,
   metadata: MetadataIcon,
+  navigator: NavigatorIcon,
+  question: QuestionIcon,
 }
 
 const resolveIconNode = (item: MenuItem) => {
-  const IconComponent = iconMap[item.icon] ?? AppsGridIcon
+  const IconComponent = appIconMap[item.client_id] ?? AppsGridIcon
   return <IconComponent width={20} height={20} />
 }
 
@@ -92,7 +93,7 @@ type Fetcher = (
 
 export interface ScMainMenuProps
   extends Omit<
-    React.ComponentProps<typeof MainMenuFull>,
+    MainMenuFullProps,
     'layout' | 'onLayoutToggle' | 'theme' | 'onThemeToggle' | 'apps'
   > {
   apps?: AppDescriptor[]
@@ -114,49 +115,46 @@ export interface ScMainMenuProps
   onThemeChange?: (theme: Theme) => void
 }
 
-const ScMainMenu: React.FC<ScMainMenuProps> = (props) => {
-  const {
-    apps,
-    dataUrl,
-    baseUrl,
-    menuId = DEFAULT_MENU_ID,
-    fetchOptions,
-    fetcher,
-    useMockData,
-    mockData,
-    onAppsLoaded,
-    onError,
-    iconResolver,
-    defaultLayout = 'compact',
-    layout,
-    onLayoutChange,
-    defaultTheme = 'light',
-    theme,
-    onThemeChange,
-    ...rest
-  } = props
-
+const ScMainMenu = ({
+  apps,
+  dataUrl,
+  baseUrl,
+  menuId = DEFAULT_MENU_ID,
+  fetchOptions,
+  fetcher,
+  useMockData,
+  mockData,
+  onAppsLoaded,
+  onError,
+  iconResolver,
+  defaultLayout = 'compact',
+  layout,
+  onLayoutChange,
+  defaultTheme = 'light',
+  theme,
+  onThemeChange,
+  ...rest
+}: ScMainMenuProps) => {
   const resolvedDataUrl =
     dataUrl ??
     (baseUrl ? `${baseUrl}/idp/single-menu-data/${menuId}` : undefined)
-  const [internalApps, setInternalApps] = React.useState<AppDescriptor[]>(
-    apps ?? []
+
+  const [internalApps, setInternalApps] = useState<AppDescriptor[]>(apps ?? [])
+  const [internalLayout, setInternalLayout] = useState<'full' | 'compact'>(
+    defaultLayout
   )
-  const [internalLayout, setInternalLayout] = React.useState<
-    'full' | 'compact'
-  >(defaultLayout)
-  const [internalTheme, setInternalTheme] = React.useState<Theme>(defaultTheme)
+  const [internalTheme, setInternalTheme] = useState<Theme>(defaultTheme)
 
   const currentLayout = layout ?? internalLayout
   const currentTheme = theme ?? internalTheme
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (apps) {
       setInternalApps(apps)
     }
   }, [apps])
 
-  React.useEffect(() => {
+  useEffect(() => {
     let cancelled = false
     const load = async () => {
       if (useMockData) {
