@@ -91,6 +91,59 @@ export const UsersIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
+export const DownloadsCenterIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox='0 0 32 32'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    {...props}
+  >
+    <path
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M11.5 13H8.5C7.6717 12.9997 7.0003 12.3283 7 11.5V8.5C7.0003 7.6717 7.6717 7.0003 8.5 7H11.5C12.3283 7.0003 12.9997 7.6717 13 8.5V11.5C12.9997 12.3283 12.3283 12.9997 11.5 13Z'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M23.5 13H17.5C16.6717 12.9997 16.0003 12.3283 16 11.5V8.5C16.0003 7.6717 16.6717 7.0003 17.5 7H23.5C24.3283 7.0003 24.9997 7.6717 25 8.5V11.5C24.9997 12.3283 24.3283 12.9997 23.5 13Z'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M23.5 22H20.5C19.6717 21.9997 19.0003 21.3283 19 20.5V17.5C19.0003 16.6717 19.6717 16.0003 20.5 16H23.5C24.3283 16.0003 24.9997 16.6717 25 17.5V20.5C24.9997 21.3283 24.3283 21.9997 23.5 22Z'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M14 25H9C8.46952 25.0001 7.96073 24.7895 7.58563 24.4144C7.21052 24.0393 6.99985 23.5305 7 23V18.429C6.99985 17.8985 7.21052 17.3897 7.58563 17.0146C7.96073 16.6395 8.46952 16.4289 9 16.429H14C14.5305 16.4289 15.0393 16.6395 15.4144 17.0146C15.7895 17.3897 16.0001 17.8985 16 18.429V23C16.0001 23.5305 15.7895 24.0393 15.4144 24.4144C15.0393 24.7895 14.5305 25.0001 14 25Z'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M12.9281 19.9999L11.1431 21.7859L10.0718 20.7145'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+)
+
 export const NetworkSquaresIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox='0 0 20 20'
@@ -171,6 +224,67 @@ export const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
       d='M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401'
       stroke='currentColor'
       strokeWidth={2}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+)
+
+export const MetadataIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox='0 0 32 32'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    {...props}
+  >
+    <path
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M11 7H21C23.2091 7 25 8.79086 25 11V21C25 23.2091 23.2091 25 21 25H11C8.79086 25 7 23.2091 7 21V11C7 8.79086 8.79086 7 11 7Z'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M16 16H21'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M19 11.0002H21.0008'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M11 11H16'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M11 16.0002H13.0008'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M11 21H16'
+      stroke='currentColor'
+      strokeWidth={1.5}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M19 21.0002H21.0008'
+      stroke='currentColor'
+      strokeWidth={1.5}
       strokeLinecap='round'
       strokeLinejoin='round'
     />

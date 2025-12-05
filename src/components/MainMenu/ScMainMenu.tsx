@@ -10,6 +10,8 @@ import {
   TransformationIcon,
   NavigatorIcon,
   TableManagerIcon,
+  DownloadsCenterIcon,
+  MetadataIcon,
 } from '../../assets/icons'
 
 interface MenuItem {
@@ -74,6 +76,8 @@ const iconMap: Record<string, React.ComponentType<SVGProps<SVGSVGElement>>> = {
   navigator: NavigatorIcon,
   'table-manager': TableManagerIcon,
   question: QuestionIcon,
+  'downloads-center': DownloadsCenterIcon,
+  metadata: MetadataIcon,
 }
 
 const resolveIconNode = (item: MenuItem) => {

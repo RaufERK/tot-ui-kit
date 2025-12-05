@@ -31,7 +31,7 @@
     "app_name": "Центр установок",
     "link": "https://ladoga.sberanalytics.ru/sc/",
     "description": "Системный блок, позволяет управлять архитектурой системы, устанавливать компоненты и планировать потребление",
-    "icon": "apps-grid",
+    "icon": "downloads-center",
     "order": 4,
     "available": true
   },
@@ -67,7 +67,7 @@
     "app_name": "Метаданные",
     "link": "https://openmetadata.ladoga.sberanalytics.ru/",
     "description": "Метаданные системы",
-    "icon": "apps-grid",
+    "icon": "metadata",
     "order": 8,
     "available": true
   },
