@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { EFontType, ETextSize, Text } from '@sberbusiness/triplex-next'
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
 export interface UpperMenuProps {
   title?: string

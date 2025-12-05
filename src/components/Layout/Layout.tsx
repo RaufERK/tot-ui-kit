@@ -8,7 +8,7 @@ import PageLabel from '../PageLabel'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 import UpperMenu from '../UpperMenu'
 import type { Theme } from '../MainMenu/MainMenu.types'
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
 const THEME_STORAGE_KEY = 'tot-ui-kit-theme'
 

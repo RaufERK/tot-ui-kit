@@ -54,10 +54,11 @@
 cd /path/to/tot-ui-kit
 npm install
 npm run typecheck
-npm run build   # если используем dist
+npm run build
 ```
 
-  - Важно, чтобы команда `npm run build` проходила без ошибок до публикации.
+  - ✅ Сборка работает: CSS Modules (`.module.css`) обрабатываются tsup из коробки.
+  - ❌ SCSS не поддерживается tsup без плагинов — все файлы переведены на чистый CSS.
 
 ---
 

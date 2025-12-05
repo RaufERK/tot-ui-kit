@@ -2,6 +2,8 @@
 
 Общий UI‑кит с `Layout`, `ScMainMenu`, `MainMenuFull` и вспомогательными компонентами (`UpperMenu`, `PageLabel` и т.д.).
 
+> **Важно**: Библиотека использует CSS Modules (`.module.css`). SCSS не используется — tsup собирает всё без дополнительных плагинов.
+
 ## Установка в проект
 
 ### Вариант 1 — через Git URL (текущий рабочий)
@@ -26,7 +28,11 @@ npm install git+ssh://git@github.com/RaufERK/tot-ui-kit.git
 
 ```ts
 import '@tot/ui-kit/global.css';
+import '@sberbusiness/triplex-next/styles/triplex-next.css'; // если используете Triplex компоненты
+import '@sberbusiness/icons-next/styles/icons.css';         // если нужны иконки
 ```
+
+> **Тёмная тема**: `global.css` автоматически переопределяет CSS‑переменные Triplex (`--triplex-next-Typography-*`, `--triplex-next-Card-*` и др.) при `data-theme="dark"` на `<html>`. Переключение темы встроено в `Layout`.
 
 ## Быстрый старт
 
