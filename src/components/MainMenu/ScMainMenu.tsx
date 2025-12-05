@@ -19,7 +19,7 @@ interface MenuItem {
   app_name: string
   link: string
   description?: string
-  icon: string
+  icon?: string // deprecated - иконки теперь определяются по client_id
   order?: number
   available?: boolean
 }
@@ -67,21 +67,25 @@ const mapMenuItemsToApps = (
   )
 }
 
-// Маппинг иконок по имени из бекенда
-const iconMap: Record<string, React.ComponentType<SVGProps<SVGSVGElement>>> = {
-  'apps-grid': AppsGridIcon,
+// Маппинг иконок по client_id приложения
+// Иконки прошиты в библиотеке и не зависят от бэкенда
+const appIconMap: Record<
+  string,
+  React.ComponentType<SVGProps<SVGSVGElement>>
+> = {
+  dashboard: AppsGridIcon,
   users: UsersIcon,
-  'network-squares': NetworkSquaresIcon,
+  sc: DownloadsCenterIcon,
+  dwh_bridge: NetworkSquaresIcon,
   transformation: TransformationIcon,
-  navigator: NavigatorIcon,
-  'table-manager': TableManagerIcon,
-  question: QuestionIcon,
-  'downloads-center': DownloadsCenterIcon,
+  table_manager: TableManagerIcon,
   metadata: MetadataIcon,
+  navigator: NavigatorIcon,
+  question: QuestionIcon,
 }
 
 const resolveIconNode = (item: MenuItem) => {
-  const IconComponent = iconMap[item.icon] ?? AppsGridIcon
+  const IconComponent = appIconMap[item.client_id] ?? AppsGridIcon
   return <IconComponent width={20} height={20} />
 }
 

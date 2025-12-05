@@ -4,7 +4,6 @@
     "app_name": "Dashboard",
     "link": "https://dashboard.ladoga.sberanalytics.ru/",
     "description": "Главный экран",
-    "icon": "apps-grid",
     "order": 1,
     "available": true
   },
@@ -13,7 +12,6 @@
     "app_name": "Пользователи и роли",
     "link": "https://users.ladoga.sberanalytics.ru/",
     "description": "Управление пользователями и ролями",
-    "icon": "users",
     "order": 2,
     "available": true
   },
@@ -22,7 +20,6 @@
     "app_name": "Логирование",
     "link": "",
     "description": "Новый модуль (еще не реализован)",
-    "icon": "apps-grid",
     "order": 3,
     "available": false
   },
@@ -30,8 +27,7 @@
     "client_id": "sc",
     "app_name": "Центр установок",
     "link": "https://ladoga.sberanalytics.ru/sc/",
-    "description": "Системный блок, позволяет управлять архитектурой системы, устанавливать компоненты и планировать потребление",
-    "icon": "downloads-center",
+    "description": "Системный блок, позволяет управлять архитектурой системы",
     "order": 4,
     "available": true
   },
@@ -39,8 +35,7 @@
     "client_id": "dwh_bridge",
     "app_name": "Мост данных",
     "link": "https://bridge-dwh.ladoga.sberanalytics.ru/",
-    "description": "Позволяет загружать данные из различных источников в единую базу данных. Подключать коннектора",
-    "icon": "network-squares",
+    "description": "Загрузка данных из различных источников",
     "order": 5,
     "available": true
   },
@@ -49,7 +44,6 @@
     "app_name": "Трансформация",
     "link": "https://modeling-dwh.ladoga.sberanalytics.ru/",
     "description": "Моделирование и трансформация данных",
-    "icon": "transformation",
     "order": 6,
     "available": true
   },
@@ -58,7 +52,6 @@
     "app_name": "Табличный менеджер",
     "link": "https://table-manager.ladoga.sberanalytics.ru/",
     "description": "Управление таблицами данных",
-    "icon": "table-manager",
     "order": 7,
     "available": true
   },
@@ -67,7 +60,6 @@
     "app_name": "Метаданные",
     "link": "https://openmetadata.ladoga.sberanalytics.ru/",
     "description": "Метаданные системы",
-    "icon": "metadata",
     "order": 8,
     "available": true
   },
@@ -76,7 +68,6 @@
     "app_name": "Навигатор",
     "link": "https://navigator.ladoga.sberanalytics.ru/",
     "description": "Навигация по данным",
-    "icon": "navigator",
     "order": 9,
     "available": true
   }
