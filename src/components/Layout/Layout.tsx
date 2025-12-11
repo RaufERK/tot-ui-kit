@@ -8,7 +8,17 @@ import PageLabel from '../PageLabel'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 import UpperMenu from '../UpperMenu'
 import type { Theme } from '../MainMenu/MainMenu.types'
-import styles from './styles.module.css'
+import './styles.css'
+const styles = {
+  app: 'sc-layout',
+  theme_light: 'sc-layout_theme_light',
+  theme_dark: 'sc-layout_theme_dark',
+  menu_full: 'sc-layout_menu_full',
+  menu_compact: 'sc-layout_menu_compact',
+  header: 'sc-layout__header',
+  main: 'sc-layout__main',
+  footer: 'sc-layout__footer',
+}
 
 const THEME_STORAGE_KEY = 'tot-ui-kit-theme'
 

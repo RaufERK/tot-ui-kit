@@ -1,26 +1,26 @@
-/* src/components/UpperMenu/styles.module.scss */
+/* src/components/UpperMenu/styles.css */
 
-.root {
+.sc-upper-menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
 }
 
-.left {
+.sc-upper-menu__left {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.right {
+.sc-upper-menu__right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 
-.app {
+.sc-upper-menu__app {
   background-color: var(--triplex-next-color-brand-0);
 }
 

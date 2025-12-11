@@ -1,6 +1,6 @@
-/* src/components/Layout/styles.module.scss */
+/* src/components/Layout/styles.css */
 
-.app {
+.sc-layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,17 +8,20 @@
   transition: padding-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.app.theme_light {
+.sc-layout_theme_light {
   background-color: #fff;
   color: #0f172a;
 }
 
-.app.theme_dark {
+.sc-layout_theme_dark {
   background-color: #0f172a;
   color: #e5e7eb;
 }
 
-.header {
+.sc-layout_menu_full {}
+.sc-layout_menu_compact {}
+
+.sc-layout__header {
   border-bottom: 1px solid;
   padding: 12px 24px;
   display: flex;
@@ -27,18 +30,18 @@
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.app.theme_light .header {
+.sc-layout_theme_light .sc-layout__header {
   border-color: #e0e0e0;
   background-color: #fff;
 }
 
-.app.theme_dark .header {
+.sc-layout_theme_dark .sc-layout__header {
   border-color: rgba(148, 163, 184, 0.3);
   background-color: #1e293b;
 }
 
 /* Основной контент (включая раздел "Этот кластер" и карточки) */
-.main {
+.sc-layout__main {
   flex: 1;
   padding: 24px;
   box-sizing: border-box;
@@ -46,16 +49,16 @@
   transition: background-color 0.3s ease;
 }
 
-.app.theme_light .main {
+.sc-layout_theme_light .sc-layout__main {
   background-color: #fff;
 }
 
-.app.theme_dark .main {
+.sc-layout_theme_dark .sc-layout__main {
   background-color: #1e293b;
 }
 
 /* Нижняя плашка */
-.footer {
+.sc-layout__footer {
   border-top: 1px solid;
   padding: 8px 24px;
   font-size: 12px;
@@ -65,13 +68,13 @@
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-.app.theme_light .footer {
+.sc-layout_theme_light .sc-layout__footer {
   border-color: #e0e0e0;
   background-color: #fff;
   color: #777;
 }
 
-.app.theme_dark .footer {
+.sc-layout_theme_dark .sc-layout__footer {
   border-color: rgba(148, 163, 184, 0.3);
   background-color: #1e293b;
   color: #f1f5f9;

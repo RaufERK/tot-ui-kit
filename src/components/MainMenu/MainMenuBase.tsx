@@ -1,6 +1,26 @@
 // src/components/MainMenu/MainMenuBase.tsx
 import { isValidElement, cloneElement, type ReactElement } from 'react'
-import styles from './MainMenu.module.css'
+import './MainMenu.css'
+const styles = {
+  root: 'sc-main-menu',
+  layout_full: 'sc-main-menu_layout_full',
+  layout_compact: 'sc-main-menu_layout_compact',
+  root_theme_light: 'sc-main-menu_theme_light',
+  root_theme_dark: 'sc-main-menu_theme_dark',
+  left: 'sc-main-menu__left',
+  systemLogo: 'sc-main-menu__systemLogo',
+  center: 'sc-main-menu__center',
+  right: 'sc-main-menu__right',
+  divider: 'sc-main-menu__divider',
+  appItem: 'sc-main-menu__appItem',
+  appItem_active: 'sc-main-menu__appItem_active',
+  appIcon: 'sc-main-menu__appIcon',
+  toggleButton: 'sc-main-menu__toggleButton',
+  toggleIcon: 'sc-main-menu__toggleIcon',
+  toggleIconRotated: 'sc-main-menu__toggleIconRotated',
+  toggleText: 'sc-main-menu__toggleText',
+  appName: 'sc-main-menu__appName',
+}
 import type { AppDescriptor, BaseMenuProps, Theme } from './MainMenu.types'
 import { MoonIcon, SunIcon, ChevronLeftIcon } from '../../assets/icons'
 

@@ -2,21 +2,21 @@
 
 Общий UI‑кит с `Layout`, `ScMainMenu`, `MainMenuFull` и вспомогательными компонентами (`UpperMenu`, `PageLabel` и т.д.).
 
-> **Важно**: Библиотека использует CSS Modules (`.module.css`). SCSS не используется — tsup собирает всё без дополнительных плагинов.
+> **Важно**: Библиотека использует обычный CSS (без CSS Modules). SCSS не используется — tsup собирает всё без дополнительных плагинов. В проектах на webpack убедитесь, что подключены `css-loader` и `style-loader` (или `mini-css-extract-plugin` для продакшена). В Vite всё работает из коробки.
 
 ## Установка в проект
 
 ### Вариант 1 — через Git URL (текущий рабочий)
 
 ```bash
-npm install git+ssh://git@github.com/RaufERK/tot-ui-kit.git
+npm install git+ssh://git@sberworks.ru:7998/~erk.r/tot-ui-kit.git
 ```
 
 Или в `package.json`:
 
 ```jsonc
 "dependencies": {
-  "@tot/ui-kit": "git+ssh://git@github.com/RaufERK/tot-ui-kit.git",
+  "@tot/ui-kit": "git+ssh://git@sberworks.ru:7998/~erk.r/tot-ui-kit.git",
   "react": "^18.3.1",
   "react-dom": "^18.3.1"
 }

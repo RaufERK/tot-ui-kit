@@ -1,6 +1,12 @@
 import { type ReactNode } from 'react'
 import { EFontType, ETextSize, Text } from '@sberbusiness/triplex-next'
-import styles from './styles.module.css'
+import './styles.css'
+const styles = {
+  root: 'sc-upper-menu',
+  left: 'sc-upper-menu__left',
+  right: 'sc-upper-menu__right',
+  app: 'sc-upper-menu__app',
+}
 
 export interface UpperMenuProps {
   title?: string
