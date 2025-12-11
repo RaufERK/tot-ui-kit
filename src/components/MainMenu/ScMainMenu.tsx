@@ -24,8 +24,6 @@ interface MenuItem {
   available?: boolean
 }
 
-const DEFAULT_MENU_ID = 'VKIIw4zpK-wnEuFag4GXO'
-
 let defaultMockMenuData: MenuItem[] | null = null
 
 const loadDefaultMockMenuData = async (): Promise<MenuItem[]> => {
@@ -86,6 +84,23 @@ const resolveIconNode = (item: MenuItem) => {
   return <IconComponent width={20} height={20} />
 }
 
+const buildMenuDataUrl = (
+  baseUrl?: string,
+  menuId?: string
+): string | undefined => {
+  if (!baseUrl || !menuId) {
+    return undefined
+  }
+
+  const normalizedBase = baseUrl.replace(/\/+$/, '')
+  const endpoint = '/idp/single-menu-data'
+  const baseWithEndpoint = normalizedBase.endsWith(endpoint)
+    ? normalizedBase
+    : `${normalizedBase}${endpoint}`
+
+  return `${baseWithEndpoint}/${menuId}`
+}
+
 type Fetcher = (
   input: RequestInfo | URL,
   init?: RequestInit
@@ -119,7 +134,7 @@ const ScMainMenu = ({
   apps,
   dataUrl,
   baseUrl,
-  menuId = DEFAULT_MENU_ID,
+  menuId,
   fetchOptions,
   fetcher,
   useMockData,
@@ -135,9 +150,7 @@ const ScMainMenu = ({
   onThemeChange,
   ...rest
 }: ScMainMenuProps) => {
-  const resolvedDataUrl =
-    dataUrl ??
-    (baseUrl ? `${baseUrl}/idp/single-menu-data/${menuId}` : undefined)
+  const resolvedDataUrl = dataUrl ?? buildMenuDataUrl(baseUrl, menuId)
 
   const [internalApps, setInternalApps] = useState<AppDescriptor[]>(apps ?? [])
   const [internalLayout, setInternalLayout] = useState<'full' | 'compact'>(

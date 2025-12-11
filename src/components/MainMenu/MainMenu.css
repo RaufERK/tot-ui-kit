@@ -14,6 +14,9 @@
   line-height: 1.2;
   border-radius: 8px;
   transition: width 0.3s ease;
+}
+
+
 .sc-main-menu.sc-main-menu_layout_full {
   width: 220px;
   padding: 12px 8px;
