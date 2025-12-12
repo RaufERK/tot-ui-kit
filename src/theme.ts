@@ -26,7 +26,10 @@ export function useTheme(): Theme {
 
   useEffect(() => {
     const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === THEME_STORAGE_KEY && (e.newValue === 'light' || e.newValue === 'dark')) {
+      if (
+        e.key === THEME_STORAGE_KEY &&
+        (e.newValue === 'light' || e.newValue === 'dark')
+      ) {
         setTheme(e.newValue)
       }
     }
