@@ -43,7 +43,7 @@
 /* Основной контент (включая раздел "Этот кластер" и карточки) */
 .sc-layout__main {
   flex: 1;
-  padding: 24px;
+  /* padding: 24px; */
   box-sizing: border-box;
   overflow: auto;
   transition: background-color 0.3s ease;
