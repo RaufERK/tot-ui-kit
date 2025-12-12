@@ -1,12 +1,5 @@
-import {
-  useEffect,
-  useState,
-  type PropsWithChildren,
-  type ReactNode,
-} from 'react'
-import PageLabel from '../PageLabel'
+import { useEffect, useState, type PropsWithChildren } from 'react'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
-import UpperMenu from '../UpperMenu'
 import type { Theme } from '../MainMenu/MainMenu.types'
 import './styles.css'
 const styles = {
@@ -15,9 +8,7 @@ const styles = {
   theme_dark: 'sc-layout_theme_dark',
   menu_full: 'sc-layout_menu_full',
   menu_compact: 'sc-layout_menu_compact',
-  header: 'sc-layout__header',
   main: 'sc-layout__main',
-  footer: 'sc-layout__footer',
 }
 
 const THEME_STORAGE_KEY = 'tot-ui-kit-theme'
@@ -26,12 +17,6 @@ export interface LayoutProps extends PropsWithChildren {
   menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>
   initialMenuLayout?: 'full' | 'compact'
   initialTheme?: Theme
-  headerTitle?: string
-  headerSubtitle?: string
-  upperMenuSlot?: ReactNode
-  pageLabelSlot?: ReactNode
-  footerLeft?: ReactNode
-  footerRight?: ReactNode
 }
 
 const Layout = ({
@@ -39,12 +24,6 @@ const Layout = ({
   menuProps = {},
   initialMenuLayout = 'compact',
   initialTheme = 'light',
-  headerTitle = 'Центр программного обеспечения',
-  headerSubtitle = 'Инстанс ladoga.sberanalytics.ru',
-  upperMenuSlot,
-  pageLabelSlot,
-  footerLeft = '© СберАналитика',
-  footerRight = 'ЦПО / SC',
 }: LayoutProps) => {
   const [menuLayout, setMenuLayout] = useState<'full' | 'compact'>(
     initialMenuLayout
@@ -108,19 +87,7 @@ const Layout = ({
         onThemeChange={handleThemeChange}
       />
 
-      <header className={styles.header}>
-        {upperMenuSlot ?? <UpperMenu />}
-        {pageLabelSlot ?? (
-          <PageLabel title={headerTitle} subtitle={headerSubtitle} />
-        )}
-      </header>
-
       <main className={styles.main}>{children}</main>
-
-      <footer className={styles.footer}>
-        <span>{footerLeft}</span>
-        <span>{footerRight}</span>
-      </footer>
     </div>
   )
 }
