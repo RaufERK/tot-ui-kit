@@ -16,3 +16,6 @@ export { default as UpperMenu } from './components/UpperMenu'
 export type { UpperMenuProps } from './components/UpperMenu/UpperMenu'
 
 export { default as PageLabel } from './components/PageLabel'
+
+// Theme utilities
+export { getCurrentTheme, useTheme } from './theme'

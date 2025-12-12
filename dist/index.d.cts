@@ -91,4 +91,13 @@ type PageLabelProps = {
 };
 declare const PageLabel: FC<PageLabelProps>;
 
-export { type AppDescriptor, type BaseMenuProps, Layout, type LayoutProps, MainMenuBase, MainMenuFull, type MainMenuFullProps, PageLabel, ScMainMenu, type ScMainMenuProps, type Theme, UpperMenu, type UpperMenuProps };
+/**
+ * Получить текущую тему из localStorage
+ */
+declare function getCurrentTheme(): Theme;
+/**
+ * Хук для получения текущей темы с автоматическим обновлением
+ */
+declare function useTheme(): Theme;
+
+export { type AppDescriptor, type BaseMenuProps, Layout, type LayoutProps, MainMenuBase, MainMenuFull, type MainMenuFullProps, PageLabel, ScMainMenu, type ScMainMenuProps, type Theme, UpperMenu, type UpperMenuProps, getCurrentTheme, useTheme };
