@@ -28,7 +28,9 @@
 /* --- ТЕМЫ --- */
 
 .sc-main-menu_theme_light {
-  background-color: var(--triplex-next-DropdownMobileList-Active_Background-1-5-0);
+  background-color: var(
+    --triplex-next-DropdownMobileList-Active_Background-1-5-0
+  );
   color: #3b4750;
 }
 
