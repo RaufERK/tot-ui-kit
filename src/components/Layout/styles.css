@@ -43,6 +43,21 @@
   background-color: #1e293b;
 }
 
+.sc-layout__upper-menu {
+  border-bottom: 1px solid;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sc-layout_theme_light .sc-layout__upper-menu {
+  border-color: #e0e0e0;
+  background-color: #fff;
+}
+
+.sc-layout_theme_dark .sc-layout__upper-menu {
+  border-color: rgba(148, 163, 184, 0.3);
+  background-color: #1e293b;
+}
+
 /* Основной контент (включая раздел "Этот кластер" и карточки) */
 .sc-layout__main {
   flex: 1;
