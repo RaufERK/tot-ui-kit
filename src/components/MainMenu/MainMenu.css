@@ -35,10 +35,7 @@
 }
 
 .sc-main-menu_theme_dark {
-  background-color: var(
-    --triplex-next-DropdownMobileList-Active_Background-1-5-0,
-    #1e2330
-  );
+  background-color: #4f4f52;
   color: #f1f5f9;
 }
 

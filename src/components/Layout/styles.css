@@ -23,7 +23,7 @@
 .sc-layout_theme_dark {
   background-color: var(
     --triplex-next-ColorNeutral-90-1-7-0,
-    var(--triplex-next-ColorNeutral-90-1-6-1, #1e2330)
+    var(--triplex-next-ColorNeutral-90-1-6-1, #4f4f52)
   );
   color: var(
     --triplex-next-Typography-Primary_Color-1-7-0,
@@ -89,7 +89,7 @@
 .sc-layout_theme_dark .sc-layout__main {
   background-color: var(
     --triplex-next-ColorNeutral-100-1-7-0,
-    var(--triplex-next-ColorNeutral-100-1-6-1, #171b27)
+    var(--triplex-next-ColorNeutral-100-1-6-1, #4f4f52)
   );
 }
 

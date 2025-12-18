@@ -81,13 +81,12 @@ html[data-theme='light'] {
 
 html[data-theme='dark'] {
   /* светлый текст на тёмном фоне */
-  /* фон тёмной темы ближе к дизайну: используем DropdownMobileList Active */
+  /* фон тёмной темы ровный под макет: #4F4F52 */
   --triplex-next-ColorDarkNeutral-50-1-6-1: #f5f5f6;
-  --triplex-next-ColorNeutral-90-1-6-1: var(
-    --triplex-next-DropdownMobileList-Active_Background-1-5-0,
-    #1e2330
-  );
-  --triplex-next-ColorNeutral-100-1-6-1: #171b27;
+  --triplex-next-ColorNeutral-90-1-7-0: #4f4f52;
+  --triplex-next-ColorNeutral-100-1-7-0: #4f4f52;
+  --triplex-next-ColorNeutral-90-1-6-1: #4f4f52;
+  --triplex-next-ColorNeutral-100-1-6-1: #4f4f52;
 
   /* Typography — тёмная тема: светлый текст */
   --triplex-next-Typography-Primary_Color-1-7-0: rgba(255, 255, 255, 1);
@@ -138,7 +137,7 @@ html[data-theme='dark'] {
   );
   background-color: var(
     --triplex-next-ColorNeutral-90-1-7-0,
-    var(--triplex-next-ColorNeutral-90-1-4-0, #18181a)
+    var(--triplex-next-ColorNeutral-90-1-4-0, #4f4f52)
   );
 }
 
