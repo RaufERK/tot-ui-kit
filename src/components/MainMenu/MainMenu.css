@@ -234,6 +234,14 @@
   display: none;
 }
 
+.sc-main-menu_theme_light .sc-main-menu__toggleText {
+  color: #3b4750;
+}
+
+.sc-main-menu_theme_dark .sc-main-menu__toggleText {
+  color: #f1f5f9;
+}
+
 .sc-main-menu__appName {
   display: none;
   white-space: nowrap;
