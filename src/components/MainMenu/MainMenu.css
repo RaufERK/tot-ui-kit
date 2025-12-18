@@ -214,6 +214,16 @@
   flex-shrink: 0;
 }
 
+.sc-main-menu_theme_light .sc-main-menu__toggleIcon svg {
+  color: #3b4750;
+  fill: currentColor;
+}
+
+.sc-main-menu_theme_dark .sc-main-menu__toggleIcon svg {
+  color: #f1f5f9;
+  fill: currentColor;
+}
+
 .sc-main-menu__toggleIconRotated {
   transform: rotate(180deg);
 }
