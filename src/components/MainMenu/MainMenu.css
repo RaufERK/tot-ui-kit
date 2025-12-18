@@ -223,6 +223,7 @@
   white-space: nowrap;
   font-size: 14px;
   line-height: 1.2;
+  color: inherit;
 }
 
 .sc-main-menu.sc-main-menu_layout_full .sc-main-menu__toggleText {
