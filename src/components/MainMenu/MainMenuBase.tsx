@@ -1,5 +1,4 @@
 // src/components/MainMenu/MainMenuBase.tsx
-import { type ReactElement } from 'react'
 import './MainMenu.css'
 const styles = {
   root: 'sc-main-menu',
