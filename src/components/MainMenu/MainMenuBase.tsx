@@ -1,10 +1,5 @@
 // src/components/MainMenu/MainMenuBase.tsx
-import {
-  isValidElement,
-  cloneElement,
-  type ReactElement,
-  type SVGProps,
-} from 'react'
+import { type ReactElement } from 'react'
 import './MainMenu.css'
 const styles = {
   root: 'sc-main-menu',
