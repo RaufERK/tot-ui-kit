@@ -55,9 +55,13 @@ html[data-theme='light'] {
 
 html[data-theme='dark'] {
   /* светлый текст на тёмном фоне */
+  /* фон тёмной темы ближе к дизайну: используем DropdownMobileList Active */
   --triplex-next-ColorDarkNeutral-50-1-6-1: #f5f5f6;
-  --triplex-next-ColorNeutral-90-1-6-1: #18181a;
-  --triplex-next-ColorNeutral-100-1-6-1: #1f1f22;
+  --triplex-next-ColorNeutral-90-1-6-1: var(
+    --triplex-next-DropdownMobileList-Active_Background-1-5-0,
+    #1e2330
+  );
+  --triplex-next-ColorNeutral-100-1-6-1: #171b27;
 
   /* Typography — тёмная тема: светлый текст */
   --triplex-next-Typography-Primary_Color-1-6-1: rgba(255, 255, 255, 1);
