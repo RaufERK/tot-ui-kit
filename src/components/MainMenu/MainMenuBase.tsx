@@ -1,5 +1,10 @@
 // src/components/MainMenu/MainMenuBase.tsx
-import { isValidElement, cloneElement, type ReactElement } from 'react'
+import {
+  isValidElement,
+  cloneElement,
+  type ReactElement,
+  type SVGProps,
+} from 'react'
 import './MainMenu.css'
 const styles = {
   root: 'sc-main-menu',
@@ -98,14 +103,7 @@ const MainMenuBase = ({
                   title={app.name}
                 >
                   {app.iconNode ? (
-                    <span className={styles.appIcon}>
-                      {isValidElement(app.iconNode)
-                        ? cloneElement(app.iconNode as ReactElement, {
-                            width: 20,
-                            height: 20,
-                          })
-                        : app.iconNode}
-                    </span>
+                    <span className={styles.appIcon}>{app.iconNode}</span>
                   ) : app.iconUrl ? (
                     <img
                       src={app.iconUrl}
