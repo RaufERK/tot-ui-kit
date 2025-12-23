@@ -35,7 +35,7 @@
 }
 
 .sc-main-menu_theme_dark {
-  background-color: #4f4f52;
+  background-color: var(--menu-bg-color, #363a3f);
   color: #f1f5f9;
 }
 

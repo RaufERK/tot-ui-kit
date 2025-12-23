@@ -1,4 +1,9 @@
-import { useEffect, useState, type PropsWithChildren, type ReactNode } from 'react'
+import {
+  useEffect,
+  useState,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 import type { Theme } from '../MainMenu/MainMenu.types'
 import './styles.css'
@@ -19,6 +24,7 @@ export interface LayoutProps extends PropsWithChildren {
   initialMenuLayout?: 'full' | 'compact'
   initialTheme?: Theme
   upperMenuSlot?: ReactNode
+  menuBackgroundColor?: string
 }
 
 const Layout = ({
@@ -27,6 +33,7 @@ const Layout = ({
   initialMenuLayout = 'compact',
   initialTheme = 'light',
   upperMenuSlot,
+  menuBackgroundColor,
 }: LayoutProps) => {
   const [menuLayout, setMenuLayout] = useState<'full' | 'compact'>(
     initialMenuLayout
@@ -81,7 +88,15 @@ const Layout = ({
   }
 
   return (
-    <div className={appClassName} style={{ paddingLeft: `${sidebarWidth}px` }}>
+    <div
+      className={appClassName}
+      style={
+        {
+          paddingLeft: `${sidebarWidth}px`,
+          '--menu-bg-color': menuBackgroundColor || '#363A3F',
+        } as React.CSSProperties
+      }
+    >
       <ScMainMenu
         {...menuProps}
         layout={menuLayout}
@@ -90,9 +105,7 @@ const Layout = ({
         onThemeChange={handleThemeChange}
       />
 
-      {upperMenuSlot && (
-        <div className={styles.upperMenu}>{upperMenuSlot}</div>
-      )}
+      {upperMenuSlot && <div className={styles.upperMenu}>{upperMenuSlot}</div>}
 
       <main className={styles.main}>{children}</main>
     </div>
