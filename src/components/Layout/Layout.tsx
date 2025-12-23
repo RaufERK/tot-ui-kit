@@ -93,7 +93,8 @@ const Layout = ({
       style={
         {
           paddingLeft: `${sidebarWidth}px`,
-          '--menu-bg-color': menuBackgroundColor || '#363A3F',
+          '--menu-bg-color':
+            menuBackgroundColor || 'rgba(255, 255, 255, 0.03)',
         } as React.CSSProperties
       }
     >
