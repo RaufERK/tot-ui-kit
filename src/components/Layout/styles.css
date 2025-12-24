@@ -10,7 +10,7 @@
 }
 
 .sc-layout_theme_light {
-  background-color: #eaedf1;
+  background-color: var(--page-bg-color, #eaedf1);
   color: var(
     --triplex-next-Typography-Primary_Color-1-7-0,
     var(--triplex-next-Typography-Primary_Color-1-6-1, #0f172a)
@@ -18,7 +18,7 @@
 }
 
 .sc-layout_theme_dark {
-  background-color: #000000;
+  background-color: var(--page-bg-color, #000000);
   color: var(
     --triplex-next-Typography-Primary_Color-1-7-0,
     var(--triplex-next-Typography-Primary_Color-1-6-1, #e5e7eb)
@@ -74,11 +74,11 @@
 }
 
 .sc-layout_theme_light .sc-layout__main {
-  background-color: #eaedf1;
+  background-color: var(--page-bg-color, #eaedf1);
 }
 
 .sc-layout_theme_dark .sc-layout__main {
-  background-color: #000000;
+  background-color: var(--page-bg-color, #000000);
 }
 
 /* Нижняя плашка */

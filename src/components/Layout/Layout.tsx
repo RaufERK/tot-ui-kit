@@ -25,6 +25,7 @@ export interface LayoutProps extends PropsWithChildren {
   initialTheme?: Theme
   upperMenuSlot?: ReactNode
   menuBackgroundColor?: string
+  pageBackgroundColor?: string
 }
 
 const Layout = ({
@@ -34,6 +35,7 @@ const Layout = ({
   initialTheme = 'light',
   upperMenuSlot,
   menuBackgroundColor,
+  pageBackgroundColor,
 }: LayoutProps) => {
   const [menuLayout, setMenuLayout] = useState<'full' | 'compact'>(
     initialMenuLayout
@@ -94,6 +96,7 @@ const Layout = ({
         {
           paddingLeft: `${sidebarWidth}px`,
           '--menu-bg-color': menuBackgroundColor || 'rgba(255, 255, 255, 0.03)',
+          '--page-bg-color': pageBackgroundColor,
         } as React.CSSProperties
       }
     >
