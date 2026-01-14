@@ -104,6 +104,10 @@
   border: none;
 }
 
+.sc-main-menu_theme_dark .sc-main-menu__divider {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
 /* --- ЭЛЕМЕНТЫ МЕНЮ --- */
 
 .sc-main-menu__appItem {
@@ -198,6 +202,16 @@
 
 .sc-main-menu__toggleButton:hover {
   background-color: rgba(231, 233, 238, 0.5);
+}
+
+.sc-main-menu_theme_dark .sc-main-menu__toggleButton:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sc-main-menu_theme_dark .sc-main-menu__toggleButton,
+.sc-main-menu_theme_dark .sc-main-menu__toggleText,
+.sc-main-menu_theme_dark .sc-main-menu__toggleIcon {
+  color: #f1f5f9;
 }
 
 .sc-main-menu__toggleIcon {
