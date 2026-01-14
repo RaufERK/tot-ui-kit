@@ -1,144 +1,53 @@
-/* Базовые токены Triplex для фон/текста – переопределяем часть палитры */
+/* Triplex 1.9 tokens: базовые цвета текста/фона для обеих тем */
 
 html {
-  /* значения по умолчанию (светлая тема) совпадают с triplex-next.css */
-  --triplex-next-ColorDarkNeutral-50-1-7-0: #2d2d30;
-  --triplex-next-ColorNeutral-90-1-7-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-7-0: #ffffff;
+  /* Default = light */
+  --triplex-next-Typography-Primary_Color-1-9-0: rgba(31, 31, 34, 1);
+  --triplex-next-Typography-Complementary_Color-1-9-0: rgba(31, 31, 34, 0.85);
+  --triplex-next-Typography-Secondary_Color-1-9-0: rgba(31, 31, 34, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-9-0: rgba(31, 31, 34, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-9-0: rgba(31, 31, 34, 0.35);
 
-  --triplex-next-ColorDarkNeutral-50-1-6-1: #2d2d30;
-  --triplex-next-ColorNeutral-90-1-6-1: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-6-1: #ffffff;
+  --triplex-next-ColorNeutral-90-1-9-0: #f2f4f7;
+  --triplex-next-ColorNeutral-100-1-9-0: #ffffff;
 
-  /* Typography — цвета текста для компонентов Text, Title, Caption (1.6.x) */
-  --triplex-next-Typography-Primary_Color-1-7-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-7-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-7-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-7-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-7-0: rgba(31, 31, 34, 0.35);
-
-  --triplex-next-Typography-Primary_Color-1-6-1: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-6-1: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-6-1: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-6-1: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-6-1: rgba(31, 31, 34, 0.35);
-
-  /* обратная совместимость (старые токены 1.4.x) */
-  --triplex-next-ColorDarkNeutral-50-1-4-0: #2d2d30;
-  --triplex-next-ColorNeutral-90-1-4-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-4-0: #ffffff;
-  --triplex-next-Typography-Primary_Color-1-4-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-4-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-4-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-4-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-4-0: rgba(31, 31, 34, 0.35);
-
-  color: var(--triplex-next-Typography-Primary_Color-1-7-0, var(--triplex-next-Typography-Primary_Color-1-6-1));
-  background-color: var(
-    --triplex-next-ColorNeutral-90-1-7-0,
-    var(--triplex-next-ColorNeutral-90-1-6-1, #f2f4f7)
-  );
+  color: var(--triplex-next-Typography-Primary_Color-1-9-0, #1f1f22);
+  background-color: var(--triplex-next-ColorNeutral-90-1-9-0, #f2f4f7);
 }
 
 html[data-theme='light'] {
-  --triplex-next-ColorDarkNeutral-50-1-7-0: #2d2d30;
-  --triplex-next-ColorNeutral-90-1-7-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-7-0: #ffffff;
+  --triplex-next-Typography-Primary_Color-1-9-0: rgba(31, 31, 34, 1);
+  --triplex-next-Typography-Complementary_Color-1-9-0: rgba(31, 31, 34, 0.85);
+  --triplex-next-Typography-Secondary_Color-1-9-0: rgba(31, 31, 34, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-9-0: rgba(31, 31, 34, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-9-0: rgba(31, 31, 34, 0.35);
 
-  --triplex-next-ColorDarkNeutral-50-1-6-1: #2d2d30;
-  --triplex-next-ColorNeutral-90-1-6-1: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-6-1: #ffffff;
+  --triplex-next-ColorNeutral-90-1-9-0: #f2f4f7;
+  --triplex-next-ColorNeutral-100-1-9-0: #ffffff;
 
-  /* Typography — светлая тема: тёмный текст */
-  --triplex-next-Typography-Primary_Color-1-7-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-7-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-7-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-7-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-7-0: rgba(31, 31, 34, 0.35);
-
-  --triplex-next-Typography-Primary_Color-1-6-1: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-6-1: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-6-1: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-6-1: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-6-1: rgba(31, 31, 34, 0.35);
-
-  /* обратная совместимость 1.4.x */
-  --triplex-next-ColorDarkNeutral-50-1-4-0: #2d2d30;
-  --triplex-next-ColorNeutral-90-1-4-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-4-0: #ffffff;
-  --triplex-next-Typography-Primary_Color-1-4-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-4-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-4-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-4-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-4-0: rgba(31, 31, 34, 0.35);
-
-  color: var(--triplex-next-Typography-Primary_Color-1-7-0, var(--triplex-next-Typography-Primary_Color-1-6-1));
-  background-color: var(
-    --triplex-next-ColorNeutral-90-1-7-0,
-    var(--triplex-next-ColorNeutral-90-1-6-1, #f2f4f7)
-  );
+  color: var(--triplex-next-Typography-Primary_Color-1-9-0, #1f1f22);
+  background-color: var(--triplex-next-ColorNeutral-90-1-9-0, #f2f4f7);
 }
 
 html[data-theme='dark'] {
-  /* светлый текст на тёмном фоне */
-  /* фон тёмной темы ровный под макет: #4F4F52 */
-  --triplex-next-ColorDarkNeutral-50-1-6-1: #f5f5f6;
-  --triplex-next-ColorNeutral-90-1-7-0: #4f4f52;
-  --triplex-next-ColorNeutral-100-1-7-0: #4f4f52;
-  --triplex-next-ColorNeutral-90-1-6-1: #4f4f52;
-  --triplex-next-ColorNeutral-100-1-6-1: #4f4f52;
-
-  /* Typography — тёмная тема: светлый текст */
-  --triplex-next-Typography-Primary_Color-1-7-0: rgba(255, 255, 255, 1);
-  --triplex-next-Typography-Complementary_Color-1-7-0: rgba(255, 255, 255, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-7-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-7-0: rgba(255, 255, 255, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-7-0: rgba(255, 255, 255, 0.35);
-
-  --triplex-next-Typography-Primary_Color-1-6-1: rgba(255, 255, 255, 1);
-  --triplex-next-Typography-Complementary_Color-1-6-1: rgba(255, 255, 255, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-6-1: rgba(255, 255, 255, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-6-1: rgba(255, 255, 255, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-6-1: rgba(255, 255, 255, 0.35);
-
-  /* обратная совместимость 1.4.x */
-  --triplex-next-ColorDarkNeutral-50-1-4-0: #f5f5f6;
-  --triplex-next-ColorNeutral-90-1-4-0: #18181a;
-  --triplex-next-ColorNeutral-100-1-4-0: #1f1f22;
-  --triplex-next-Typography-Primary_Color-1-4-0: rgba(255, 255, 255, 1);
-  --triplex-next-Typography-Complementary_Color-1-4-0: rgba(255, 255, 255, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-4-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-4-0: rgba(255, 255, 255, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-4-0: rgba(255, 255, 255, 0.35);
-  
-  /* Card — тёмная тема: тёмные фоны */
-  --triplex-next-Card-Static_General_Background-1-4-0: #262629;
-  --triplex-next-Card-Static_Secondary_Background-1-4-0: #1f1f22;
-  --triplex-next-Card-Action_General_Background-1-4-0: #262629;
-  --triplex-next-Card-Action_General_Background_Hover-1-4-0: #2d2d30;
-  --triplex-next-Card-Action_Secondary_Background-1-4-0: #1f1f22;
-  --triplex-next-Card-Action_Secondary_Background_Hover-1-4-0: #262629;
-  
-  /* Island — тёмная тема */
-  --triplex-next-Island-Type1_Background-1-4-0: #1f1f22;
-  --triplex-next-Island-Type2_Background-1-4-0: #262629;
-  --triplex-next-Island-Type3_Background-1-4-0: #2d2d30;
-  
-  /* AlertProcess — тёмная тема (фоны алертов адаптируем) */
-  --triplex-next-AlertProcess-Info_Background-1-4-0: #2e3a52;
-  --triplex-next-AlertProcess-Warning_Background-1-4-0: #4f3e3b;
-  --triplex-next-AlertProcess-Error_Background-1-4-0: #4e3741;
-  --triplex-next-AlertProcess-System_Background-1-4-0: #384156;
-  --triplex-next-AlertProcess-Feature_Background-1-4-0: #2a4c45;
-  
-  color: var(
-    --triplex-next-Typography-Primary_Color-1-7-0,
-    var(--triplex-next-Typography-Primary_Color-1-4-0)
+  /* Тёмная тема: светлый текст, тёмный фон */
+  --triplex-next-Typography-Primary_Color-1-9-0: rgba(255, 255, 255, 1);
+  --triplex-next-Typography-Complementary_Color-1-9-0: rgba(
+    255,
+    255,
+    255,
+    0.85
   );
-  background-color: var(
-    --triplex-next-ColorNeutral-90-1-7-0,
-    var(--triplex-next-ColorNeutral-90-1-4-0, #4f4f52)
-  );
+  --triplex-next-Typography-Secondary_Color-1-9-0: rgba(255, 255, 255, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-9-0: rgba(255, 255, 255, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-9-0: rgba(255, 255, 255, 0.35);
+
+  /* Фон тёмной темы — ближе к макету Triplex Page: #1f1f22 */
+  --triplex-next-ColorNeutral-90-1-9-0: #1f1f22;
+  --triplex-next-ColorNeutral-100-1-9-0: #1f1f22;
+
+  color: var(--triplex-next-Typography-Primary_Color-1-9-0, #ffffff);
+  background-color: var(--triplex-next-ColorNeutral-90-1-9-0, #1f1f22);
 }
 
 *,
