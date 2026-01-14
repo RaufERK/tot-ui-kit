@@ -10,19 +10,13 @@
 }
 
 .sc-layout_theme_light {
-  background-color: var(--page-bg-color, #eaedf1);
-  color: var(
-    --triplex-next-Typography-Primary_Color-1-7-0,
-    var(--triplex-next-Typography-Primary_Color-1-6-1, #0f172a)
-  );
+  background-color: #fff;
+  color: #0f172a;
 }
 
 .sc-layout_theme_dark {
-  background-color: var(--page-bg-color, #000000);
-  color: var(
-    --triplex-next-Typography-Primary_Color-1-7-0,
-    var(--triplex-next-Typography-Primary_Color-1-6-1, #e5e7eb)
-  );
+  background-color: #0f172a;
+  color: #e5e7eb;
 }
 
 .sc-layout_menu_full {
@@ -74,11 +68,11 @@
 }
 
 .sc-layout_theme_light .sc-layout__main {
-  background-color: var(--page-bg-color, #eaedf1);
+  background-color: #fff;
 }
 
 .sc-layout_theme_dark .sc-layout__main {
-  background-color: var(--page-bg-color, #000000);
+  background-color: #1e293b;
 }
 
 /* Нижняя плашка */

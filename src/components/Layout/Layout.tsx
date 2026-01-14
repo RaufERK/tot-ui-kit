@@ -1,9 +1,4 @@
-import {
-  useEffect,
-  useState,
-  type PropsWithChildren,
-  type ReactNode,
-} from 'react'
+import { useEffect, useState, type PropsWithChildren } from 'react'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 import type { Theme } from '../MainMenu/MainMenu.types'
 import './styles.css'
@@ -14,7 +9,6 @@ const styles = {
   menu_full: 'sc-layout_menu_full',
   menu_compact: 'sc-layout_menu_compact',
   main: 'sc-layout__main',
-  upperMenu: 'sc-layout__upper-menu',
 }
 
 const THEME_STORAGE_KEY = 'tot-ui-kit-theme'
@@ -23,9 +17,6 @@ export interface LayoutProps extends PropsWithChildren {
   menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>
   initialMenuLayout?: 'full' | 'compact'
   initialTheme?: Theme
-  upperMenuSlot?: ReactNode
-  menuBackgroundColor?: string
-  pageBackgroundColor?: string
 }
 
 const Layout = ({
@@ -33,9 +24,6 @@ const Layout = ({
   menuProps = {},
   initialMenuLayout = 'compact',
   initialTheme = 'light',
-  upperMenuSlot,
-  menuBackgroundColor,
-  pageBackgroundColor,
 }: LayoutProps) => {
   const [menuLayout, setMenuLayout] = useState<'full' | 'compact'>(
     initialMenuLayout
@@ -90,16 +78,7 @@ const Layout = ({
   }
 
   return (
-    <div
-      className={appClassName}
-      style={
-        {
-          paddingLeft: `${sidebarWidth}px`,
-          '--menu-bg-color': menuBackgroundColor || 'rgba(255, 255, 255, 0.03)',
-          '--page-bg-color': pageBackgroundColor,
-        } as React.CSSProperties
-      }
-    >
+    <div className={appClassName} style={{ paddingLeft: `${sidebarWidth}px` }}>
       <ScMainMenu
         {...menuProps}
         layout={menuLayout}
@@ -107,8 +86,6 @@ const Layout = ({
         onLayoutChange={handleLayoutChange}
         onThemeChange={handleThemeChange}
       />
-
-      {upperMenuSlot && <div className={styles.upperMenu}>{upperMenuSlot}</div>}
 
       <main className={styles.main}>{children}</main>
     </div>

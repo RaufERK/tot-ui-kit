@@ -7,18 +7,19 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 15px 8px;
+  padding: 12px 8px;
   overflow: hidden;
   border-right: none;
   font-size: 11px;
   line-height: 1.2;
-  /* border-radius: 8px; */
+  border-radius: 8px;
   transition: width 0.3s ease;
 }
 
+
 .sc-main-menu.sc-main-menu_layout_full {
   width: 220px;
-  padding: 15px 8px;
+  padding: 12px 8px;
 }
 
 .sc-main-menu.sc-main-menu_layout_compact {
@@ -28,14 +29,12 @@
 /* --- ТЕМЫ --- */
 
 .sc-main-menu_theme_light {
-  background-color: var(
-    --triplex-next-DropdownMobileList-Active_Background-1-5-0
-  );
+  background-color: #f2f4f7;
   color: #3b4750;
 }
 
 .sc-main-menu_theme_dark {
-  background-color: var(--menu-bg-color, rgba(255, 255, 255, 0.03));
+  background-color: #1e293b;
   color: #f1f5f9;
 }
 
@@ -112,7 +111,7 @@
   background: transparent;
   cursor: pointer;
   padding: 0;
-  /* border-radius: 8px; */
+  border-radius: 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -177,7 +176,7 @@
   background: transparent;
   cursor: pointer;
   padding: 0 8px;
-  /* border-radius: 8px; */
+  border-radius: 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -197,12 +196,8 @@
   gap: 0;
 }
 
-.sc-main-menu_theme_light .sc-main-menu__toggleButton:hover {
+.sc-main-menu__toggleButton:hover {
   background-color: rgba(231, 233, 238, 0.5);
-}
-
-.sc-main-menu_theme_dark .sc-main-menu__toggleButton:hover {
-  background-color: rgba(148, 163, 184, 0.25);
 }
 
 .sc-main-menu__toggleIcon {
@@ -214,16 +209,6 @@
   flex-shrink: 0;
 }
 
-.sc-main-menu_theme_light .sc-main-menu__toggleIcon svg {
-  color: #3b4750;
-  fill: currentColor;
-}
-
-.sc-main-menu_theme_dark .sc-main-menu__toggleIcon svg {
-  color: #f1f5f9;
-  fill: currentColor;
-}
-
 .sc-main-menu__toggleIconRotated {
   transform: rotate(180deg);
 }
@@ -233,7 +218,6 @@
   white-space: nowrap;
   font-size: 14px;
   line-height: 1.2;
-  color: inherit;
 }
 
 .sc-main-menu.sc-main-menu_layout_full .sc-main-menu__toggleText {
@@ -242,14 +226,6 @@
 
 .sc-main-menu.sc-main-menu_layout_compact .sc-main-menu__toggleText {
   display: none;
-}
-
-.sc-main-menu_theme_light .sc-main-menu__toggleText {
-  color: #3b4750;
-}
-
-.sc-main-menu_theme_dark .sc-main-menu__toggleText {
-  color: #f1f5f9;
 }
 
 .sc-main-menu__appName {
