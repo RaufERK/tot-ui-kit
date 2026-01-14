@@ -69,11 +69,8 @@ interface LayoutProps extends PropsWithChildren {
     menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>;
     initialMenuLayout?: 'full' | 'compact';
     initialTheme?: Theme;
-    upperMenuSlot?: ReactNode;
-    menuBackgroundColor?: string;
-    pageBackgroundColor?: string;
 }
-declare const Layout: ({ children, menuProps, initialMenuLayout, initialTheme, upperMenuSlot, menuBackgroundColor, pageBackgroundColor, }: LayoutProps) => react_jsx_runtime.JSX.Element;
+declare const Layout: ({ children, menuProps, initialMenuLayout, initialTheme, }: LayoutProps) => react_jsx_runtime.JSX.Element;
 
 interface MainMenuBaseProps extends BaseMenuProps {
     layout: 'full' | 'compact';
