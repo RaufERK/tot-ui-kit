@@ -10,13 +10,13 @@
 }
 
 .sc-layout_theme_light {
-  background-color: #fff;
-  color: #0f172a;
+  background-color: var(--sc-page-bg, #eaedf1);
+  color: inherit;
 }
 
 .sc-layout_theme_dark {
-  background-color: #0f172a;
-  color: #e5e7eb;
+  background-color: var(--sc-page-bg, #000000);
+  color: inherit;
 }
 
 .sc-layout_menu_full {
@@ -68,11 +68,11 @@
 }
 
 .sc-layout_theme_light .sc-layout__main {
-  background-color: #fff;
+  background-color: var(--sc-main-bg, transparent);
 }
 
 .sc-layout_theme_dark .sc-layout__main {
-  background-color: #1e293b;
+  background-color: var(--sc-main-bg, transparent);
 }
 
 /* Нижняя плашка */

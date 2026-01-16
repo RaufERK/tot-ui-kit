@@ -17,6 +17,9 @@ export interface LayoutProps extends PropsWithChildren {
   menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>
   initialMenuLayout?: 'full' | 'compact'
   initialTheme?: Theme
+  pageBackgroundColor?: string
+  contentBackgroundColor?: string
+  menuBackgroundColor?: string
 }
 
 const Layout = ({
@@ -24,6 +27,9 @@ const Layout = ({
   menuProps = {},
   initialMenuLayout = 'compact',
   initialTheme = 'light',
+  pageBackgroundColor,
+  contentBackgroundColor,
+  menuBackgroundColor,
 }: LayoutProps) => {
   const [menuLayout, setMenuLayout] = useState<'full' | 'compact'>(
     initialMenuLayout
@@ -78,7 +84,17 @@ const Layout = ({
   }
 
   return (
-    <div className={appClassName} style={{ paddingLeft: `${sidebarWidth}px` }}>
+    <div
+      className={appClassName}
+      style={{
+        paddingLeft: `${sidebarWidth}px`,
+        ...(pageBackgroundColor ? { '--sc-page-bg': pageBackgroundColor } : {}),
+        ...(contentBackgroundColor
+          ? { '--sc-main-bg': contentBackgroundColor }
+          : {}),
+        ...(menuBackgroundColor ? { '--sc-menu-bg': menuBackgroundColor } : {}),
+      }}
+    >
       <ScMainMenu
         {...menuProps}
         layout={menuLayout}

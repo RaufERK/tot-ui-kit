@@ -12,7 +12,7 @@
   border-right: none;
   font-size: 11px;
   line-height: 1.2;
-  border-radius: 8px;
+  border-radius: 0;
   transition: width 0.3s ease;
 }
 
@@ -29,12 +29,12 @@
 /* --- ТЕМЫ --- */
 
 .sc-main-menu_theme_light {
-  background-color: #f2f4f7;
+  background-color: var(--sc-menu-bg, transparent);
   color: #3b4750;
 }
 
 .sc-main-menu_theme_dark {
-  background-color: #1e293b;
+  background-color: var(--sc-menu-bg, transparent);
   color: #f1f5f9;
 }
 
