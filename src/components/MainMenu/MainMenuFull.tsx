@@ -1,6 +1,6 @@
 // src/components/MainMenu/MainMenuFull.tsx
-import MainMenuBase from './MainMenuBase'
 import type { BaseMenuProps } from './MainMenu.types'
+import MainMenuBase from './MainMenuBase'
 
 export interface MainMenuFullProps extends BaseMenuProps {
   layout?: 'full' | 'compact'

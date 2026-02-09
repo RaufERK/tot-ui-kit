@@ -2,52 +2,49 @@
 
 html {
   /* Default = light */
-  --triplex-next-Typography-Primary_Color-1-9-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-9-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-9-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-9-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-9-0: rgba(31, 31, 34, 0.35);
+  --triplex-next-Typography-Primary_Color-1-14-0: rgba(31, 31, 34, 1);
+  --triplex-next-Typography-Complementary_Color-1-14-0: rgba(31, 31, 34, 0.85);
+  --triplex-next-Typography-Secondary_Color-1-14-0: rgba(31, 31, 34, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-14-0: rgba(31, 31, 34, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-14-0: rgba(31, 31, 34, 0.35);
 
-  --triplex-next-ColorNeutral-90-1-9-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-9-0: #ffffff;
+  --triplex-next-ColorNeutral-90-1-14-0: #f2f4f7;
+  --triplex-next-ColorNeutral-100-1-14-0: #ffffff;
 
-  color: var(--triplex-next-Typography-Primary_Color-1-9-0, #1f1f22);
-  background-color: var(--triplex-next-ColorNeutral-90-1-9-0, #f2f4f7);
+  background-color: var(--triplex-next-ColorNeutral-90-1-14-0, #f2f4f7);
 }
 
 html[data-theme='light'] {
-  --triplex-next-Typography-Primary_Color-1-9-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-9-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-9-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-9-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-9-0: rgba(31, 31, 34, 0.35);
+  --triplex-next-Typography-Primary_Color-1-14-0: rgba(31, 31, 34, 1);
+  --triplex-next-Typography-Complementary_Color-1-14-0: rgba(31, 31, 34, 0.85);
+  --triplex-next-Typography-Secondary_Color-1-14-0: rgba(31, 31, 34, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-14-0: rgba(31, 31, 34, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-14-0: rgba(31, 31, 34, 0.35);
 
-  --triplex-next-ColorNeutral-90-1-9-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-9-0: #ffffff;
+  --triplex-next-ColorNeutral-90-1-14-0: #f2f4f7;
+  --triplex-next-ColorNeutral-100-1-14-0: #ffffff;
 
-  color: var(--triplex-next-Typography-Primary_Color-1-9-0, #1f1f22);
-  background-color: var(--triplex-next-ColorNeutral-90-1-9-0, #f2f4f7);
+  background-color: var(--triplex-next-ColorNeutral-90-1-14-0, #f2f4f7);
 }
 
 html[data-theme='dark'] {
   /* Тёмная тема: светлый текст, тёмный фон */
-  --triplex-next-Typography-Primary_Color-1-9-0: rgba(255, 255, 255, 1);
-  --triplex-next-Typography-Complementary_Color-1-9-0: rgba(
+  --triplex-next-Typography-Primary_Color-1-14-0: rgba(255, 255, 255, 1);
+  --triplex-next-Typography-Complementary_Color-1-14-0: rgba(
     255,
     255,
     255,
     0.85
   );
-  --triplex-next-Typography-Secondary_Color-1-9-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-9-0: rgba(255, 255, 255, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-9-0: rgba(255, 255, 255, 0.35);
+  --triplex-next-Typography-Secondary_Color-1-14-0: rgba(255, 255, 255, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-14-0: rgba(255, 255, 255, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-14-0: rgba(255, 255, 255, 0.35);
 
   /* Фон тёмной темы — ближе к макету Triplex Page: #1f1f22 */
-  --triplex-next-ColorNeutral-90-1-9-0: #1f1f22;
-  --triplex-next-ColorNeutral-100-1-9-0: #1f1f22;
+  --triplex-next-ColorNeutral-90-1-14-0: #1f1f22;
+  --triplex-next-ColorNeutral-100-1-14-0: #1f1f22;
 
-  color: var(--triplex-next-Typography-Primary_Color-1-9-0, #ffffff);
-  background-color: var(--triplex-next-ColorNeutral-90-1-9-0, #1f1f22);
+  background-color: var(--triplex-next-ColorNeutral-90-1-14-0, #1f1f22);
 }
 
 *,
@@ -67,7 +64,6 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
   line-height: 1.5;
-  color: inherit;
   background-color: inherit;
 }
 

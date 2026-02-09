@@ -1,6 +1,7 @@
-import { type ReactNode } from 'react'
-import { EFontType, ETextSize, Text } from '@sberbusiness/triplex-next'
 import './styles.css'
+
+import { EFontType, ETextSize, Text } from '@sberbusiness/triplex-next'
+import { type ReactNode } from 'react'
 const styles = {
   root: 'sc-upper-menu',
   left: 'sc-upper-menu__left',

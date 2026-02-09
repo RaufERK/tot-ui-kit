@@ -20,8 +20,8 @@ const styles = {
   toggleText: 'sc-main-menu__toggleText',
   appName: 'sc-main-menu__appName',
 }
+import { ChevronLeftIcon, MoonIcon, SunIcon } from '../../assets/icons'
 import type { AppDescriptor, BaseMenuProps, Theme } from './MainMenu.types'
-import { MoonIcon, SunIcon, ChevronLeftIcon } from '../../assets/icons'
 
 export interface MainMenuBaseProps extends BaseMenuProps {
   layout: 'full' | 'compact'

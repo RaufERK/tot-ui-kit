@@ -1,7 +1,9 @@
-import { useEffect, useState, type PropsWithChildren } from 'react'
-import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
-import type { Theme } from '../MainMenu/MainMenu.types'
 import './styles.css'
+
+import { type PropsWithChildren, useEffect, useState } from 'react'
+
+import type { Theme } from '../MainMenu/MainMenu.types'
+import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 const styles = {
   app: 'sc-layout',
   theme_light: 'sc-layout_theme_light',
@@ -32,28 +34,28 @@ const Layout = ({
   menuBackgroundColor,
 }: LayoutProps) => {
   const [menuLayout, setMenuLayout] = useState<'full' | 'compact'>(
-    initialMenuLayout
+    initialMenuLayout,
   )
-  const [theme, setTheme] = useState<Theme>(initialTheme)
 
   // подхватываем сохранённую тему из localStorage
-  useEffect(() => {
+  const [theme, setTheme] = useState<Theme>(() => {
     try {
       const saved = window.localStorage.getItem(THEME_STORAGE_KEY)
       if (saved === 'light' || saved === 'dark') {
-        setTheme(saved)
+        return saved
       }
     } catch {
       /* ignore */
     }
-  }, [])
+    return initialTheme
+  })
 
   useEffect(() => {
     const root = document.documentElement
     root.setAttribute('data-theme', theme)
     root.classList.remove('triplex-theme-light', 'triplex-theme-dark')
     root.classList.add(
-      theme === 'dark' ? 'triplex-theme-dark' : 'triplex-theme-light'
+      theme === 'dark' ? 'triplex-theme-dark' : 'triplex-theme-light',
     )
 
     try {

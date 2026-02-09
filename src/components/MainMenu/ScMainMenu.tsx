@@ -1,18 +1,19 @@
 // src/components/MainMenu/ScMainMenu.tsx
-import { useState, useEffect, type SVGProps, type ComponentType } from 'react'
-import MainMenuFull, { type MainMenuFullProps } from './MainMenuFull'
-import type { AppDescriptor, Theme } from './MainMenu.types'
+import { type ComponentType, type SVGProps, useEffect, useState } from 'react'
+
 import {
   AppsGridIcon,
-  NetworkSquaresIcon,
-  QuestionIcon,
-  UsersIcon,
-  TransformationIcon,
-  NavigatorIcon,
-  TableManagerIcon,
   DownloadsCenterIcon,
   MetadataIcon,
+  NavigatorIcon,
+  NetworkSquaresIcon,
+  QuestionIcon,
+  TableManagerIcon,
+  TransformationIcon,
+  UsersIcon,
 } from '../../assets/icons'
+import type { AppDescriptor, Theme } from './MainMenu.types'
+import MainMenuFull, { type MainMenuFullProps } from './MainMenuFull'
 
 interface MenuItem {
   client_id: string
@@ -37,8 +38,7 @@ const loadDefaultMockMenuData = async (): Promise<MenuItem[]> => {
       (module as { default?: MenuItem[] }).default ?? ([] as MenuItem[])
     defaultMockMenuData = json
     return json
-  } catch (error) {
-    console.error('Не удалось загрузить mock-данные меню', error)
+  } catch {
     defaultMockMenuData = []
     return []
   }
@@ -216,7 +216,6 @@ const ScMainMenu = ({
         if (!cancelled) {
           setInternalApps([])
           onError?.(error)
-          console.error('Не удалось загрузить меню', error)
         }
       }
     }

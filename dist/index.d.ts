@@ -81,18 +81,18 @@ interface MainMenuBaseProps extends BaseMenuProps {
 }
 declare const MainMenuBase: ({ layout, apps, activeAppId, onAppClick, theme, onThemeToggle, systemTitle, systemLogoUrl, rightSlot, centerOverride, className, onLayoutToggle, }: MainMenuBaseProps) => react_jsx_runtime.JSX.Element;
 
+type PageLabelProps = {
+    title: string;
+    subtitle: string;
+};
+declare const PageLabel: FC<PageLabelProps>;
+
 interface UpperMenuProps {
     title?: string;
     subtitle?: string;
     rightSlot?: ReactNode;
 }
 declare const UpperMenu: ({ title, subtitle, rightSlot, }: UpperMenuProps) => react_jsx_runtime.JSX.Element;
-
-type PageLabelProps = {
-    title: string;
-    subtitle: string;
-};
-declare const PageLabel: FC<PageLabelProps>;
 
 /**
  * Получить текущую тему из localStorage

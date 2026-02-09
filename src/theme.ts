@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
 import type { Theme } from './components/MainMenu/MainMenu.types'
 
 const THEME_STORAGE_KEY = 'tot-ui-kit-theme'
@@ -56,10 +57,6 @@ export function useTheme(): Theme {
 
   return theme
 }
-
-
-
-
 
 
 
