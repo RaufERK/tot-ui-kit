@@ -1,72 +1,84 @@
-# @data-platform/ui-shell
+# tot-ui-kit
 
-Общий пакет с `Layout`, `ScMainMenu`, `MainMenuFull` и вспомогательными компонентами (`UpperMenu`, `PageLabel`).
+UI-библиотека с `Layout`, `ScMainMenu` и поддержкой тем для React-приложений.
+
+> **Важно**: Библиотека использует обычный CSS (без CSS Modules). В проектах на webpack убедитесь, что подключены `css-loader` и `style-loader` (или `mini-css-extract-plugin` для продакшена). В Vite всё работает из коробки.
 
 ## Установка
 
-Когда репозиторий используется как Yarn workspace:
-
 ```bash
-yarn workspace new-frontend add @data-platform/ui-shell
+npm install tot-ui-kit
 ```
 
-Для внешних проектов пакет можно опубликовать в приватный npm-реестр и поставить через `yarn add @data-platform/ui-shell`.
+### Подключение глобальных стилей
+
+В входном файле приложения (например, `src/main.tsx`):
+
+```ts
+import 'tot-ui-kit/global.css'
+import '@sberbusiness/triplex-next/styles/triplex-next.css'
+import '@sberbusiness/icons-next/styles/icons.css'
+```
 
 ## Быстрый старт
 
 ```tsx
-import { Layout } from "@data-platform/ui-shell";
-import { apiData } from "@/api/ApiData";
+import { Layout } from 'tot-ui-kit'
+
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:4000'
 
 export const App = () => (
   <Layout
     menuProps={{
-      baseUrl: apiData.server,
-      menuId: "VKIIw4zpK-wnEuFag4GXO",
-      activeAppId: "sc",
-      systemTitle: "Центр установок",
+      baseUrl: API_BASE,
+      menuId: '<your-menu-id>',
+      activeAppId: 'my-app',
+      systemTitle: 'Моё приложение',
     }}
   >
     {/* контент страниц */}
   </Layout>
-);
+)
 ```
 
 ## Основные пропсы
 
-- `Layout`
-  - `menuProps` — любые пропсы `ScMainMenu` кроме `theme`/`layout`. Достаточно передать `baseUrl` или `apps`.
-  - `initialMenuLayout`, `initialTheme` — стартовое состояние меню.
-  - `headerTitle`, `headerSubtitle`, `upperMenuSlot`, `pageLabelSlot`, `footerLeft`, `footerRight` — кастомизация шапки/футера.
-- `ScMainMenu`
-  - `baseUrl` + `menuId` (по умолчанию `VKIIw4zpK-wnEuFag4GXO`) или `dataUrl` — откуда забрать данные о приложениях.
-  - `apps` — можно передать готовый список вместо загрузки.
-  - `iconResolver` — функция, которая строит `AppDescriptor` из ответа бэка.
-  - `onLayoutChange`, `onThemeChange` — события переключения состояния меню.
+### Layout
 
-## Дальше
+| Проп | Описание |
+|------|----------|
+| `menuProps` | Пропсы для `ScMainMenu` (кроме `theme`/`layout`) |
+| `initialMenuLayout` | Начальное состояние меню: `'full'` или `'compact'` |
+| `initialTheme` | Начальная тема: `'light'` или `'dark'` |
+| `headerTitle`, `headerSubtitle` | Заголовок и подзаголовок в шапке |
+| `upperMenuSlot`, `pageLabelSlot` | Кастомные слоты для шапки |
+| `footerLeft`, `footerRight` | Контент футера |
 
-## Публикация
+### ScMainMenu
 
-### Локальная проверка пакета
-```bash
-cd packages/main-menu
-yarn build        # (если решим собирать dist)
-yarn pack         # создаёт tgz
+| Проп | Описание |
+|------|----------|
+| `baseUrl` | Базовый URL API (формирует `${baseUrl}/idp/single-menu-data/${menuId}`) |
+| `menuId` | ID меню для загрузки данных |
+| `dataUrl` | Полный URL для загрузки (альтернатива `baseUrl` + `menuId`) |
+| `apps` | Готовый список приложений (вместо загрузки) |
+| `activeAppId` | ID активного приложения |
+| `useMockData` | Использовать встроенные mock-данные |
+| `iconResolver` | Кастомная функция для построения `AppDescriptor` |
+| `onLayoutChange` | Callback при переключении layout |
+| `onThemeChange` | Callback при переключении темы |
+
+## Peer Dependencies
+
+```json
+{
+  "@sberbusiness/triplex-next": "^1.14.0",
+  "@sberbusiness/icons-next": "^1.11.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1"
+}
 ```
 
-### Публикация в приватный npm/ghcr
-```bash
-cd packages/main-menu
-yarn publish --tag next --access restricted
-```
+## Лицензия
 
-> Перед публикацией обнови `version` и пропиши `npmrc` с токеном к реестру.
-
-## Чеклист тестирования
-- `yarn workspace @data-platform/ui-shell run typecheck`
-- `yarn workspace new-frontend run dev` — меню публичной версии подхватывается из пакета
-- Проверить навигацию между пунктами, переключение темы/раскладки, кастомные слоты
-- Проверить загрузку данных: `baseUrl` (mock-backend) и вариант с заранее переданным `apps`
-
-# tot-ui-kit
+MIT
