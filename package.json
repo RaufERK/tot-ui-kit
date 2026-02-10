@@ -1,6 +1,6 @@
 {
   "name": "tot-ui-kit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "UI Kit with Layout, MainMenu, and theme support for React applications",
   "type": "module",
   "main": "dist/index.cjs",
@@ -26,7 +26,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish": "    npm publish --access public"
   },
   "keywords": [
     "react",

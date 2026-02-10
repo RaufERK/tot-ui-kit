@@ -7,18 +7,49 @@ UI-библиотека с `Layout`, `ScMainMenu` и поддержкой тем
 ## Установка
 
 ```bash
-npm install tot-ui-kit
+npm install tot-ui-kit @sberbusiness/triplex-next @sberbusiness/icons-next
 ```
 
-### Подключение глобальных стилей
+## ⚠️ Критически важно: Подключение CSS
 
-В входном файле приложения (например, `src/main.tsx`):
+**Порядок и состав CSS импортов критичен для корректной работы!**
 
-```ts
-import 'tot-ui-kit/global.css'
-import '@sberbusiness/triplex-next/styles/triplex-next.css'
+В входном файле приложения (`src/main.tsx`) импорты CSS должны быть:
+1. **В начале файла** (до импорта React и компонентов)
+2. **В строго определённом порядке**
+
+```tsx
+// src/main.tsx
+
+// 1. CSS импорты — ПЕРВЫМИ и в этом порядке!
 import '@sberbusiness/icons-next/styles/icons.css'
+import '@sberbusiness/triplex-next/styles/triplex-next.css'
+import 'tot-ui-kit/global.css'
+import 'tot-ui-kit/dist/index.css'  // ← Обязательно! Без этого меню не отображается
+import './styles/index.css'          // ваши локальные стили последними
+
+// 2. Только потом React и компоненты
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>,
+)
 ```
+
+### Частые ошибки
+
+| Проблема | Симптом | Решение |
+|----------|---------|---------|
+| Отсутствует `tot-ui-kit/dist/index.css` | Меню отображается как текст без стилей, иконки в ряд сверху | Добавить импорт `import 'tot-ui-kit/dist/index.css'` |
+| Неправильный порядок CSS | Стили перебиваются, меню выглядит сломанным | Соблюдать порядок: icons → triplex → tot-ui-kit → локальные |
+| CSS после React импортов | Стили могут не применяться | CSS импорты должны быть в самом начале файла |
 
 ## Быстрый старт
 
