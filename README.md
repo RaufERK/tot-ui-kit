@@ -72,12 +72,14 @@ export const App = () => (
 
 ```json
 {
-  "@sberbusiness/triplex-next": "^1.14.0",
-  "@sberbusiness/icons-next": "^1.11.0",
-  "react": "^18.3.1",
-  "react-dom": "^18.3.1"
+  "@sberbusiness/triplex-next": "^1.0.0",
+  "@sberbusiness/icons-next": "^1.0.0",
+  "react": "^18.0.0",
+  "react-dom": "^18.0.0"
 }
 ```
+
+> Рекомендуемые версии: `@sberbusiness/triplex-next@^1.14.0`, `@sberbusiness/icons-next@^1.12.0`
 
 ## Лицензия
 

@@ -58,24 +58,24 @@ npm run build       # Сборка
 npm pack            # Локальная проверка (создаёт .tgz)
 ```
 
+### Авторизация в npm
+
+```bash
+npm login           # Откроется браузер для авторизации
+npm whoami          # Проверить что залогинен
+```
+
 ### Публикация
 
 ```bash
-# Увеличение версии + публикация
+# Увеличение версии
 npm version patch   # 1.0.0 → 1.0.1
 npm version minor   # 1.0.0 → 1.1.0
 npm version major   # 1.0.0 → 2.0.0
 
-npm publish --access public --otp=<код>
+# Публикация (откроется браузер для подтверждения)
+npm publish --access public
 ```
-
-> Требуется 2FA — OTP из authenticator app. Или используй automation token.
-
-### Automation Token (без 2FA)
-
-1. npmjs.com → Account → Access Tokens → Generate New Token → Automation
-2. `npm config set //registry.npmjs.org/:_authToken=<токен>`
-3. `npm publish --access public`
 
 ## Тестирование
 

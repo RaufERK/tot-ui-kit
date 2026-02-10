@@ -1,6 +1,6 @@
 {
   "name": "tot-ui-kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UI Kit with Layout, MainMenu, and theme support for React applications",
   "type": "module",
   "main": "dist/index.cjs",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
-    "@sberbusiness/icons-next": "^1.11.0",
+    "@sberbusiness/icons-next": "^1.12.0",
     "@sberbusiness/triplex-next": "^1.14.0",
     "@types/react": "^18.3.26",
     "@types/react-dom": "^18.3.7",
@@ -57,9 +57,9 @@
     "typescript-eslint": "^8.22.0"
   },
   "peerDependencies": {
-    "@sberbusiness/icons-next": "^1.11.0",
-    "@sberbusiness/triplex-next": "^1.14.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@sberbusiness/icons-next": "^1.0.0",
+    "@sberbusiness/triplex-next": "^1.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }
