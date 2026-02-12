@@ -53,9 +53,17 @@ const Layout = ({
   useEffect(() => {
     const root = document.documentElement
     root.setAttribute('data-theme', theme)
+    
+    // Triplex theme classes
     root.classList.remove('triplex-theme-light', 'triplex-theme-dark')
     root.classList.add(
       theme === 'dark' ? 'triplex-theme-dark' : 'triplex-theme-light',
+    )
+    
+    // Icons-next theme classes (для иконок из @sberbusiness/icons-next)
+    root.classList.remove('icons-light_tptl2v', 'icons-dark_7mk9a3')
+    root.classList.add(
+      theme === 'dark' ? 'icons-dark_7mk9a3' : 'icons-light_tptl2v',
     )
 
     try {

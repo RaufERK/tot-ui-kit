@@ -163,6 +163,14 @@ html[data-theme='dark'] {
   --triplex-next-ListItem-Background_Selected-1-14-0: rgba(255, 255, 255, 0.15);
   --triplex-next-ListItem-Shadow-1-14-0: 0 2px 8px rgba(0, 0, 0, 0.4);
 
+  /* ===== ListItemControlsButton (иконки: крестик очистки, шеврон и т.д.) ===== */
+  --triplex-next-ListItemControlsButton-Background_Default-1-14-0: transparent;
+  --triplex-next-ListItemControlsButton-Background_Hover-1-14-0: rgba(255, 255, 255, 0.1);
+  --triplex-next-ListItemControlsButton-Background_Active-1-14-0: rgba(255, 255, 255, 0.15);
+  --triplex-next-ListItemControlsButton-Color_Default-1-14-0: rgba(255, 255, 255, 0.65);
+  --triplex-next-ListItemControlsButton-Color_Hover-1-14-0: rgba(255, 255, 255, 0.85);
+  --triplex-next-ListItemControlsButton-Color_Active-1-14-0: rgba(255, 255, 255, 1);
+
   /* ===== Divider ===== */
   --triplex-next-Divider-Background-1-14-0: rgba(255, 255, 255, 0.12);
 
@@ -173,6 +181,9 @@ html[data-theme='dark'] {
 
   /* ===== Tag ===== */
   --triplex-next-Tag-Background-1-14-0: rgba(255, 255, 255, 0.12);
+
+  /* ===== MultiselectField ===== */
+  --triplex-next-MultiselectField-Divider_Color-1-14-0: rgba(255, 255, 255, 0.2);
 
   background-color: var(--triplex-next-ColorNeutral-90-1-14-0, #1f1f22);
 }
