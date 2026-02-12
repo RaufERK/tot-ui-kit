@@ -1,10 +1,11 @@
 /* src/components/Layout/styles.css */
 
 .sc-layout {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  overflow: hidden;
   transition: padding-left 0.3s ease, background-color 0.3s ease,
     color 0.3s ease;
 }
@@ -61,9 +62,10 @@
 /* Основной контент (включая раздел "Этот кластер" и карточки) */
 .sc-layout__main {
   flex: 1;
+  min-height: 0; /* Важно для работы flex с overflow */
   /* padding: 24px; */
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
   transition: background-color 0.3s ease;
 }
 
