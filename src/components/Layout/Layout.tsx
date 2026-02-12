@@ -1,6 +1,7 @@
 import './styles.css'
 
-import { type PropsWithChildren, useEffect, useState } from 'react'
+import { ThemeProvider, ETriplexNextTheme } from '@sberbusiness/triplex-next'
+import { type PropsWithChildren, useEffect, useRef, useState } from 'react'
 
 import type { Theme } from '../MainMenu/MainMenu.types'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
@@ -93,28 +94,35 @@ const Layout = ({
     menuProps.onThemeChange?.(next)
   }
 
-  return (
-    <div
-      className={appClassName}
-      style={{
-        paddingLeft: `${sidebarWidth}px`,
-        ...(pageBackgroundColor ? { '--sc-page-bg': pageBackgroundColor } : {}),
-        ...(contentBackgroundColor
-          ? { '--sc-main-bg': contentBackgroundColor }
-          : {}),
-        ...(menuBackgroundColor ? { '--sc-menu-bg': menuBackgroundColor } : {}),
-      }}
-    >
-      <ScMainMenu
-        {...menuProps}
-        layout={menuLayout}
-        theme={theme}
-        onLayoutChange={handleLayoutChange}
-        onThemeChange={handleThemeChange}
-      />
+  // Маппинг нашей темы на Triplex тему
+  const triplexTheme = theme === 'dark' ? ETriplexNextTheme.DARK : ETriplexNextTheme.LIGHT
+  const scopeRef = useRef<HTMLDivElement>(null)
 
-      <main className={styles.main}>{children}</main>
-    </div>
+  return (
+    <ThemeProvider theme={triplexTheme} scopeRef={scopeRef}>
+      <div
+        ref={scopeRef}
+        className={appClassName}
+        style={{
+          paddingLeft: `${sidebarWidth}px`,
+          ...(pageBackgroundColor ? { '--sc-page-bg': pageBackgroundColor } : {}),
+          ...(contentBackgroundColor
+            ? { '--sc-main-bg': contentBackgroundColor }
+            : {}),
+          ...(menuBackgroundColor ? { '--sc-menu-bg': menuBackgroundColor } : {}),
+        }}
+      >
+        <ScMainMenu
+          {...menuProps}
+          layout={menuLayout}
+          theme={theme}
+          onLayoutChange={handleLayoutChange}
+          onThemeChange={handleThemeChange}
+        />
+
+        <main className={styles.main}>{children}</main>
+      </div>
+    </ThemeProvider>
   )
 }
 

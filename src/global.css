@@ -229,3 +229,29 @@ a {
 button {
   font-family: inherit;
 }
+
+/* ===== Icons-next: переопределение цветов иконок для тёмной темы ===== */
+/* Иконки из @sberbusiness/icons-next используют класс _505n0h для светлой темы (тёмная заливка)
+   и _1h7ffvx для тёмной темы (белая заливка). Поскольку Context не работает между
+   библиотекой и проектом (разные копии React), принудительно меняем цвета через CSS */
+html[data-theme='dark'] ._505n0h {
+  fill: #FFFFFF !important;
+  fill-opacity: 0.35 !important;
+}
+
+html[data-theme='dark'] .hoverable:hover ._505n0h {
+  fill: #FFFFFF !important;
+  fill-opacity: 1 !important;
+}
+
+html[data-theme='dark'] .hoverable:not(:disabled):active ._505n0h,
+html[data-theme='dark'] .hoverable.active ._505n0h {
+  fill: #FFFFFF !important;
+  fill-opacity: 1 !important;
+}
+
+html[data-theme='dark'] .hoverable:disabled ._505n0h,
+html[data-theme='dark'] .hoverable.disabled ._505n0h {
+  fill: #FFFFFF !important;
+  fill-opacity: 0.15 !important;
+}

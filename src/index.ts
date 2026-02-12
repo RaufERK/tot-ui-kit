@@ -1,3 +1,5 @@
+import './global.css'
+
 export { default as Layout } from './components/Layout'
 export type { LayoutProps } from './components/Layout/Layout'
 export type {
