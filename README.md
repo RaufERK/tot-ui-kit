@@ -99,6 +99,97 @@ export const App = () => (
 | `onLayoutChange` | Callback при переключении layout |
 | `onThemeChange` | Callback при переключении темы |
 
+## Темы: светлая и тёмная
+
+### Как работает переключение темы
+
+1. **Layout** управляет темой автоматически:
+   - Устанавливает `data-theme="light"` или `data-theme="dark"` на `<html>`
+   - Добавляет классы `triplex-theme-light` / `triplex-theme-dark`
+   - Сохраняет выбор в `localStorage`
+   - Кнопка переключения встроена в меню
+
+2. **CSS-переменные** определены в `global.css`:
+   - Светлая тема — значения по умолчанию
+   - Тёмная тема — переопределения в `html[data-theme='dark']`
+
+3. **Triplex компоненты** используют CSS-переменные вида `--triplex-next-*`
+
+### Использование темы в коде
+
+```tsx
+import { Layout, useTheme, getCurrentTheme } from 'tot-ui-kit'
+
+// Хук — автоматически обновляется при смене темы
+const theme = useTheme() // 'light' | 'dark'
+
+// Функция — получить текущую тему синхронно
+const currentTheme = getCurrentTheme()
+```
+
+### Кастомизация цветов
+
+Переопределите CSS-переменные в своём CSS **после** импорта `global.css`:
+
+```css
+/* your-styles.css */
+html[data-theme='light'] {
+  /* Ваши цвета для светлой темы */
+  --triplex-next-Typography-Primary_Color-1-14-0: #333;
+  --triplex-next-ColorNeutral-90-1-14-0: #f0f0f0;
+}
+
+html[data-theme='dark'] {
+  /* Ваши цвета для тёмной темы */
+  --triplex-next-Typography-Primary_Color-1-14-0: #eee;
+  --triplex-next-ColorNeutral-90-1-14-0: #1a1a1a;
+}
+```
+
+### Кастомизация меню
+
+Меню использует классы с префиксом `sc-`:
+
+```css
+/* Светлая тема меню */
+.sc-main-menu_theme_light {
+  background-color: #your-light-bg;
+  color: #your-light-text;
+}
+
+/* Тёмная тема меню */
+.sc-main-menu_theme_dark {
+  background-color: #your-dark-bg;
+  color: #your-dark-text;
+}
+```
+
+### Основные CSS-переменные
+
+| Переменная | Назначение |
+|------------|------------|
+| `--triplex-next-Typography-Primary_Color-*` | Основной цвет текста |
+| `--triplex-next-Typography-Secondary_Color-*` | Вторичный цвет текста |
+| `--triplex-next-ColorNeutral-90-*` | Фон страницы |
+| `--triplex-next-Button-*` | Кнопки |
+| `--triplex-next-FormField-*` | Инпуты, селекты |
+| `--triplex-next-Card-*` | Карточки |
+| `--triplex-next-Dropdown-*` | Выпадающие списки |
+
+### Принципы подбора цветов для тёмной темы
+
+| Элемент | Рекомендация |
+|---------|--------------|
+| Фон | `rgba(255, 255, 255, 0.05-0.15)` |
+| Фон hover | Увеличить opacity на 0.05-0.07 |
+| Фон selected | `rgba(255, 255, 255, 0.15-0.2)` |
+| Текст primary | `rgba(255, 255, 255, 1)` |
+| Текст secondary | `rgba(255, 255, 255, 0.65)` |
+| Текст disabled | `rgba(255, 255, 255, 0.35)` |
+| Бордеры | `rgba(255, 255, 255, 0.12-0.2)` |
+
+> Подробная документация по темам: см. `DARK-THEME.md`
+
 ## Peer Dependencies
 
 ```json
