@@ -222,7 +222,93 @@ const theme = useTheme() // 'light' | 'dark'
 const currentTheme = getCurrentTheme()
 ```
 
-### Применение темы к своим компонентам
+---
+
+## ⭐ Рекомендуемый способ: Body из triplex-next
+
+**Лучший способ создать контейнер с автоматической поддержкой тем** — использовать компонент `Body` из `@sberbusiness/triplex-next`.
+
+### Почему Body?
+
+- ✅ **Автоматическое переключение тем** — Island внутри Body корректно меняет фон и цвета
+- ✅ **Не нужно писать CSS** — никаких `html[data-theme='dark']` переопределений
+- ✅ **Консистентность** — используются официальные стили Triplex
+- ✅ **Меньше кода** — один компонент вместо кастомных стилей
+
+### Типы Body
+
+| Тип | Описание |
+|-----|----------|
+| `EBodyPageType.FIRST` | Контент внутри Island (карточки с фоном) — **рекомендуется** |
+| `EBodyPageType.SECOND` | Контент без карточки (прозрачный фон) |
+
+### Пример использования
+
+```tsx
+import { Body, EBodyPageType, EBodyPageVerticalMargin } from '@sberbusiness/triplex-next'
+
+const MyPage = () => (
+  <div className={styles.container}>
+    {/* Секция "Пользователи" — Island с автоматической темой */}
+    <Body
+      type={EBodyPageType.FIRST}
+      verticalMargin={EBodyPageVerticalMargin.SMALL}
+      className={styles.usersSection}
+    >
+      <h2>Пользователи</h2>
+      <div className={styles.usersGrid}>
+        {users.map(user => <UserCard key={user.id} user={user} />)}
+      </div>
+    </Body>
+
+    {/* Секция "Роли" — ещё один Island */}
+    <Body
+      type={EBodyPageType.FIRST}
+      verticalMargin={EBodyPageVerticalMargin.SMALL}
+      className={styles.rolesSection}
+    >
+      <h2>Роли</h2>
+      {roles.map(role => <RoleCard key={role.id} role={role} />)}
+    </Body>
+  </div>
+)
+```
+
+### Стили для Body
+
+```scss
+// Стили секции — БЕЗ background и border-radius (Body добавляет их сам)
+.usersSection {
+  flex: 3;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.rolesSection {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+```
+
+### Вертикальные отступы
+
+| Значение | Размер |
+|----------|--------|
+| `EBodyPageVerticalMargin.LARGE` | 24px |
+| `EBodyPageVerticalMargin.SMALL` | 16px |
+
+### Документация Triplex
+
+https://triplex-design.ru/next/ru/Web/Components/platform/body%20page
+
+---
+
+### Применение темы к своим компонентам (ручной способ)
+
+Если `Body` не подходит, можно использовать CSS-переменные:
 
 ```css
 /* Ваши стили */

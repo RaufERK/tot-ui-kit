@@ -94,7 +94,36 @@ const theme = useTheme() // 'light' | 'dark'
 const currentTheme = getCurrentTheme()
 ```
 
-### Применение темы к своим компонентам
+### ⭐ Рекомендуемый способ: Body из triplex-next
+
+**Лучший способ создать контейнер с автоматической поддержкой тем:**
+
+```tsx
+import { Body, EBodyPageType, EBodyPageVerticalMargin } from '@sberbusiness/triplex-next'
+
+const MyPage = () => (
+  <div className={styles.container}>
+    {/* Island с автоматическим переключением тем */}
+    <Body
+      type={EBodyPageType.FIRST}
+      verticalMargin={EBodyPageVerticalMargin.SMALL}
+      className={styles.section}
+    >
+      <h2>Заголовок секции</h2>
+      {/* Ваш контент */}
+    </Body>
+  </div>
+)
+```
+
+**Преимущества:**
+- ✅ Не нужно писать CSS для тёмной темы — Body автоматически переключает цвета
+- ✅ Консистентный дизайн с остальными Triplex компонентами
+- ✅ `type="FIRST"` создаёт Island (карточку с фоном), `type="SECOND"` — без фона
+
+> Подробнее: [triplex-design.ru/next/ru/Web/Components/platform/body%20page](https://triplex-design.ru/next/ru/Web/Components/platform/body%20page)
+
+### Ручной способ: CSS-переменные
 
 ```css
 /* Используйте CSS-переменные из Triplex */
