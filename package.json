@@ -1,6 +1,6 @@
 {
   "name": "tot-ui-kit",
-  "version": "2.18.0",
+  "version": "2.19.1",
   "description": "UI Kit with Layout, MainMenu, and theme support for React applications",
   "type": "module",
   "main": "dist/index.cjs",
@@ -21,12 +21,15 @@
     "src/global.css"
   ],
   "scripts": {
+    "sync:triplex-css-version": "node scripts/sync-triplex-css-version.mjs",
+    "prebuild": "npm run sync:triplex-css-version",
     "build": "tsup src/index.ts --format esm,cjs --dts --out-dir dist",
     "dev": "tsup src/index.ts --format esm,cjs --dts --out-dir dist --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",
+    "presend": "npm run sync:triplex-css-version",
     "send": "npm publish --access public"
   },
   "keywords": [
