@@ -147,7 +147,7 @@ html[data-theme='dark'] .my-card {
 - Link, Tag, Divider, Island
 - **Иконки** из `@sberbusiness/icons-next` (крестики, шевроны и т.д.)
 
-> Подробная документация: см. **[DARK-THEME.md](./DARK-THEME.md)**
+> Подробная документация: см. **[docs/DARK-THEME.md](./docs/DARK-THEME.md)**
 
 ## Основные пропсы
 
@@ -172,8 +172,9 @@ html[data-theme='dark'] .my-card {
 
 ## Backend Contract для меню
 
-Формат данных backend API описан в [MENU_BACKEND_CONTRACT.md](./MENU_BACKEND_CONTRACT.md).
-Swagger/OpenAPI JSON лежит в [menu.openapi.json](./menu.openapi.json).
+Короткий текст для backend-разработчика лежит в [docs/MENU_BACKEND_SHORT_RU.txt](./docs/MENU_BACKEND_SHORT_RU.txt).
+Подробный формат backend API описан в [docs/MENU_BACKEND_CONTRACT.md](./docs/MENU_BACKEND_CONTRACT.md).
+Swagger/OpenAPI JSON лежит в [docs/menu.openapi.json](./docs/menu.openapi.json).
 
 Коротко:
 - backend отдаёт меню по текущей session/cookie;
@@ -196,6 +197,12 @@ Swagger/OpenAPI JSON лежит в [menu.openapi.json](./menu.openapi.json).
 
 ```
 tot-ui-kit/
+├── docs/
+│   ├── DARK-THEME.md        # Подробная документация по темам
+│   ├── DEV_README.md        # Developer guide
+│   ├── MENU_BACKEND_CONTRACT.md
+│   ├── MENU_BACKEND_SHORT_RU.txt
+│   └── menu.openapi.json
 ├── src/
 │   ├── global.css           # CSS-переменные для тёмной темы + хаки для иконок
 │   ├── components/
@@ -203,7 +210,6 @@ tot-ui-kit/
 │   │       └── Layout.tsx   # ThemeProvider + логика переключения
 │   └── theme/
 │       └── index.ts         # useTheme, getCurrentTheme
-├── DARK-THEME.md            # Подробная документация по темам
 └── README.md                # Этот файл
 ```
 

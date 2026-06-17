@@ -360,5 +360,6 @@ tot-ui-kit/
 │   │       └── styles.css            # Стили Layout
 │   └── theme/
 │       └── index.ts                  # useTheme, getCurrentTheme
-└── DARK-THEME.md                     # Эта документация
+└── docs/
+    └── DARK-THEME.md                 # Эта документация
 ```
