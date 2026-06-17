@@ -54,7 +54,7 @@ export const App = () => (
   <Layout
     menuProps={{
       baseUrl: 'http://localhost:4000',
-      menuId: '<your-menu-id>',
+      fetchOptions: { credentials: 'include' },
       activeAppId: 'my-app',
       systemTitle: 'Моё приложение',
     }}
@@ -163,8 +163,10 @@ html[data-theme='dark'] .my-card {
 
 | Проп | Описание |
 |------|----------|
-| `baseUrl` | Базовый URL API |
-| `menuId` | ID меню для загрузки данных |
+| `dataUrl` | Точный URL API меню. Если передан, используется вместо `baseUrl` |
+| `baseUrl` | Базовый URL API. По умолчанию меню грузится с `${baseUrl}/iam/menu/` |
+| `menuEndpoint` | Путь меню относительно `baseUrl`, по умолчанию `/iam/menu/` |
+| `menuId` | Legacy ID меню. Используется только если `menuEndpoint` содержит `:menuId` |
 | `activeAppId` | ID активного приложения |
 | `useMockData` | Использовать встроенные mock-данные |
 | `onLayoutChange` | Callback при переключении layout |
@@ -179,6 +181,7 @@ Swagger/OpenAPI JSON лежит в [docs/menu.openapi.json](./docs/menu.openapi.
 Коротко:
 - backend отдаёт меню по текущей session/cookie;
 - `Authorization` / Bearer token не обязателен;
+- дефолтный endpoint: `/iam/menu/`;
 - frontend ждёт массив `{ client_id, app_name, link, order?, available?, description? }`;
 - иконки выбираются локально по `client_id`, поле `icon` deprecated.
 

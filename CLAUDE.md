@@ -96,7 +96,7 @@ const App = () => {
     <Layout
       menuProps={{
         baseUrl: 'https://api.example.com',
-        menuId: 'menu-id',
+        fetchOptions: { credentials: 'include' },
         activeAppId: 'my-app',
       }}
     >
@@ -127,6 +127,7 @@ npm run typecheck
 - **12.12.2025**: Removed border-radius from sidebar menu components for cleaner appearance.
 - **12.12.2025**: Updated menu styles - removed main content padding, changed background color, added theme-aware hover states, increased vertical padding.
 - **12.12.2025**: Added theme utilities - `getCurrentTheme()` function and `useTheme()` hook for apps to detect current theme.
+- **17.06.2026**: Menu API default endpoint changed to `/iam/menu/`; `menuEndpoint` can override the path, and `dataUrl` can still provide the exact URL.
 
 ## Notes for AI Assistants
 
@@ -135,6 +136,7 @@ npm run typecheck
 - Mock data in `src/data/` is for development only
 - The `icon` field from backend is deprecated - always use `client_id` for icon resolution
 - `Layout` component no longer includes header/footer - apps must implement their own
+- Default menu fetch URL is `${baseUrl}/iam/menu/`; use `menuEndpoint` or `dataUrl` instead of editing built JS in containers
 - Build the library (`npm run build`) after changes to make them available to consuming apps
 
 

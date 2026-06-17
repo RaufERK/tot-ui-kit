@@ -18,13 +18,13 @@
     }
   ],
   "paths": {
-    "/idp/single-menu-data": {
+    "/iam/menu/": {
       "get": {
         "tags": [
           "MainMenu"
         ],
         "summary": "Get menu for current session",
-        "description": "Preferred session-only endpoint. Backend determines the client/user from the existing session cookie. Authorization/Bearer token is not required.",
+        "description": "Session-only endpoint used by tot-ui-kit by default. Backend determines the client/user from the existing session cookie. Authorization/Bearer token is not required.",
         "operationId": "getCurrentSessionMenu",
         "security": [
           {
@@ -40,51 +40,6 @@
           },
           "403": {
             "$ref": "#/components/responses/Forbidden"
-          },
-          "500": {
-            "$ref": "#/components/responses/InternalServerError"
-          }
-        }
-      }
-    },
-    "/idp/single-menu-data/{menuId}": {
-      "get": {
-        "tags": [
-          "MainMenu"
-        ],
-        "summary": "Get menu by technical menu id",
-        "description": "Backward-compatible endpoint used by the current baseUrl + menuId integration. menuId is a technical route/key only. Backend should still resolve permissions and final menu contents by the current session.",
-        "operationId": "getMenuByIdForCurrentSession",
-        "security": [
-          {
-            "sessionCookie": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "menuId",
-            "in": "path",
-            "required": true,
-            "description": "Technical menu key or legacy route parameter. Must not be used as the only authorization source.",
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "example": "sc"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/MenuResponse"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "403": {
-            "$ref": "#/components/responses/Forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/MenuNotFound"
           },
           "500": {
             "$ref": "#/components/responses/InternalServerError"

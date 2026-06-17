@@ -13,26 +13,18 @@
 
 ## Endpoint
 
-Рекомендуемый session-only вариант:
+Основной session-only вариант:
 
 ```http
-GET /idp/single-menu-data
+GET /iam/menu/
 ```
 
-Текущий совместимый вариант для существующей интеграции `ScMainMenu`:
-
-```http
-GET /idp/single-menu-data/{menuId}
-```
-
-`menuId` можно использовать как технический ключ меню или как часть старого маршрута. Права доступа и состав меню backend должен определять по сессии, а не по `menuId` и не по frontend-токену.
-
-Если backend использует endpoint без `menuId`, приложение может передать точный URL через `dataUrl`:
+Если приложение передаёт только `baseUrl`, UI-kit сам соберёт URL:
 
 ```tsx
 <Layout
   menuProps={{
-    dataUrl: 'https://api.example.com/idp/single-menu-data',
+    baseUrl: 'https://api.example.com',
     fetchOptions: { credentials: 'include' },
   }}
 >
@@ -40,12 +32,47 @@ GET /idp/single-menu-data/{menuId}
 </Layout>
 ```
 
-Если используется текущая схема `baseUrl + menuId`, UI-kit сам соберёт URL:
+Итоговый запрос:
+
+```http
+GET https://api.example.com/iam/menu/
+```
+
+Если нужен другой путь, его можно задать без правки собранного JS:
 
 ```tsx
 <Layout
   menuProps={{
     baseUrl: 'https://api.example.com',
+    menuEndpoint: '/iam/menu/',
+    fetchOptions: { credentials: 'include' },
+  }}
+>
+  {children}
+</Layout>
+```
+
+Если нужен полностью точный URL, приложение может передать `dataUrl`.
+В этом режиме `baseUrl`, `menuEndpoint` и `menuId` не используются:
+
+```tsx
+<Layout
+  menuProps={{
+    dataUrl: 'https://api.example.com/iam/menu/',
+    fetchOptions: { credentials: 'include' },
+  }}
+>
+  {children}
+</Layout>
+```
+
+Legacy-вариант со старым endpoint и `menuId` тоже возможен через шаблон:
+
+```tsx
+<Layout
+  menuProps={{
+    baseUrl: 'https://api.example.com',
+    menuEndpoint: '/idp/single-menu-data/:menuId',
     menuId: 'sc',
     fetchOptions: { credentials: 'include' },
   }}
@@ -53,6 +80,9 @@ GET /idp/single-menu-data/{menuId}
   {children}
 </Layout>
 ```
+
+`menuId` нужен только для legacy-шаблонов, где `menuEndpoint` содержит `:menuId`.
+Для `/iam/menu/` права доступа и состав меню backend определяет по сессии.
 
 ## Авторизация
 

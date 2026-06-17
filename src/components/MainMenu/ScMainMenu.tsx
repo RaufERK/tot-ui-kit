@@ -84,21 +84,37 @@ const resolveIconNode = (item: MenuItem) => {
   return <IconComponent width={20} height={20} />
 }
 
+const DEFAULT_MENU_ENDPOINT = '/iam/menu/'
+const MENU_ID_PLACEHOLDER = ':menuId'
+
+const normalizeMenuEndpoint = (menuEndpoint: string): string =>
+  menuEndpoint.startsWith('/') ? menuEndpoint : `/${menuEndpoint}`
+
 const buildMenuDataUrl = (
   baseUrl?: string,
-  menuId?: string
+  menuId?: string,
+  menuEndpoint = DEFAULT_MENU_ENDPOINT
 ): string | undefined => {
-  if (!baseUrl || !menuId) {
+  if (!baseUrl) {
     return undefined
   }
 
   const normalizedBase = baseUrl.replace(/\/+$/, '')
-  const endpoint = '/idp/single-menu-data'
-  const baseWithEndpoint = normalizedBase.endsWith(endpoint)
-    ? normalizedBase
-    : `${normalizedBase}${endpoint}`
+  const normalizedEndpoint = normalizeMenuEndpoint(menuEndpoint)
+  const endpoint = menuId
+    ? normalizedEndpoint.replace(MENU_ID_PLACEHOLDER, menuId)
+    : normalizedEndpoint.replace(`/${MENU_ID_PLACEHOLDER}`, '')
+  const normalizedPath = endpoint.replace(/\/{2,}/g, '/')
+  const pathWithoutTrailingSlash = normalizedPath.replace(/\/+$/, '')
 
-  return `${baseWithEndpoint}/${menuId}`
+  if (
+    pathWithoutTrailingSlash &&
+    normalizedBase.endsWith(pathWithoutTrailingSlash)
+  ) {
+    return normalizedPath.endsWith('/') ? `${normalizedBase}/` : normalizedBase
+  }
+
+  return `${normalizedBase}${normalizedPath}`
 }
 
 type Fetcher = (
@@ -114,6 +130,7 @@ export interface ScMainMenuProps
   apps?: AppDescriptor[]
   dataUrl?: string
   baseUrl?: string
+  menuEndpoint?: string
   menuId?: string
   fetchOptions?: RequestInit
   fetcher?: Fetcher
@@ -134,6 +151,7 @@ const ScMainMenu = ({
   apps,
   dataUrl,
   baseUrl,
+  menuEndpoint,
   menuId,
   fetchOptions,
   fetcher,
@@ -150,7 +168,8 @@ const ScMainMenu = ({
   onThemeChange,
   ...rest
 }: ScMainMenuProps) => {
-  const resolvedDataUrl = dataUrl ?? buildMenuDataUrl(baseUrl, menuId)
+  const resolvedDataUrl =
+    dataUrl ?? buildMenuDataUrl(baseUrl, menuId, menuEndpoint)
 
   const [internalApps, setInternalApps] = useState<AppDescriptor[]>(apps ?? [])
   const [internalLayout, setInternalLayout] = useState<'full' | 'compact'>(
@@ -234,6 +253,7 @@ const ScMainMenu = ({
     onError,
     useMockData,
     mockData,
+    menuEndpoint,
   ])
 
   const toggleLayout = () => {

@@ -48,6 +48,7 @@ interface ScMainMenuProps extends Omit<MainMenuFullProps, 'layout' | 'onLayoutTo
     apps?: AppDescriptor[];
     dataUrl?: string;
     baseUrl?: string;
+    menuEndpoint?: string;
     menuId?: string;
     fetchOptions?: RequestInit;
     fetcher?: Fetcher;
@@ -63,7 +64,7 @@ interface ScMainMenuProps extends Omit<MainMenuFullProps, 'layout' | 'onLayoutTo
     onLayoutChange?: (layout: 'full' | 'compact') => void;
     onThemeChange?: (theme: Theme) => void;
 }
-declare const ScMainMenu: ({ apps, dataUrl, baseUrl, menuId, fetchOptions, fetcher, useMockData, mockData, onAppsLoaded, onError, iconResolver, defaultLayout, layout, onLayoutChange, defaultTheme, theme, onThemeChange, ...rest }: ScMainMenuProps) => react.JSX.Element;
+declare const ScMainMenu: ({ apps, dataUrl, baseUrl, menuEndpoint, menuId, fetchOptions, fetcher, useMockData, mockData, onAppsLoaded, onError, iconResolver, defaultLayout, layout, onLayoutChange, defaultTheme, theme, onThemeChange, ...rest }: ScMainMenuProps) => react.JSX.Element;
 
 interface LayoutProps extends PropsWithChildren {
     menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>;
