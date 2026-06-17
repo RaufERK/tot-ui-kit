@@ -31,5 +31,12 @@ export default tseslint.config(
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
     },
+  },
+  {
+    files: ['scripts/**/*.{js,mjs}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node,
+    },
   }
 )

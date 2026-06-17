@@ -1,4 +1,4 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 import { ReactNode, PropsWithChildren, FC } from 'react';
 
 type Theme = 'light' | 'dark';
@@ -32,7 +32,7 @@ interface MainMenuFullProps extends BaseMenuProps {
     layout?: 'full' | 'compact';
     onLayoutToggle?: () => void;
 }
-declare const MainMenuFull: ({ layout, onLayoutToggle, ...restProps }: MainMenuFullProps) => react_jsx_runtime.JSX.Element;
+declare const MainMenuFull: ({ layout, onLayoutToggle, ...restProps }: MainMenuFullProps) => react.JSX.Element;
 
 interface MenuItem {
     client_id: string;
@@ -63,7 +63,7 @@ interface ScMainMenuProps extends Omit<MainMenuFullProps, 'layout' | 'onLayoutTo
     onLayoutChange?: (layout: 'full' | 'compact') => void;
     onThemeChange?: (theme: Theme) => void;
 }
-declare const ScMainMenu: ({ apps, dataUrl, baseUrl, menuId, fetchOptions, fetcher, useMockData, mockData, onAppsLoaded, onError, iconResolver, defaultLayout, layout, onLayoutChange, defaultTheme, theme, onThemeChange, ...rest }: ScMainMenuProps) => react_jsx_runtime.JSX.Element;
+declare const ScMainMenu: ({ apps, dataUrl, baseUrl, menuId, fetchOptions, fetcher, useMockData, mockData, onAppsLoaded, onError, iconResolver, defaultLayout, layout, onLayoutChange, defaultTheme, theme, onThemeChange, ...rest }: ScMainMenuProps) => react.JSX.Element;
 
 interface LayoutProps extends PropsWithChildren {
     menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>;
@@ -73,13 +73,13 @@ interface LayoutProps extends PropsWithChildren {
     contentBackgroundColor?: string;
     menuBackgroundColor?: string;
 }
-declare const Layout: ({ children, menuProps, initialMenuLayout, initialTheme, pageBackgroundColor, contentBackgroundColor, menuBackgroundColor, }: LayoutProps) => react_jsx_runtime.JSX.Element;
+declare const Layout: ({ children, menuProps, initialMenuLayout, initialTheme, pageBackgroundColor, contentBackgroundColor, menuBackgroundColor, }: LayoutProps) => react.JSX.Element;
 
 interface MainMenuBaseProps extends BaseMenuProps {
     layout: 'full' | 'compact';
     onLayoutToggle?: () => void;
 }
-declare const MainMenuBase: ({ layout, apps, activeAppId, onAppClick, theme, onThemeToggle, systemTitle, systemLogoUrl, rightSlot, centerOverride, className, onLayoutToggle, }: MainMenuBaseProps) => react_jsx_runtime.JSX.Element;
+declare const MainMenuBase: ({ layout, apps, activeAppId, onAppClick, theme, onThemeToggle, systemTitle, systemLogoUrl, rightSlot, centerOverride, className, onLayoutToggle, }: MainMenuBaseProps) => react.JSX.Element;
 
 type PageLabelProps = {
     title: string;
@@ -92,7 +92,7 @@ interface UpperMenuProps {
     subtitle?: string;
     rightSlot?: ReactNode;
 }
-declare const UpperMenu: ({ title, subtitle, rightSlot, }: UpperMenuProps) => react_jsx_runtime.JSX.Element;
+declare const UpperMenu: ({ title, subtitle, rightSlot, }: UpperMenuProps) => react.JSX.Element;
 
 /**
  * Получить текущую тему из localStorage

@@ -19,8 +19,18 @@ const styles = {
   toggleIconRotated: 'sc-main-menu__toggleIconRotated',
   toggleText: 'sc-main-menu__toggleText',
   appName: 'sc-main-menu__appName',
+  controls: 'sc-main-menu__controls',
+  controlButton: 'sc-main-menu__controlButton',
+  controlIcon: 'sc-main-menu__controlIcon',
+  controlDivider: 'sc-main-menu__controlDivider',
 }
-import { ChevronLeftIcon, MoonIcon, SunIcon } from '../../assets/icons'
+import {
+  ChevronLeftIcon,
+  MoonIcon,
+  QuestionIcon,
+  SunIcon,
+  UserPickIcon,
+} from '../../assets/icons'
 import type { AppDescriptor, BaseMenuProps, Theme } from './MainMenu.types'
 
 export interface MainMenuBaseProps extends BaseMenuProps {
@@ -117,53 +127,64 @@ const MainMenuBase = ({
       </div>
 
       <div className={styles.right}>
-        {onThemeToggle && (
-          <>
+        <div className={styles.controls}>
+          <span className={styles.controlIcon} title='Профиль'>
+            <UserPickIcon width={16} height={16} />
+          </span>
+
+          {rightSlot ?? (
             <button
               type='button'
-              className={styles.appItem}
-              onClick={onThemeToggle}
-              title='Переключить тему'
+              className={styles.controlButton}
+              title='Справка'
+              aria-label='Справка'
             >
-              <span className={styles.appIcon}>
+              <QuestionIcon width={16} height={16} />
+            </button>
+          )}
+
+          {onThemeToggle && (
+            <>
+              <hr className={styles.controlDivider} />
+              <button
+                type='button'
+                className={styles.controlButton}
+                onClick={onThemeToggle}
+                title='Переключить тему'
+                aria-label='Переключить тему'
+              >
                 {theme === 'dark' ? (
                   <SunIcon width={16} height={16} />
                 ) : (
                   <MoonIcon width={16} height={16} />
                 )}
-              </span>
-              <span className={styles.appName}>
-                {theme === 'dark' ? 'Светлая тема' : 'Темная тема'}
-              </span>
-            </button>
-            <hr className={styles.divider} />
-          </>
-        )}
+              </button>
+            </>
+          )}
 
-        {rightSlot}
-
-        {onLayoutToggle && (
-          <>
-            <hr className={styles.divider} />
-            <button
-              type='button'
-              className={styles.toggleButton}
-              onClick={onLayoutToggle}
-              title={layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'}
-            >
-              <span
-                className={`${styles.toggleIcon} ${
-                  layout === 'full' ? styles.toggleIconRotated : ''
-                }`}
+          {onLayoutToggle && (
+            <>
+              <hr className={styles.controlDivider} />
+              <button
+                type='button'
+                className={styles.controlButton}
+                onClick={onLayoutToggle}
+                title={layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'}
+                aria-label={
+                  layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'
+                }
               >
-                <ChevronLeftIcon width={16} height={16} />
-              </span>
-              <span className={styles.toggleText}>
-                {layout === 'compact' ? 'Развернуть' : 'Свернуть'}
-              </span>
-            </button>
-          </>
-        )}
+                <span
+                  className={`${styles.toggleIcon} ${
+                    layout === 'full' ? styles.toggleIconRotated : ''
+                  }`}
+                >
+                  <ChevronLeftIcon width={16} height={16} />
+                </span>
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </nav>
   )

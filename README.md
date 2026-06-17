@@ -128,8 +128,8 @@ const MyPage = () => (
 ```css
 /* Используйте CSS-переменные из Triplex */
 .my-card {
-  background: var(--triplex-next-Card-Static_General_Background-1-14-0);
-  color: var(--triplex-next-Typography-Primary_Color-1-14-0);
+  background: var(--triplex-next-Card-Static_General_Background-1-33-0);
+  color: var(--triplex-next-Typography-Primary_Color-1-33-0);
 }
 
 /* Или через data-theme */
@@ -170,14 +170,25 @@ html[data-theme='dark'] .my-card {
 | `onLayoutChange` | Callback при переключении layout |
 | `onThemeChange` | Callback при переключении темы |
 
+## Backend Contract для меню
+
+Формат данных backend API описан в [MENU_BACKEND_CONTRACT.md](./MENU_BACKEND_CONTRACT.md).
+Swagger/OpenAPI JSON лежит в [menu.openapi.json](./menu.openapi.json).
+
+Коротко:
+- backend отдаёт меню по текущей session/cookie;
+- `Authorization` / Bearer token не обязателен;
+- frontend ждёт массив `{ client_id, app_name, link, order?, available?, description? }`;
+- иконки выбираются локально по `client_id`, поле `icon` deprecated.
+
 ## Peer Dependencies
 
 ```json
 {
-  "@sberbusiness/triplex-next": "^1.14.0",
-  "@sberbusiness/icons-next": "^1.11.0",
-  "react": "^18.0.0",
-  "react-dom": "^18.0.0"
+  "@sberbusiness/triplex-next": "^1.33.0",
+  "@sberbusiness/icons-next": "^1.26.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1"
 }
 ```
 

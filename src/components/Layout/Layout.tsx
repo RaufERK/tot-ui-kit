@@ -1,6 +1,6 @@
 import './styles.css'
 
-import { ThemeProvider, ETriplexNextTheme } from '@sberbusiness/triplex-next'
+import { ETriplexNextTheme, ThemeProvider } from '@sberbusiness/triplex-next'
 import { type PropsWithChildren, useEffect, useRef, useState } from 'react'
 
 import type { Theme } from '../MainMenu/MainMenu.types'

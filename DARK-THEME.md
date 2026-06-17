@@ -66,8 +66,8 @@ return (
 ```css
 html[data-theme='dark'] {
   /* Typography */
-  --triplex-next-Typography-Primary_Color-1-14-0: rgba(255, 255, 255, 1);
-  --triplex-next-Typography-Secondary_Color-1-14-0: rgba(255, 255, 255, 0.65);
+  --triplex-next-Typography-Primary_Color-1-33-0: rgba(255, 255, 255, 1);
+  --triplex-next-Typography-Secondary_Color-1-33-0: rgba(255, 255, 255, 0.65);
   
   /* Tabs, Buttons, FormFields, Cards и т.д. */
   /* ... */
@@ -126,8 +126,8 @@ html[data-theme='dark'] {
   /* ... существующие переменные ... */
   
   /* ===== Stepper ===== */
-  --triplex-next-Stepper-Background-1-14-0: #181819;
-  --triplex-next-Stepper-Step_Background_Default-1-14-0: #424245;
+  --triplex-next-Stepper-Background-1-33-0: #181819;
+  --triplex-next-Stepper-Step_Background_Default-1-33-0: #424245;
   /* ... */
 }
 ```
@@ -313,8 +313,8 @@ https://triplex-design.ru/next/ru/Web/Components/platform/body%20page
 ```css
 /* Ваши стили */
 .my-component {
-  background: var(--triplex-next-Card-Static_General_Background-1-14-0);
-  color: var(--triplex-next-Typography-Primary_Color-1-14-0);
+  background: var(--triplex-next-Card-Static_General_Background-1-33-0);
+  color: var(--triplex-next-Typography-Primary_Color-1-33-0);
 }
 
 /* Или через data-theme */

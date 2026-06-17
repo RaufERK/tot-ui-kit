@@ -1,0 +1,270 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TOT UI Kit Main Menu API",
+    "version": "1.0.0",
+    "description": "Contract for menu data consumed by tot-ui-kit ScMainMenu. Backend resolves available menu items by the current server session. Bearer token is not required."
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com",
+      "description": "Replace with backend API origin"
+    }
+  ],
+  "tags": [
+    {
+      "name": "MainMenu",
+      "description": "Session-based application menu"
+    }
+  ],
+  "paths": {
+    "/idp/single-menu-data": {
+      "get": {
+        "tags": [
+          "MainMenu"
+        ],
+        "summary": "Get menu for current session",
+        "description": "Preferred session-only endpoint. Backend determines the client/user from the existing session cookie. Authorization/Bearer token is not required.",
+        "operationId": "getCurrentSessionMenu",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/MenuResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/idp/single-menu-data/{menuId}": {
+      "get": {
+        "tags": [
+          "MainMenu"
+        ],
+        "summary": "Get menu by technical menu id",
+        "description": "Backward-compatible endpoint used by the current baseUrl + menuId integration. menuId is a technical route/key only. Backend should still resolve permissions and final menu contents by the current session.",
+        "operationId": "getMenuByIdForCurrentSession",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "description": "Technical menu key or legacy route parameter. Must not be used as the only authorization source.",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "example": "sc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/MenuResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/MenuNotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "sessionCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "SESSIONID",
+        "description": "Existing backend session cookie. Adjust the cookie name to the real backend session cookie. Bearer token is not required."
+      }
+    },
+    "schemas": {
+      "MenuItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "client_id",
+          "app_name",
+          "link"
+        ],
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "description": "Stable application id. Used by UI-kit for local icon resolution. Prefer lowercase snake_case.",
+            "example": "dwh_bridge"
+          },
+          "app_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human-readable application name displayed in the menu.",
+            "example": "Мост данных"
+          },
+          "link": {
+            "type": "string",
+            "description": "Navigation target. For visible items, use a valid absolute URL or app-relative path. Hidden items may use an empty string.",
+            "example": "https://bridge-dwh.ladoga.sberanalytics.ru/"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional application description. Currently not displayed by the menu.",
+            "example": "Загрузка данных из различных источников"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0,
+            "description": "Ascending sort order. Missing value is treated as 999 by the frontend.",
+            "example": 5
+          },
+          "available": {
+            "type": "boolean",
+            "default": true,
+            "description": "false hides the item from the menu. Missing value is treated as true.",
+            "example": true
+          },
+          "icon": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Deprecated. UI-kit ignores this field and resolves icons locally by client_id.",
+            "example": "dashboard"
+          }
+        }
+      },
+      "MenuResponse": {
+        "type": "array",
+        "description": "Menu items available for the current session. Empty array is allowed.",
+        "items": {
+          "$ref": "#/components/schemas/MenuItem"
+        },
+        "example": [
+          {
+            "client_id": "dashboard",
+            "app_name": "Dashboard",
+            "link": "https://dashboard.ladoga.sberanalytics.ru/",
+            "description": "Главный экран",
+            "order": 1,
+            "available": true
+          },
+          {
+            "client_id": "sc",
+            "app_name": "Центр установок",
+            "link": "https://ladoga.sberanalytics.ru/sc/",
+            "description": "Системный блок, позволяет управлять архитектурой системы",
+            "order": 2,
+            "available": true
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Short machine-readable error code.",
+            "example": "unauthorized"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error message.",
+            "example": "Valid session is required"
+          }
+        }
+      }
+    },
+    "responses": {
+      "MenuResponse": {
+        "description": "Menu for current backend session",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MenuResponse"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "No valid backend session",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "error": "unauthorized",
+              "message": "Valid session is required"
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Current session has no access to menu data",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "error": "forbidden",
+              "message": "Menu access is forbidden for current session"
+            }
+          }
+        }
+      },
+      "MenuNotFound": {
+        "description": "Menu key was not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "error": "menu_not_found",
+              "message": "Menu was not found"
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Unexpected backend error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "error": "internal_error",
+              "message": "Unexpected backend error"
+            }
+          }
+        }
+      }
+    }
+  }
+}
