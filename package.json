@@ -1,6 +1,6 @@
 {
   "name": "tot-ui-kit",
-  "version": "2.19.1",
+  "version": "2.23.0",
   "description": "UI Kit with Layout, MainMenu, and theme support for React applications",
   "type": "module",
   "main": "dist/index.cjs",
@@ -46,25 +46,28 @@
     "url": ""
   },
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
-    "@sberbusiness/icons-next": "1.20.0",
-    "@sberbusiness/triplex-next": "1.23.0",
-    "@types/react": "^18.3.26",
+    "@eslint/js": "^9.39.4",
+    "@sberbusiness/icons-next": "1.25.0",
+    "@sberbusiness/triplex-next": "1.32.0",
+    "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "eslint": "^9.18.0",
+    "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-react-refresh": "^0.4.26",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "globals": "^15.14.0",
+    "globals": "^15.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tsup": "^8.3.0",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.22.0"
+    "typescript-eslint": "^8.61.0"
+  },
+  "overrides": {
+    "esbuild": "0.28.1"
   },
   "peerDependencies": {
-    "@sberbusiness/icons-next": "^1.11.0",
-    "@sberbusiness/triplex-next": "^1.14.0",
+    "@sberbusiness/icons-next": "^1.25.0",
+    "@sberbusiness/triplex-next": "^1.32.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
