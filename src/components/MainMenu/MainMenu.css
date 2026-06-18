@@ -34,8 +34,10 @@
 }
 
 .sc-main-menu_theme_dark {
-  background-color: var(--sc-menu-bg, #1f1f22);
-  color: #f1f5f9;
+  --sc-menu-bg: #05070a;
+
+  background-color: var(--sc-menu-bg, #05070a);
+  color: #e7e9ee;
 }
 
 /* --- БЛОКИ МЕНЮ --- */
@@ -105,7 +107,7 @@
 }
 
 .sc-main-menu_theme_dark .sc-main-menu__divider {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(231, 233, 238, 0.18);
 }
 
 /* --- ЭЛЕМЕНТЫ МЕНЮ --- */
@@ -143,7 +145,7 @@
 }
 
 .sc-main-menu_theme_dark .sc-main-menu__appItem:hover {
-  background-color: rgba(148, 163, 184, 0.25);
+  background-color: rgba(231, 233, 238, 0.12);
 }
 
 .sc-main-menu_theme_light .sc-main-menu__appItem_active {
@@ -151,7 +153,12 @@
 }
 
 .sc-main-menu_theme_dark .sc-main-menu__appItem_active {
-  background-color: rgba(96, 165, 250, 0.22);
+  background-color: rgba(56, 186, 158, 0.18);
+}
+
+.sc-main-menu_theme_dark .sc-main-menu__appItem,
+.sc-main-menu_theme_dark .sc-main-menu__controlButton {
+  color: #e7e9ee;
 }
 
 .sc-main-menu_theme_light
@@ -246,7 +253,7 @@
 }
 
 .sc-main-menu_theme_dark .sc-main-menu__controlButton:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(231, 233, 238, 0.12);
   color: #38ba9e;
 }
 
@@ -287,7 +294,7 @@
 }
 
 .sc-main-menu_theme_dark .sc-main-menu__controlDivider {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(231, 233, 238, 0.18);
 }
 
 .sc-main-menu.sc-main-menu_layout_compact .sc-main-menu__toggleButton {
@@ -304,7 +311,7 @@
 }
 
 .sc-main-menu_theme_dark .sc-main-menu__toggleButton:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(231, 233, 238, 0.12);
 }
 
 .sc-main-menu_theme_dark .sc-main-menu__toggleButton,
