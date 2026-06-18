@@ -10,6 +10,7 @@ import {
   QuestionIcon,
   TableManagerIcon,
   TransformationIcon,
+  UserPickIcon,
   UsersIcon,
 } from '../../assets/icons'
 import type { AppDescriptor, Theme } from './MainMenu.types'
@@ -57,6 +58,7 @@ const mapMenuItemsToApps = (
       ? iconResolver(item, index)
       : {
           id: `${item.client_id}:${index}`,
+          clientId: item.client_id,
           name: item.app_name,
           shortName: item.app_name,
           href: item.link,
@@ -76,6 +78,8 @@ const appIconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   table_manager: TableManagerIcon,
   metadata: MetadataIcon,
   navigator: NavigatorIcon,
+  profile: UserPickIcon,
+  profil: UserPickIcon,
   question: QuestionIcon,
 }
 

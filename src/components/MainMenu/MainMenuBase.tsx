@@ -1,5 +1,15 @@
 // src/components/MainMenu/MainMenuBase.tsx
 import './MainMenu.css'
+
+import {
+  ChevronLeftIcon,
+  MoonIcon,
+  QuestionIcon,
+  SunIcon,
+  UserPickIcon,
+} from '../../assets/icons'
+import type { AppDescriptor, BaseMenuProps, Theme } from './MainMenu.types'
+
 const styles = {
   root: 'sc-main-menu',
   layout_full: 'sc-main-menu_layout_full',
@@ -22,16 +32,9 @@ const styles = {
   controls: 'sc-main-menu__controls',
   controlButton: 'sc-main-menu__controlButton',
   controlIcon: 'sc-main-menu__controlIcon',
+  controlText: 'sc-main-menu__controlText',
   controlDivider: 'sc-main-menu__controlDivider',
 }
-import {
-  ChevronLeftIcon,
-  MoonIcon,
-  QuestionIcon,
-  SunIcon,
-  UserPickIcon,
-} from '../../assets/icons'
-import type { AppDescriptor, BaseMenuProps, Theme } from './MainMenu.types'
 
 export interface MainMenuBaseProps extends BaseMenuProps {
   layout: 'full' | 'compact'
@@ -40,6 +43,13 @@ export interface MainMenuBaseProps extends BaseMenuProps {
 
 const getThemeClassName = (theme: Theme | undefined) =>
   theme === 'dark' ? styles.root_theme_dark : styles.root_theme_light
+
+const DEFAULT_PROFILE_APP_ID = 'profile'
+const DEFAULT_PROFILE_HREF = 'https://profile.ladoga.sberanalytics.ru/'
+const SERVICE_APP_IDS = new Set(['profile', 'profil', 'help', 'question'])
+
+const getAppClientId = (app: AppDescriptor) =>
+  app.clientId ?? app.id.split(':')[0]
 
 const MainMenuBase = ({
   layout,
@@ -53,6 +63,9 @@ const MainMenuBase = ({
   rightSlot,
   centerOverride,
   className,
+  profileAppId = DEFAULT_PROFILE_APP_ID,
+  profileHref = DEFAULT_PROFILE_HREF,
+  helpHref,
   onLayoutToggle,
 }: MainMenuBaseProps) => {
   const rootClassName = [
@@ -74,6 +87,30 @@ const MainMenuBase = ({
     }
   }
 
+  const profileAppIds = Array.from(
+    new Set([profileAppId, 'profile', 'profil'])
+  )
+  const serviceAppIds = new Set([...SERVICE_APP_IDS, ...profileAppIds])
+  const visibleApps = apps.filter((app) => !serviceAppIds.has(getAppClientId(app)))
+  const findServiceApp = (ids: string[]) =>
+    apps.find((app) => {
+      const clientId = getAppClientId(app)
+      return ids.includes(clientId) || ids.some((id) => app.id.startsWith(`${id}:`))
+    })
+
+  const profileApp = findServiceApp(profileAppIds)
+  const helpApp = findServiceApp(['help', 'question'])
+  const themeToggleLabel = theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'
+  const layoutToggleLabel =
+    layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'
+
+  const handleServiceClick = (
+    app: AppDescriptor | undefined,
+    fallback: AppDescriptor
+  ) => {
+    handleAppClick(app ?? fallback)
+  }
+
   return (
     <nav className={rootClassName} aria-label='Главное меню приложений'>
       {systemLogoUrl && (
@@ -89,8 +126,9 @@ const MainMenuBase = ({
       <div className={styles.center}>
         {centerOverride ?? (
           <>
-            {apps.map((app) => {
-              const isActive = app.id === activeAppId
+            {visibleApps.map((app) => {
+              const isActive =
+                app.id === activeAppId || app.clientId === activeAppId
               const appClassName = [
                 styles.appItem,
                 isActive ? styles.appItem_active : '',
@@ -128,18 +166,45 @@ const MainMenuBase = ({
 
       <div className={styles.right}>
         <div className={styles.controls}>
-          <span className={styles.controlIcon} title='Профиль'>
-            <UserPickIcon width={16} height={16} />
-          </span>
+          <button
+            type='button'
+            className={styles.controlButton}
+            onClick={() =>
+              handleServiceClick(profileApp, {
+                id: profileAppId,
+                clientId: profileAppId,
+                name: 'Профиль',
+                href: profileHref,
+              })
+            }
+            title='Профиль'
+            aria-label='Профиль'
+          >
+            <span className={styles.controlIcon}>
+              <UserPickIcon width={16} height={16} />
+            </span>
+            <span className={styles.controlText}>Профиль</span>
+          </button>
 
           {rightSlot ?? (
             <button
               type='button'
               className={styles.controlButton}
+              onClick={() =>
+                handleServiceClick(helpApp, {
+                  id: 'help',
+                  clientId: 'help',
+                  name: 'Помощь',
+                  href: helpHref,
+                })
+              }
               title='Справка'
               aria-label='Справка'
             >
-              <QuestionIcon width={16} height={16} />
+              <span className={styles.controlIcon}>
+                <QuestionIcon width={16} height={16} />
+              </span>
+              <span className={styles.controlText}>Помощь</span>
             </button>
           )}
 
@@ -150,14 +215,17 @@ const MainMenuBase = ({
                 type='button'
                 className={styles.controlButton}
                 onClick={onThemeToggle}
-                title='Переключить тему'
-                aria-label='Переключить тему'
+                title={themeToggleLabel}
+                aria-label={themeToggleLabel}
               >
-                {theme === 'dark' ? (
-                  <SunIcon width={16} height={16} />
-                ) : (
-                  <MoonIcon width={16} height={16} />
-                )}
+                <span className={styles.controlIcon}>
+                  {theme === 'dark' ? (
+                    <SunIcon width={16} height={16} />
+                  ) : (
+                    <MoonIcon width={16} height={16} />
+                  )}
+                </span>
+                <span className={styles.controlText}>{themeToggleLabel}</span>
               </button>
             </>
           )}
@@ -169,18 +237,17 @@ const MainMenuBase = ({
                 type='button'
                 className={styles.controlButton}
                 onClick={onLayoutToggle}
-                title={layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'}
-                aria-label={
-                  layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'
-                }
+                title={layoutToggleLabel}
+                aria-label={layoutToggleLabel}
               >
                 <span
-                  className={`${styles.toggleIcon} ${
+                  className={`${styles.controlIcon} ${styles.toggleIcon} ${
                     layout === 'full' ? styles.toggleIconRotated : ''
                   }`}
                 >
                   <ChevronLeftIcon width={16} height={16} />
                 </span>
+                <span className={styles.controlText}>{layoutToggleLabel}</span>
               </button>
             </>
           )}

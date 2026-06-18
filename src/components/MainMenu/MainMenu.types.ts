@@ -5,6 +5,7 @@ export type Theme = 'light' | 'dark'
 
 export interface AppDescriptor {
   id: string
+  clientId?: string
   name: string
   shortName?: string
 
@@ -32,4 +33,7 @@ export interface BaseMenuProps {
   systemLogoUrl?: string
   centerOverride?: ReactNode
   rightSlot?: ReactNode
+  profileAppId?: string
+  profileHref?: string
+  helpHref?: string
 }

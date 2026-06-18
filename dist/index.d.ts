@@ -4,6 +4,7 @@ import { ReactNode, PropsWithChildren, FC } from 'react';
 type Theme = 'light' | 'dark';
 interface AppDescriptor {
     id: string;
+    clientId?: string;
     name: string;
     shortName?: string;
     /** Внешний URL (куда переходим при клике) */
@@ -26,6 +27,9 @@ interface BaseMenuProps {
     systemLogoUrl?: string;
     centerOverride?: ReactNode;
     rightSlot?: ReactNode;
+    profileAppId?: string;
+    profileHref?: string;
+    helpHref?: string;
 }
 
 interface MainMenuFullProps extends BaseMenuProps {
@@ -80,7 +84,7 @@ interface MainMenuBaseProps extends BaseMenuProps {
     layout: 'full' | 'compact';
     onLayoutToggle?: () => void;
 }
-declare const MainMenuBase: ({ layout, apps, activeAppId, onAppClick, theme, onThemeToggle, systemTitle, systemLogoUrl, rightSlot, centerOverride, className, onLayoutToggle, }: MainMenuBaseProps) => react.JSX.Element;
+declare const MainMenuBase: ({ layout, apps, activeAppId, onAppClick, theme, onThemeToggle, systemTitle, systemLogoUrl, rightSlot, centerOverride, className, profileAppId, profileHref, helpHref, onLayoutToggle, }: MainMenuBaseProps) => react.JSX.Element;
 
 type PageLabelProps = {
     title: string;
