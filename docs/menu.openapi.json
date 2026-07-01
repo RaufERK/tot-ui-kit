@@ -62,12 +62,12 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "client_id",
+          "app_id",
           "app_name",
           "link"
         ],
         "properties": {
-          "client_id": {
+          "app_id": {
             "type": "string",
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9_-]+$",
@@ -90,13 +90,6 @@
             "description": "Optional application description. Currently not displayed by the menu.",
             "example": "Загрузка данных из различных источников"
           },
-          "order": {
-            "type": "integer",
-            "format": "int32",
-            "minimum": 0,
-            "description": "Ascending sort order. Missing value is treated as 999 by the frontend.",
-            "example": 5
-          },
           "available": {
             "type": "boolean",
             "default": true,
@@ -106,7 +99,7 @@
           "icon": {
             "type": "string",
             "deprecated": true,
-            "description": "Deprecated. UI-kit ignores this field and resolves icons locally by client_id.",
+            "description": "Deprecated. UI-kit ignores this field and resolves icons locally by app_id.",
             "example": "dashboard"
           }
         }
@@ -119,19 +112,17 @@
         },
         "example": [
           {
-            "client_id": "dashboard",
-            "app_name": "Dashboard",
-            "link": "https://dashboard.ladoga.sberanalytics.ru/",
+            "app_id": "dashboard",
+            "app_name": "Платформа данных",
+            "link": "http://localhost:5174/dashboard/",
             "description": "Главный экран",
-            "order": 1,
             "available": true
           },
           {
-            "client_id": "sc",
+            "app_id": "sc",
             "app_name": "Центр установок",
             "link": "https://ladoga.sberanalytics.ru/sc/",
             "description": "Системный блок, позволяет управлять архитектурой системы",
-            "order": 2,
             "available": true
           }
         ]

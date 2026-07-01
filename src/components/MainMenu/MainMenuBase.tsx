@@ -48,8 +48,8 @@ const DEFAULT_PROFILE_APP_ID = 'profile'
 const DEFAULT_PROFILE_HREF = 'https://profile.ladoga.sberanalytics.ru/'
 const SERVICE_APP_IDS = new Set(['profile', 'profil', 'help', 'question'])
 
-const getAppClientId = (app: AppDescriptor) =>
-  app.clientId ?? app.id.split(':')[0]
+const getAppId = (app: AppDescriptor) =>
+  app.appId ?? app.clientId ?? app.id.split(':')[0]
 
 const MainMenuBase = ({
   layout,
@@ -91,11 +91,11 @@ const MainMenuBase = ({
     new Set([profileAppId, 'profile', 'profil'])
   )
   const serviceAppIds = new Set([...SERVICE_APP_IDS, ...profileAppIds])
-  const visibleApps = apps.filter((app) => !serviceAppIds.has(getAppClientId(app)))
+  const visibleApps = apps.filter((app) => !serviceAppIds.has(getAppId(app)))
   const findServiceApp = (ids: string[]) =>
     apps.find((app) => {
-      const clientId = getAppClientId(app)
-      return ids.includes(clientId) || ids.some((id) => app.id.startsWith(`${id}:`))
+      const appId = getAppId(app)
+      return ids.includes(appId) || ids.some((id) => app.id.startsWith(`${id}:`))
     })
 
   const profileApp = findServiceApp(profileAppIds)
@@ -128,7 +128,9 @@ const MainMenuBase = ({
           <>
             {visibleApps.map((app) => {
               const isActive =
-                app.id === activeAppId || app.clientId === activeAppId
+                app.id === activeAppId ||
+                app.appId === activeAppId ||
+                app.clientId === activeAppId
               const appClassName = [
                 styles.appItem,
                 isActive ? styles.appItem_active : '',
@@ -172,6 +174,7 @@ const MainMenuBase = ({
             onClick={() =>
               handleServiceClick(profileApp, {
                 id: profileAppId,
+                appId: profileAppId,
                 clientId: profileAppId,
                 name: 'Профиль',
                 href: profileHref,
@@ -193,6 +196,7 @@ const MainMenuBase = ({
               onClick={() =>
                 handleServiceClick(helpApp, {
                   id: 'help',
+                  appId: 'help',
                   clientId: 'help',
                   name: 'Помощь',
                   href: helpHref,

@@ -28,10 +28,10 @@ This is a shared React component library used across multiple applications in th
 
 ### Icon System
 
-Icons are embedded in the library (`src/assets/icons/index.tsx`) and mapped by `client_id` from backend data. The backend only provides the list of available apps - icons are resolved locally.
+Icons are embedded in the library (`src/assets/icons/index.tsx`) and mapped by `app_id` from backend data. The backend only provides the list of available apps - icons are resolved locally.
 
 ```typescript
-// Icon mapping by client_id
+// Icon mapping by app_id
 const appIconMap = {
   dashboard: AppsGridIcon,
   users: UsersIcon,
@@ -52,9 +52,9 @@ const appIconMap = {
 ```
 Backend API → ScMainMenu → MainMenuBase → UI
      ↓
-  { client_id, app_name, link, order, available }
+ { app_id, app_name, link, available }
      ↓
-  Library resolves icon by client_id
+ Library resolves icon by app_id
 ```
 
 ## File Structure
@@ -134,7 +134,8 @@ npm run typecheck
 - This library is consumed by multiple apps via `file:` links during development (each app has its own git repo)
 - When modifying icons, update both `src/assets/icons/index.tsx` and `appIconMap` in ScMainMenu
 - Mock data in `src/data/` is for development only
-- The `icon` field from backend is deprecated - always use `client_id` for icon resolution
+- The `icon` field from backend is deprecated - always use `app_id` for icon resolution
+- The old backend field `client_id` is deprecated; the current menu contract uses `app_id`
 - `Layout` component no longer includes header/footer - apps must implement their own
 - Default menu fetch URL is `${baseUrl}/iam/menu/`; use `menuEndpoint` or `dataUrl` instead of editing built JS in containers
 - Build the library (`npm run build`) after changes to make them available to consuming apps

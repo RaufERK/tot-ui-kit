@@ -4,6 +4,8 @@ import { ReactNode, PropsWithChildren, FC } from 'react';
 type Theme = 'light' | 'dark';
 interface AppDescriptor {
     id: string;
+    appId?: string;
+    /** @deprecated Use appId instead. */
     clientId?: string;
     name: string;
     shortName?: string;
@@ -39,12 +41,11 @@ interface MainMenuFullProps extends BaseMenuProps {
 declare const MainMenuFull: ({ layout, onLayoutToggle, ...restProps }: MainMenuFullProps) => react.JSX.Element;
 
 interface MenuItem {
-    client_id: string;
+    app_id: string;
     app_name: string;
     link: string;
     description?: string;
     icon?: string;
-    order?: number;
     available?: boolean;
 }
 type Fetcher = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;

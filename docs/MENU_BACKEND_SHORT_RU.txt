@@ -51,19 +51,17 @@ Content-Type: application/json
 
 [
   {
-    "client_id": "dashboard",
-    "app_name": "Dashboard",
-    "link": "https://dashboard.example.ru/",
+    "app_id": "dashboard",
+    "app_name": "Платформа данных",
+    "link": "http://localhost:5174/dashboard/",
     "description": "Главный экран",
-    "order": 1,
     "available": true
   },
   {
-    "client_id": "sc",
+    "app_id": "sc",
     "app_name": "Центр установок",
     "link": "https://example.ru/sc/",
     "description": "Управление системой",
-    "order": 2,
     "available": true
   }
 ]
@@ -71,7 +69,7 @@ Content-Type: application/json
 Поля
 ----
 
-client_id - обязательное поле.
+app_id - обязательное поле.
 Стабильный ID приложения. По нему UI-kit выбирает локальную иконку.
 Примеры: dashboard, users, sc, dwh_bridge, transformation, table_manager,
 metadata, navigator, question.
@@ -87,26 +85,22 @@ description - необязательное поле.
 Описание приложения. Сейчас в меню не показывается, но полезно для отладки
 и будущего UI.
 
-order - необязательное поле.
-Число для сортировки меню по возрастанию. Если поле не передано, frontend поставит
-пункт ближе к концу.
-
 available - необязательное поле.
 Если false, frontend скроет пункт. Если поля нет, пункт считается доступным.
 
 icon - старое поле.
 UI-kit его игнорирует, потому что иконки уже зашиты в библиотеку
-и выбираются по client_id.
+и выбираются по app_id.
 
 Как frontend обрабатывает ответ
 -------------------------------
 
 - скрывает пункты с available: false;
-- сортирует пункты по order;
+- сохраняет порядок пунктов из массива backend;
 - показывает app_name;
 - при клике переходит по link;
-- иконку выбирает локально по client_id;
-- если client_id неизвестен, показывает fallback-иконку.
+- иконку выбирает локально по app_id;
+- если app_id неизвестен, показывает fallback-иконку.
 
 Ошибки
 ------
@@ -126,10 +120,10 @@ session cookie и убедиться, что ответ:
 
 - имеет статус 200;
 - является JSON-массивом;
-- содержит поля client_id, app_name и link у каждого видимого пункта;
+- содержит поля app_id, app_name и link у каждого видимого пункта;
 - не требует Authorization/Bearer token;
 - возвращает только те пункты, которые доступны текущей backend-сессии;
-- корректно сортируется по order на frontend;
+- отдаёт пункты в нужном порядке;
 - скрывает пункты с available: false.
 
 Главное

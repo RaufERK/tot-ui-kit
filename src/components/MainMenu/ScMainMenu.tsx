@@ -17,12 +17,11 @@ import type { AppDescriptor, Theme } from './MainMenu.types'
 import MainMenuFull, { type MainMenuFullProps } from './MainMenuFull'
 
 interface MenuItem {
-  client_id: string
+  app_id: string
   app_name: string
   link: string
   description?: string
-  icon?: string // deprecated - иконки теперь определяются по client_id
-  order?: number
+  icon?: string // deprecated - иконки теперь определяются по app_id
   available?: boolean
 }
 
@@ -49,16 +48,15 @@ const mapMenuItemsToApps = (
   items: MenuItem[],
   iconResolver?: (item: MenuItem, index: number) => AppDescriptor
 ): AppDescriptor[] => {
-  const filtered = items
-    .filter((item) => item.available !== false)
-    .sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
+  const filtered = items.filter((item) => item.available !== false)
 
   return filtered.map((item, index) =>
     iconResolver
       ? iconResolver(item, index)
       : {
-          id: `${item.client_id}:${index}`,
-          clientId: item.client_id,
+          id: `${item.app_id}:${index}`,
+          appId: item.app_id,
+          clientId: item.app_id,
           name: item.app_name,
           shortName: item.app_name,
           href: item.link,
@@ -67,7 +65,7 @@ const mapMenuItemsToApps = (
   )
 }
 
-// Маппинг иконок по client_id приложения
+// Маппинг иконок по app_id приложения
 // Иконки прошиты в библиотеке и не зависят от бэкенда
 const appIconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   dashboard: AppsGridIcon,
@@ -84,7 +82,7 @@ const appIconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
 }
 
 const resolveIconNode = (item: MenuItem) => {
-  const IconComponent = appIconMap[item.client_id] ?? AppsGridIcon
+  const IconComponent = appIconMap[item.app_id] ?? AppsGridIcon
   return <IconComponent width={20} height={20} />
 }
 

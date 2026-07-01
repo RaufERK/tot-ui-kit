@@ -5,6 +5,8 @@ export type Theme = 'light' | 'dark'
 
 export interface AppDescriptor {
   id: string
+  appId?: string
+  /** @deprecated Use appId instead. */
   clientId?: string
   name: string
   shortName?: string

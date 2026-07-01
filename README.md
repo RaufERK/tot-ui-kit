@@ -185,8 +185,9 @@ Swagger/OpenAPI JSON лежит в [docs/menu.openapi.json](./docs/menu.openapi.
 - backend отдаёт меню по текущей session/cookie;
 - `Authorization` / Bearer token не обязателен;
 - дефолтный endpoint: `/iam/menu/`;
-- frontend ждёт массив `{ client_id, app_name, link, order?, available?, description? }`;
-- иконки выбираются локально по `client_id`, поле `icon` deprecated.
+- frontend ждёт массив `{ app_id, app_name, link, available?, description? }`;
+- порядок пунктов берётся из массива backend;
+- иконки выбираются локально по `app_id`, поле `icon` deprecated.
 - `profile`, `profil`, `help`, `question` считаются service item и не показываются в верхнем списке приложений.
 
 ## Peer Dependencies
