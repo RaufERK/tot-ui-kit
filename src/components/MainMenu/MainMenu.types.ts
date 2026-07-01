@@ -2,6 +2,7 @@
 import type { ReactNode } from 'react'
 
 export type Theme = 'light' | 'dark'
+export type MenuLayout = 'full' | 'compact'
 
 export interface AppDescriptor {
   id: string

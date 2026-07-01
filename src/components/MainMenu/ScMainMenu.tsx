@@ -13,7 +13,13 @@ import {
   UserPickIcon,
   UsersIcon,
 } from '../../assets/icons'
-import type { AppDescriptor, Theme } from './MainMenu.types'
+import {
+  getCurrentMenuLayout,
+  getCurrentTheme,
+  setCurrentMenuLayout,
+  setCurrentTheme,
+} from '../../theme'
+import type { AppDescriptor, MenuLayout, Theme } from './MainMenu.types'
 import MainMenuFull, { type MainMenuFullProps } from './MainMenuFull'
 
 interface MenuItem {
@@ -141,11 +147,11 @@ export interface ScMainMenuProps
   onAppsLoaded?: (apps: AppDescriptor[]) => void
   onError?: (error: unknown) => void
   iconResolver?: (item: MenuItem, index: number) => AppDescriptor
-  defaultLayout?: 'full' | 'compact'
-  layout?: 'full' | 'compact'
+  defaultLayout?: MenuLayout
+  layout?: MenuLayout
   defaultTheme?: Theme
   theme?: Theme
-  onLayoutChange?: (layout: 'full' | 'compact') => void
+  onLayoutChange?: (layout: MenuLayout) => void
   onThemeChange?: (theme: Theme) => void
 }
 
@@ -174,10 +180,12 @@ const ScMainMenu = ({
     dataUrl ?? buildMenuDataUrl(baseUrl, menuId, menuEndpoint)
 
   const [internalApps, setInternalApps] = useState<AppDescriptor[]>(apps ?? [])
-  const [internalLayout, setInternalLayout] = useState<'full' | 'compact'>(
-    defaultLayout
+  const [internalLayout, setInternalLayout] = useState<MenuLayout>(() =>
+    getCurrentMenuLayout(defaultLayout)
   )
-  const [internalTheme, setInternalTheme] = useState<Theme>(defaultTheme)
+  const [internalTheme, setInternalTheme] = useState<Theme>(() =>
+    getCurrentTheme(defaultTheme)
+  )
 
   const currentLayout = layout ?? internalLayout
   const currentTheme = theme ?? internalTheme
@@ -263,6 +271,7 @@ const ScMainMenu = ({
     if (layout === undefined) {
       setInternalLayout(next)
     }
+    setCurrentMenuLayout(next)
     onLayoutChange?.(next)
   }
 
@@ -271,6 +280,7 @@ const ScMainMenu = ({
     if (theme === undefined) {
       setInternalTheme(next)
     }
+    setCurrentTheme(next)
     onThemeChange?.(next)
   }
 

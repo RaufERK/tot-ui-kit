@@ -6,6 +6,7 @@ export type {
   AppDescriptor,
   BaseMenuProps,
   MainMenuFullProps,
+  MenuLayout,
   ScMainMenuProps,
   Theme,
 } from './components/MainMenu'
@@ -15,4 +16,14 @@ export { default as UpperMenu } from './components/UpperMenu'
 export type { UpperMenuProps } from './components/UpperMenu/UpperMenu'
 
 // Theme utilities
-export { getCurrentTheme, useTheme } from './theme'
+export {
+  applyThemeToDocument,
+  getCurrentMenuLayout,
+  getCurrentTheme,
+  getHrefWithMenuPreferences,
+  getHrefWithTheme,
+  setCurrentMenuLayout,
+  setCurrentTheme,
+  useMenuLayout,
+  useTheme,
+} from './theme'

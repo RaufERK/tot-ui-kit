@@ -8,7 +8,17 @@ import {
   SunIcon,
   UserPickIcon,
 } from '../../assets/icons'
-import type { AppDescriptor, BaseMenuProps, Theme } from './MainMenu.types'
+import {
+  getHrefWithMenuPreferences,
+  setCurrentMenuLayout,
+  setCurrentTheme,
+} from '../../theme'
+import type {
+  AppDescriptor,
+  BaseMenuProps,
+  MenuLayout,
+  Theme,
+} from './MainMenu.types'
 
 const styles = {
   root: 'sc-main-menu',
@@ -37,7 +47,7 @@ const styles = {
 }
 
 export interface MainMenuBaseProps extends BaseMenuProps {
-  layout: 'full' | 'compact'
+  layout: MenuLayout
   onLayoutToggle?: () => void
 }
 
@@ -78,12 +88,18 @@ const MainMenuBase = ({
     .join(' ')
 
   const handleAppClick = (app: AppDescriptor) => {
+    if (theme) {
+      setCurrentTheme(theme)
+    }
+    setCurrentMenuLayout(layout)
+
     if (onAppClick) {
       onAppClick(app)
       return
     }
     if (app.href) {
-      window.location.href = app.href
+      window.location.href =
+        getHrefWithMenuPreferences(app.href, theme, layout) ?? app.href
     }
   }
 

@@ -7,6 +7,7 @@
 1. **Triplex ThemeProvider** — React-провайдер из `@sberbusiness/triplex-next`, который инжектит CSS-переменные для всех Triplex-компонентов
 2. **CSS-переменные** — переопределения в `global.css` для `html[data-theme='dark']`
 3. **CSS-хаки для иконок** — принудительное переопределение цветов SVG-иконок из `@sberbusiness/icons-next`
+4. **Общее состояние UI** — URL, `localStorage` и cookie синхронизируют тему и состояние меню между приложениями
 
 ---
 
@@ -18,23 +19,13 @@
 
 ```tsx
 useEffect(() => {
-  const root = document.documentElement
-  
-  // 1. Атрибут для CSS-селекторов
-  root.setAttribute('data-theme', theme) // 'light' | 'dark'
-  
-  // 2. Классы для Triplex
-  root.classList.remove('triplex-theme-light', 'triplex-theme-dark')
-  root.classList.add(theme === 'dark' ? 'triplex-theme-dark' : 'triplex-theme-light')
-  
-  // 3. Классы для icons-next (для CSS-переопределений)
-  root.classList.remove('icons-light_tptl2v', 'icons-dark_7mk9a3')
-  root.classList.add(theme === 'dark' ? 'icons-dark_7mk9a3' : 'icons-light_tptl2v')
-  
-  // 4. Сохранение в localStorage
-  window.localStorage.setItem('tot-ui-kit-theme', theme)
+  applyThemeToDocument(theme)
+  setCurrentTheme(theme)
 }, [theme])
 ```
+
+`getCurrentTheme()` читает тему в таком порядке: query-параметр `tot-ui-kit-theme`, `localStorage`, cookie, затем fallback `light`.
+`getCurrentMenuLayout()` по той же схеме читает `tot-ui-kit-menu-layout` со значениями `full` / `compact`.
 
 ### 2. Triplex ThemeProvider
 
@@ -213,13 +204,28 @@ import { Layout } from 'tot-ui-kit'
 ### Программно
 
 ```tsx
-import { useTheme, getCurrentTheme } from 'tot-ui-kit'
+import {
+  getCurrentMenuLayout,
+  getCurrentTheme,
+  setCurrentMenuLayout,
+  setCurrentTheme,
+  useMenuLayout,
+  useTheme,
+} from 'tot-ui-kit'
 
 // Хук (реактивно обновляется)
 const theme = useTheme() // 'light' | 'dark'
 
+// Хук состояния меню
+const menuLayout = useMenuLayout() // 'full' | 'compact'
+
 // Функция (получить текущее значение)
 const currentTheme = getCurrentTheme()
+const currentMenuLayout = getCurrentMenuLayout()
+
+// Функции сохранения глобального состояния для всех приложений
+setCurrentTheme('dark')
+setCurrentMenuLayout('compact')
 ```
 
 ---

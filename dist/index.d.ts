@@ -2,6 +2,7 @@ import * as react from 'react';
 import { ReactNode, PropsWithChildren, FC } from 'react';
 
 type Theme = 'light' | 'dark';
+type MenuLayout = 'full' | 'compact';
 interface AppDescriptor {
     id: string;
     appId?: string;
@@ -35,7 +36,7 @@ interface BaseMenuProps {
 }
 
 interface MainMenuFullProps extends BaseMenuProps {
-    layout?: 'full' | 'compact';
+    layout?: MenuLayout;
     onLayoutToggle?: () => void;
 }
 declare const MainMenuFull: ({ layout, onLayoutToggle, ...restProps }: MainMenuFullProps) => react.JSX.Element;
@@ -62,18 +63,18 @@ interface ScMainMenuProps extends Omit<MainMenuFullProps, 'layout' | 'onLayoutTo
     onAppsLoaded?: (apps: AppDescriptor[]) => void;
     onError?: (error: unknown) => void;
     iconResolver?: (item: MenuItem, index: number) => AppDescriptor;
-    defaultLayout?: 'full' | 'compact';
-    layout?: 'full' | 'compact';
+    defaultLayout?: MenuLayout;
+    layout?: MenuLayout;
     defaultTheme?: Theme;
     theme?: Theme;
-    onLayoutChange?: (layout: 'full' | 'compact') => void;
+    onLayoutChange?: (layout: MenuLayout) => void;
     onThemeChange?: (theme: Theme) => void;
 }
 declare const ScMainMenu: ({ apps, dataUrl, baseUrl, menuEndpoint, menuId, fetchOptions, fetcher, useMockData, mockData, onAppsLoaded, onError, iconResolver, defaultLayout, layout, onLayoutChange, defaultTheme, theme, onThemeChange, ...rest }: ScMainMenuProps) => react.JSX.Element;
 
 interface LayoutProps extends PropsWithChildren {
     menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>;
-    initialMenuLayout?: 'full' | 'compact';
+    initialMenuLayout?: MenuLayout;
     initialTheme?: Theme;
     pageBackgroundColor?: string;
     contentBackgroundColor?: string;
@@ -82,7 +83,7 @@ interface LayoutProps extends PropsWithChildren {
 declare const Layout: ({ children, menuProps, initialMenuLayout, initialTheme, pageBackgroundColor, contentBackgroundColor, menuBackgroundColor, }: LayoutProps) => react.JSX.Element;
 
 interface MainMenuBaseProps extends BaseMenuProps {
-    layout: 'full' | 'compact';
+    layout: MenuLayout;
     onLayoutToggle?: () => void;
 }
 declare const MainMenuBase: ({ layout, apps, activeAppId, onAppClick, theme, onThemeToggle, systemTitle, systemLogoUrl, rightSlot, centerOverride, className, profileAppId, profileHref, helpHref, onLayoutToggle, }: MainMenuBaseProps) => react.JSX.Element;
@@ -101,12 +102,19 @@ interface UpperMenuProps {
 declare const UpperMenu: ({ title, subtitle, rightSlot, }: UpperMenuProps) => react.JSX.Element;
 
 /**
- * Получить текущую тему из localStorage
+ * Получить текущую тему из URL, localStorage или cookie
  */
-declare function getCurrentTheme(): Theme;
+declare function getCurrentTheme(defaultTheme?: Theme): Theme;
+declare function setCurrentTheme(theme: Theme): void;
+declare function applyThemeToDocument(theme: Theme): void;
+declare function getCurrentMenuLayout(defaultLayout?: MenuLayout): MenuLayout;
+declare function setCurrentMenuLayout(layout: MenuLayout): void;
+declare function getHrefWithMenuPreferences(href: string | undefined, theme: Theme | undefined, menuLayout: MenuLayout | undefined): string | undefined;
+declare function getHrefWithTheme(href: string | undefined, theme: Theme | undefined): string | undefined;
 /**
  * Хук для получения текущей темы с автоматическим обновлением
  */
-declare function useTheme(): Theme;
+declare function useTheme(defaultTheme?: Theme): Theme;
+declare function useMenuLayout(defaultLayout?: MenuLayout): MenuLayout;
 
-export { type AppDescriptor, type BaseMenuProps, Layout, type LayoutProps, MainMenuBase, MainMenuFull, type MainMenuFullProps, PageLabel, ScMainMenu, type ScMainMenuProps, type Theme, UpperMenu, type UpperMenuProps, getCurrentTheme, useTheme };
+export { type AppDescriptor, type BaseMenuProps, Layout, type LayoutProps, MainMenuBase, MainMenuFull, type MainMenuFullProps, type MenuLayout, PageLabel, ScMainMenu, type ScMainMenuProps, type Theme, UpperMenu, type UpperMenuProps, applyThemeToDocument, getCurrentMenuLayout, getCurrentTheme, getHrefWithMenuPreferences, getHrefWithTheme, setCurrentMenuLayout, setCurrentTheme, useMenuLayout, useTheme };

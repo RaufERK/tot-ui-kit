@@ -3,7 +3,14 @@ import './styles.css'
 import { ETriplexNextTheme, ThemeProvider } from '@sberbusiness/triplex-next'
 import { type PropsWithChildren, useEffect, useRef, useState } from 'react'
 
-import type { Theme } from '../MainMenu/MainMenu.types'
+import {
+  applyThemeToDocument,
+  getCurrentMenuLayout,
+  getCurrentTheme,
+  setCurrentMenuLayout,
+  setCurrentTheme,
+} from '../../theme'
+import type { MenuLayout, Theme } from '../MainMenu/MainMenu.types'
 import ScMainMenu, { type ScMainMenuProps } from '../MainMenu/ScMainMenu'
 const styles = {
   app: 'sc-layout',
@@ -14,11 +21,9 @@ const styles = {
   main: 'sc-layout__main',
 }
 
-const THEME_STORAGE_KEY = 'tot-ui-kit-theme'
-
 export interface LayoutProps extends PropsWithChildren {
   menuProps?: Omit<ScMainMenuProps, 'layout' | 'theme'>
-  initialMenuLayout?: 'full' | 'compact'
+  initialMenuLayout?: MenuLayout
   initialTheme?: Theme
   pageBackgroundColor?: string
   contentBackgroundColor?: string
@@ -34,45 +39,22 @@ const Layout = ({
   contentBackgroundColor,
   menuBackgroundColor,
 }: LayoutProps) => {
-  const [menuLayout, setMenuLayout] = useState<'full' | 'compact'>(
-    initialMenuLayout,
+  const [menuLayout, setMenuLayout] = useState<MenuLayout>(() =>
+    getCurrentMenuLayout(initialMenuLayout)
   )
 
-  // подхватываем сохранённую тему из localStorage
   const [theme, setTheme] = useState<Theme>(() => {
-    try {
-      const saved = window.localStorage.getItem(THEME_STORAGE_KEY)
-      if (saved === 'light' || saved === 'dark') {
-        return saved
-      }
-    } catch {
-      /* ignore */
-    }
-    return initialTheme
+    return getCurrentTheme(initialTheme)
   })
 
   useEffect(() => {
-    const root = document.documentElement
-    root.setAttribute('data-theme', theme)
-    
-    // Triplex theme classes
-    root.classList.remove('triplex-theme-light', 'triplex-theme-dark')
-    root.classList.add(
-      theme === 'dark' ? 'triplex-theme-dark' : 'triplex-theme-light',
-    )
-    
-    // Icons-next theme classes (для иконок из @sberbusiness/icons-next)
-    root.classList.remove('icons-light_tptl2v', 'icons-dark_7mk9a3')
-    root.classList.add(
-      theme === 'dark' ? 'icons-dark_7mk9a3' : 'icons-light_tptl2v',
-    )
-
-    try {
-      window.localStorage.setItem(THEME_STORAGE_KEY, theme)
-    } catch {
-      /* ignore */
-    }
+    applyThemeToDocument(theme)
+    setCurrentTheme(theme)
   }, [theme])
+
+  useEffect(() => {
+    setCurrentMenuLayout(menuLayout)
+  }, [menuLayout])
 
   const sidebarWidth = menuLayout === 'full' ? 220 : 48
 
@@ -84,7 +66,7 @@ const Layout = ({
     .filter(Boolean)
     .join(' ')
 
-  const handleLayoutChange = (next: 'full' | 'compact') => {
+  const handleLayoutChange = (next: MenuLayout) => {
     setMenuLayout(next)
     menuProps.onLayoutChange?.(next)
   }

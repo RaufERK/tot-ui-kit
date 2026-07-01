@@ -78,20 +78,42 @@ Layout автоматически управляет темой:
 - Устанавливает `data-theme="light"` / `data-theme="dark"` на `<html>`
 - Добавляет классы `triplex-theme-light` / `triplex-theme-dark`
 - Переключает `ThemeProvider` из triplex-next
-- Сохраняет выбор в `localStorage`
+- Сохраняет выбор в `localStorage` и cookie `tot-ui-kit-theme`
+- Сохраняет состояние меню `full` / `compact` в `localStorage` и cookie `tot-ui-kit-menu-layout`
+- При переходе через меню добавляет текущую тему и состояние меню в URL, чтобы другое приложение сразу подхватило их
 
 **Кнопка переключения** встроена в боковое меню (иконка солнца/луны).
 
 ### Использование в коде
 
 ```tsx
-import { Layout, useTheme, getCurrentTheme } from 'tot-ui-kit'
+import {
+  Layout,
+  getCurrentMenuLayout,
+  getCurrentTheme,
+  setCurrentMenuLayout,
+  setCurrentTheme,
+  useMenuLayout,
+  useTheme,
+} from 'tot-ui-kit'
 
 // Хук — реактивно обновляется при смене темы
 const theme = useTheme() // 'light' | 'dark'
 
+// Хук — реактивно обновляется при сворачивании/разворачивании меню
+const menuLayout = useMenuLayout() // 'full' | 'compact'
+
 // Функция — получить текущую тему синхронно
 const currentTheme = getCurrentTheme()
+
+// Функция — получить текущее состояние меню синхронно
+const currentMenuLayout = getCurrentMenuLayout()
+
+// Функция — сохранить тему тем же способом, что и Layout
+setCurrentTheme('dark')
+
+// Функция — сохранить состояние меню тем же способом, что и Layout
+setCurrentMenuLayout('compact')
 ```
 
 ### ⭐ Рекомендуемый способ: Body из triplex-next
