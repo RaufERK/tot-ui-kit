@@ -1,191 +1,191 @@
-/* Triplex 1.34.0 tokens: базовые цвета текста/фона для обеих тем */
+/* Triplex 1.35.1 tokens: базовые цвета текста/фона для обеих тем */
 
 html {
   /* Default = light */
-  --triplex-next-Typography-Primary_Color-1-34-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-34-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-34-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-34-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-34-0: rgba(31, 31, 34, 0.35);
+  --triplex-next-Typography-Primary_Color-1-35-1: rgba(31, 31, 34, 1);
+  --triplex-next-Typography-Complementary_Color-1-35-1: rgba(31, 31, 34, 0.85);
+  --triplex-next-Typography-Secondary_Color-1-35-1: rgba(31, 31, 34, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-35-1: rgba(31, 31, 34, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-35-1: rgba(31, 31, 34, 0.35);
 
-  --triplex-next-ColorNeutral-90-1-34-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-34-0: #ffffff;
+  --triplex-next-ColorNeutral-90-1-35-1: #f2f4f7;
+  --triplex-next-ColorNeutral-100-1-35-1: #ffffff;
 
-  background-color: var(--triplex-next-ColorNeutral-90-1-34-0, #f2f4f7);
+  background-color: var(--triplex-next-ColorNeutral-90-1-35-1, #f2f4f7);
 }
 
 html[data-theme='light'] {
-  --triplex-next-Typography-Primary_Color-1-34-0: rgba(31, 31, 34, 1);
-  --triplex-next-Typography-Complementary_Color-1-34-0: rgba(31, 31, 34, 0.85);
-  --triplex-next-Typography-Secondary_Color-1-34-0: rgba(31, 31, 34, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-34-0: rgba(31, 31, 34, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-34-0: rgba(31, 31, 34, 0.35);
+  --triplex-next-Typography-Primary_Color-1-35-1: rgba(31, 31, 34, 1);
+  --triplex-next-Typography-Complementary_Color-1-35-1: rgba(31, 31, 34, 0.85);
+  --triplex-next-Typography-Secondary_Color-1-35-1: rgba(31, 31, 34, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-35-1: rgba(31, 31, 34, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-35-1: rgba(31, 31, 34, 0.35);
 
-  --triplex-next-ColorNeutral-90-1-34-0: #f2f4f7;
-  --triplex-next-ColorNeutral-100-1-34-0: #ffffff;
+  --triplex-next-ColorNeutral-90-1-35-1: #f2f4f7;
+  --triplex-next-ColorNeutral-100-1-35-1: #ffffff;
 
-  background-color: var(--triplex-next-ColorNeutral-90-1-34-0, #f2f4f7);
+  background-color: var(--triplex-next-ColorNeutral-90-1-35-1, #f2f4f7);
 }
 
 html[data-theme='dark'] {
   /* Тёмная тема: светлый текст, тёмный фон */
-  --triplex-next-Typography-Primary_Color-1-34-0: rgba(255, 255, 255, 1);
-  --triplex-next-Typography-Complementary_Color-1-34-0: rgba(
+  --triplex-next-Typography-Primary_Color-1-35-1: rgba(255, 255, 255, 1);
+  --triplex-next-Typography-Complementary_Color-1-35-1: rgba(
     255,
     255,
     255,
     0.85
   );
-  --triplex-next-Typography-Secondary_Color-1-34-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-Typography-Tertiary_Color-1-34-0: rgba(255, 255, 255, 0.55);
-  --triplex-next-Typography-Disabled_Color-1-34-0: rgba(255, 255, 255, 0.35);
+  --triplex-next-Typography-Secondary_Color-1-35-1: rgba(255, 255, 255, 0.65);
+  --triplex-next-Typography-Tertiary_Color-1-35-1: rgba(255, 255, 255, 0.55);
+  --triplex-next-Typography-Disabled_Color-1-35-1: rgba(255, 255, 255, 0.35);
 
   /* Фон тёмной темы — ближе к макету Triplex Page: #1f1f22 */
-  --triplex-next-ColorNeutral-90-1-34-0: #1f1f22;
-  --triplex-next-ColorNeutral-100-1-34-0: #1f1f22;
+  --triplex-next-ColorNeutral-90-1-35-1: #1f1f22;
+  --triplex-next-ColorNeutral-100-1-35-1: #1f1f22;
 
   /* ===== Tabs ===== */
-  --triplex-next-Tabs-Type1_Background-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Tabs-Type2_Background-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Tabs-Type1_Tab_Background_Default-1-34-0: transparent;
-  --triplex-next-Tabs-Type2_Tab_Background_Default-1-34-0: transparent;
-  --triplex-next-Tabs-Type1_Tab_Background_Selected-1-34-0: rgba(255, 255, 255, 0.15);
-  --triplex-next-Tabs-Type2_Tab_Background_Selected-1-34-0: rgba(255, 255, 255, 0.12);
-  --triplex-next-Tabs-Type1_Tab_Background_Hover-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-Tabs-Type2_Tab_Background_Hover-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Tabs-Type1_Tab_Color_Default-1-34-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-Tabs-Type2_Tab_Color_Default-1-34-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-Tabs-Type1_Tab_Color_Selected-1-34-0: rgba(255, 255, 255, 1);
-  --triplex-next-Tabs-Type2_Tab_Color_Selected-1-34-0: rgba(255, 255, 255, 1);
-  --triplex-next-Tabs-Type1_Tab_Color_Hover-1-34-0: rgba(255, 255, 255, 1);
-  --triplex-next-Tabs-Type2_Tab_Color_Hover-1-34-0: rgba(255, 255, 255, 1);
+  --triplex-next-Tabs-Type1_Background-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Tabs-Type2_Background-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Tabs-Type1_Tab_Background_Default-1-35-1: transparent;
+  --triplex-next-Tabs-Type2_Tab_Background_Default-1-35-1: transparent;
+  --triplex-next-Tabs-Type1_Tab_Background_Selected-1-35-1: rgba(255, 255, 255, 0.15);
+  --triplex-next-Tabs-Type2_Tab_Background_Selected-1-35-1: rgba(255, 255, 255, 0.12);
+  --triplex-next-Tabs-Type1_Tab_Background_Hover-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-Tabs-Type2_Tab_Background_Hover-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Tabs-Type1_Tab_Color_Default-1-35-1: rgba(255, 255, 255, 0.65);
+  --triplex-next-Tabs-Type2_Tab_Color_Default-1-35-1: rgba(255, 255, 255, 0.65);
+  --triplex-next-Tabs-Type1_Tab_Color_Selected-1-35-1: rgba(255, 255, 255, 1);
+  --triplex-next-Tabs-Type2_Tab_Color_Selected-1-35-1: rgba(255, 255, 255, 1);
+  --triplex-next-Tabs-Type1_Tab_Color_Hover-1-35-1: rgba(255, 255, 255, 1);
+  --triplex-next-Tabs-Type2_Tab_Color_Hover-1-35-1: rgba(255, 255, 255, 1);
 
   /* ===== Button ===== */
-  --triplex-next-Button-Secondary_Background_Default-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Button-Secondary_Background_Hover-1-34-0: rgba(255, 255, 255, 0.12);
-  --triplex-next-Button-Secondary_Background_Active-1-34-0: rgba(255, 255, 255, 0.15);
-  --triplex-next-Button-Secondary_Background_Disabled-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Button-Secondary_Color_Default-1-34-0: #21A19A;
-  --triplex-next-Button-Secondary_Color_Hover-1-34-0: #19BDB0;
-  --triplex-next-Button-Secondary_Color_Active-1-34-0: #007777;
-  --triplex-next-Button-Secondary_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
-  --triplex-next-Button-SecondaryLight_Background_Default-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-Button-SecondaryLight_Background_Hover-1-34-0: rgba(255, 255, 255, 0.15);
-  --triplex-next-Button-SecondaryLight_Background_Active-1-34-0: rgba(255, 255, 255, 0.18);
-  --triplex-next-Button-SecondaryLight_Background_Disabled-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Button-SecondaryLight_Color_Default-1-34-0: #21A19A;
-  --triplex-next-Button-SecondaryLight_Color_Hover-1-34-0: #19BDB0;
-  --triplex-next-Button-SecondaryLight_Color_Active-1-34-0: #007777;
-  --triplex-next-Button-SecondaryLight_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
-  --triplex-next-Button-General_Background_Disabled-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Button-General_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
-  --triplex-next-Button-Danger_Background_Disabled-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Button-Danger_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
-  --triplex-next-Button-Link_Color_Default-1-34-0: #19BDB0;
-  --triplex-next-Button-Link_Color_Hover-1-34-0: #4BD9CF;
-  --triplex-next-Button-Link_Color_Active-1-34-0: #008985;
-  --triplex-next-Button-Link_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
+  --triplex-next-Button-Secondary_Background_Default-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Button-Secondary_Background_Hover-1-35-1: rgba(255, 255, 255, 0.12);
+  --triplex-next-Button-Secondary_Background_Active-1-35-1: rgba(255, 255, 255, 0.15);
+  --triplex-next-Button-Secondary_Background_Disabled-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Button-Secondary_Color_Default-1-35-1: #21A19A;
+  --triplex-next-Button-Secondary_Color_Hover-1-35-1: #19BDB0;
+  --triplex-next-Button-Secondary_Color_Active-1-35-1: #007777;
+  --triplex-next-Button-Secondary_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
+  --triplex-next-Button-SecondaryLight_Background_Default-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-Button-SecondaryLight_Background_Hover-1-35-1: rgba(255, 255, 255, 0.15);
+  --triplex-next-Button-SecondaryLight_Background_Active-1-35-1: rgba(255, 255, 255, 0.18);
+  --triplex-next-Button-SecondaryLight_Background_Disabled-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Button-SecondaryLight_Color_Default-1-35-1: #21A19A;
+  --triplex-next-Button-SecondaryLight_Color_Hover-1-35-1: #19BDB0;
+  --triplex-next-Button-SecondaryLight_Color_Active-1-35-1: #007777;
+  --triplex-next-Button-SecondaryLight_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
+  --triplex-next-Button-General_Background_Disabled-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Button-General_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
+  --triplex-next-Button-Danger_Background_Disabled-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Button-Danger_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
+  --triplex-next-Button-Link_Color_Default-1-35-1: #19BDB0;
+  --triplex-next-Button-Link_Color_Hover-1-35-1: #4BD9CF;
+  --triplex-next-Button-Link_Color_Active-1-35-1: #008985;
+  --triplex-next-Button-Link_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
 
   /* ===== FormField (TextField, Select, Input) ===== */
-  --triplex-next-FormField-Background_Default-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-FormField-Background_Hover-1-34-0: rgba(255, 255, 255, 0.12);
-  --triplex-next-FormField-Background_Active-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-FormField-Background_Disabled-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-FormField-Background_Error-1-34-0: rgba(230, 0, 55, 0.15);
-  --triplex-next-FormField-Background_Error_Hover-1-34-0: rgba(230, 0, 55, 0.2);
-  --triplex-next-FormField-Background_Warning-1-34-0: rgba(253, 101, 8, 0.15);
-  --triplex-next-FormField-Background_Warning_Hover-1-34-0: rgba(253, 101, 8, 0.2);
-  --triplex-next-FormField-Input_Color_Default-1-34-0: rgba(255, 255, 255, 1);
-  --triplex-next-FormField-Input_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
-  --triplex-next-FormField-Target_Color_Default-1-34-0: rgba(255, 255, 255, 1);
-  --triplex-next-FormField-Target_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.45);
-  --triplex-next-FormField-Target_PlaceholderColor_Default-1-34-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-FormField-Label_Color_Default-1-34-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-FormField-Label_Color_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
-  --triplex-next-FormField-Placeholder_Color-1-34-0: rgba(255, 255, 255, 0.65);
+  --triplex-next-FormField-Background_Default-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-FormField-Background_Hover-1-35-1: rgba(255, 255, 255, 0.12);
+  --triplex-next-FormField-Background_Active-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-FormField-Background_Disabled-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-FormField-Background_Error-1-35-1: rgba(230, 0, 55, 0.15);
+  --triplex-next-FormField-Background_Error_Hover-1-35-1: rgba(230, 0, 55, 0.2);
+  --triplex-next-FormField-Background_Warning-1-35-1: rgba(253, 101, 8, 0.15);
+  --triplex-next-FormField-Background_Warning_Hover-1-35-1: rgba(253, 101, 8, 0.2);
+  --triplex-next-FormField-Input_Color_Default-1-35-1: rgba(255, 255, 255, 1);
+  --triplex-next-FormField-Input_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
+  --triplex-next-FormField-Target_Color_Default-1-35-1: rgba(255, 255, 255, 1);
+  --triplex-next-FormField-Target_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.45);
+  --triplex-next-FormField-Target_PlaceholderColor_Default-1-35-1: rgba(255, 255, 255, 0.65);
+  --triplex-next-FormField-Label_Color_Default-1-35-1: rgba(255, 255, 255, 0.65);
+  --triplex-next-FormField-Label_Color_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
+  --triplex-next-FormField-Placeholder_Color-1-35-1: rgba(255, 255, 255, 0.65);
 
   /* ===== SmallInput ===== */
-  --triplex-next-SmallInput-Background-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-SmallInput-Color-1-34-0: rgba(255, 255, 255, 1);
-  --triplex-next-SmallInput-PlaceholderColor-1-34-0: rgba(255, 255, 255, 0.65);
+  --triplex-next-SmallInput-Background-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-SmallInput-Color-1-35-1: rgba(255, 255, 255, 1);
+  --triplex-next-SmallInput-PlaceholderColor-1-35-1: rgba(255, 255, 255, 0.65);
 
   /* ===== Dropdown ===== */
-  --triplex-next-Dropdown-Background-1-34-0: #2a2d31;
-  --triplex-next-Dropdown-Shadow-1-34-0: 0px 2px 12px rgba(0, 0, 0, 0.4);
-  --triplex-next-DropdownList-Background_Default-1-34-0: transparent;
-  --triplex-next-DropdownList-Background_Active-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-DropdownList-Background_Selected-1-34-0: rgba(255, 255, 255, 0.15);
-  --triplex-next-DropdownList-Color-1-34-0: rgba(255, 255, 255, 1);
+  --triplex-next-Dropdown-Background-1-35-1: #2a2d31;
+  --triplex-next-Dropdown-Shadow-1-35-1: 0px 2px 12px rgba(0, 0, 0, 0.4);
+  --triplex-next-DropdownList-Background_Default-1-35-1: transparent;
+  --triplex-next-DropdownList-Background_Active-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-DropdownList-Background_Selected-1-35-1: rgba(255, 255, 255, 0.15);
+  --triplex-next-DropdownList-Color-1-35-1: rgba(255, 255, 255, 1);
 
   /* ===== Checkbox ===== */
-  --triplex-next-Checkbox-Background_Default-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Checkbox-Background_Disabled-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Checkbox-Background_Checked_Disabled-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-Checkbox-BorderColor_Default-1-34-0: 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
-  --triplex-next-Checkbox-BorderColor_Disabled-1-34-0: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  --triplex-next-Checkbox-Checkmark_Fill_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
+  --triplex-next-Checkbox-Background_Default-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Checkbox-Background_Disabled-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Checkbox-Background_Checked_Disabled-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-Checkbox-BorderColor_Default-1-35-1: 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+  --triplex-next-Checkbox-BorderColor_Disabled-1-35-1: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  --triplex-next-Checkbox-Checkmark_Fill_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
 
   /* ===== Radio ===== */
-  --triplex-next-Radio-Background_Default-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Radio-Background_Disabled-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Radio-Background_Checked_Disabled-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-Radio-BorderColor_Default-1-34-0: 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
-  --triplex-next-Radio-BorderColor_Disabled-1-34-0: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  --triplex-next-Radio-Dot_Disabled-1-34-0: rgba(255, 255, 255, 0.35);
+  --triplex-next-Radio-Background_Default-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Radio-Background_Disabled-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Radio-Background_Checked_Disabled-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-Radio-BorderColor_Default-1-35-1: 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+  --triplex-next-Radio-BorderColor_Disabled-1-35-1: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  --triplex-next-Radio-Dot_Disabled-1-35-1: rgba(255, 255, 255, 0.35);
 
   /* ===== Card ===== */
-  --triplex-next-Card-Static_General_Background-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Card-Static_Secondary_Background-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Card-Action_General_Background-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Card-Action_General_Background_Hover-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-Card-Action_General_Background_Selected-1-34-0: rgba(255, 255, 255, 0.12);
-  --triplex-next-Card-Action_General_Background_Selected_Hover-1-34-0: rgba(255, 255, 255, 0.15);
-  --triplex-next-Card-Action_Secondary_Background-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Card-Action_Secondary_Background_Hover-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Card-Action_Secondary_Background_Selected-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-Card-Action_Secondary_Background_Selected_Hover-1-34-0: rgba(255, 255, 255, 0.12);
-  --triplex-next-Card-Shadow_Default-1-34-0: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
-  --triplex-next-Card-Shadow_Hover-1-34-0: 0 4px 16px 0 rgba(0, 0, 0, 0.4);
+  --triplex-next-Card-Static_General_Background-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Card-Static_Secondary_Background-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Card-Action_General_Background-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Card-Action_General_Background_Hover-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-Card-Action_General_Background_Selected-1-35-1: rgba(255, 255, 255, 0.12);
+  --triplex-next-Card-Action_General_Background_Selected_Hover-1-35-1: rgba(255, 255, 255, 0.15);
+  --triplex-next-Card-Action_Secondary_Background-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Card-Action_Secondary_Background_Hover-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Card-Action_Secondary_Background_Selected-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-Card-Action_Secondary_Background_Selected_Hover-1-35-1: rgba(255, 255, 255, 0.12);
+  --triplex-next-Card-Shadow_Default-1-35-1: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
+  --triplex-next-Card-Shadow_Hover-1-35-1: 0 4px 16px 0 rgba(0, 0, 0, 0.4);
 
   /* ===== Modal ===== */
-  --triplex-next-ModalWindow-Background-1-34-0: #2a2d31;
-  --triplex-next-ModalWindow-Backdrop_Background-1-34-0: rgba(0, 0, 0, 0.6);
+  --triplex-next-ModalWindow-Background-1-35-1: #2a2d31;
+  --triplex-next-ModalWindow-Backdrop_Background-1-35-1: rgba(0, 0, 0, 0.6);
 
   /* ===== Island ===== */
-  --triplex-next-Island-Type1_Background-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-Island-Type2_Background-1-34-0: rgba(255, 255, 255, 0.05);
-  --triplex-next-Island-Type3_Background-1-34-0: rgba(255, 255, 255, 0.03);
-  --triplex-next-Island-Type2_Shadow-1-34-0: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  --triplex-next-Island-Type1_Background-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-Island-Type2_Background-1-35-1: rgba(255, 255, 255, 0.05);
+  --triplex-next-Island-Type3_Background-1-35-1: rgba(255, 255, 255, 0.03);
+  --triplex-next-Island-Type2_Shadow-1-35-1: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 
   /* ===== ListItem ===== */
-  --triplex-next-ListItem-Background-1-34-0: rgba(255, 255, 255, 0.08);
-  --triplex-next-ListItem-Background_Dragging-1-34-0: rgba(255, 255, 255, 0.12);
-  --triplex-next-ListItem-Background_Selected-1-34-0: rgba(255, 255, 255, 0.15);
-  --triplex-next-ListItem-Shadow-1-34-0: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --triplex-next-ListItem-Background-1-35-1: rgba(255, 255, 255, 0.08);
+  --triplex-next-ListItem-Background_Dragging-1-35-1: rgba(255, 255, 255, 0.12);
+  --triplex-next-ListItem-Background_Selected-1-35-1: rgba(255, 255, 255, 0.15);
+  --triplex-next-ListItem-Shadow-1-35-1: 0 2px 8px rgba(0, 0, 0, 0.4);
 
   /* ===== ListItemControlsButton (иконки: крестик очистки, шеврон и т.д.) ===== */
-  --triplex-next-ListItemControlsButton-Background_Default-1-34-0: transparent;
-  --triplex-next-ListItemControlsButton-Background_Hover-1-34-0: rgba(255, 255, 255, 0.1);
-  --triplex-next-ListItemControlsButton-Background_Active-1-34-0: rgba(255, 255, 255, 0.15);
-  --triplex-next-ListItemControlsButton-Color_Default-1-34-0: rgba(255, 255, 255, 0.65);
-  --triplex-next-ListItemControlsButton-Color_Hover-1-34-0: rgba(255, 255, 255, 0.85);
-  --triplex-next-ListItemControlsButton-Color_Active-1-34-0: rgba(255, 255, 255, 1);
+  --triplex-next-ListItemControlsButton-Background_Default-1-35-1: transparent;
+  --triplex-next-ListItemControlsButton-Background_Hover-1-35-1: rgba(255, 255, 255, 0.1);
+  --triplex-next-ListItemControlsButton-Background_Active-1-35-1: rgba(255, 255, 255, 0.15);
+  --triplex-next-ListItemControlsButton-Color_Default-1-35-1: rgba(255, 255, 255, 0.65);
+  --triplex-next-ListItemControlsButton-Color_Hover-1-35-1: rgba(255, 255, 255, 0.85);
+  --triplex-next-ListItemControlsButton-Color_Active-1-35-1: rgba(255, 255, 255, 1);
 
   /* ===== Divider ===== */
-  --triplex-next-Divider-Background-1-34-0: rgba(255, 255, 255, 0.12);
+  --triplex-next-Divider-Background-1-35-1: rgba(255, 255, 255, 0.12);
 
   /* ===== Link ===== */
-  --triplex-next-Link-Text_Color_Default-1-34-0: #19BDB0;
-  --triplex-next-Link-Text_Color_Hover-1-34-0: #4BD9CF;
-  --triplex-next-Link-Text_Color_Active-1-34-0: #008985;
+  --triplex-next-Link-Text_Color_Default-1-35-1: #19BDB0;
+  --triplex-next-Link-Text_Color_Hover-1-35-1: #4BD9CF;
+  --triplex-next-Link-Text_Color_Active-1-35-1: #008985;
 
   /* ===== Tag ===== */
-  --triplex-next-Tag-Background-1-34-0: rgba(255, 255, 255, 0.12);
+  --triplex-next-Tag-Background-1-35-1: rgba(255, 255, 255, 0.12);
 
   /* ===== MultiselectField ===== */
-  --triplex-next-MultiselectField-Divider_Color-1-34-0: rgba(255, 255, 255, 0.2);
+  --triplex-next-MultiselectField-Divider_Color-1-35-1: rgba(255, 255, 255, 0.2);
 
-  background-color: var(--triplex-next-ColorNeutral-90-1-34-0, #1f1f22);
+  background-color: var(--triplex-next-ColorNeutral-90-1-35-1, #1f1f22);
 }
 
 *,
@@ -206,15 +206,13 @@ body {
     sans-serif;
   line-height: 1.5;
   background-color: inherit;
-  /* Светлая тема по умолчанию (как в Triplex Storybook) */
-  color: rgb(46, 52, 56);
-  background: rgb(246, 249, 252);
+  color: var(--triplex-next-Typography-Primary_Color-1-35-1, rgb(46, 52, 56));
+  background: var(--triplex-next-ColorNeutral-90-1-35-1, rgb(246, 249, 252));
 }
 
 html[data-theme='dark'] body {
-  /* Тёмная тема (как в Triplex Storybook) */
-  color: rgb(201, 205, 207);
-  background: rgb(34, 36, 37);
+  color: var(--triplex-next-Typography-Primary_Color-1-35-1, rgb(201, 205, 207));
+  background: var(--triplex-next-ColorNeutral-90-1-35-1, rgb(34, 36, 37));
 }
 
 #root {
@@ -231,27 +229,32 @@ button {
 }
 
 /* ===== Icons-next: переопределение цветов иконок для тёмной темы ===== */
-/* Иконки из @sberbusiness/icons-next используют класс _1sl7t0 для светлой темы (тёмная заливка)
-   и _1bnexig для тёмной темы (белая заливка). Поскольку Context не работает между
-   библиотекой и проектом (разные копии React), принудительно меняем цвета через CSS */
-html[data-theme='dark'] ._1sl7t0 {
+/* Иконки из @sberbusiness/icons-next могут получать light-классы при разных копиях React,
+   поэтому нейтральные light-иконки принудительно переводим в dark-цвета через CSS */
+html[data-theme='dark'] ._3njabd,
+html[data-theme='dark'] ._1bnbi03 {
   fill: #FFFFFF !important;
   fill-opacity: 0.35 !important;
 }
 
-html[data-theme='dark'] .hoverable:hover ._1sl7t0 {
+html[data-theme='dark'] .hoverable:hover ._3njabd,
+html[data-theme='dark'] .hoverable:hover ._1bnbi03 {
   fill: #FFFFFF !important;
   fill-opacity: 1 !important;
 }
 
-html[data-theme='dark'] .hoverable:not(:disabled):active ._1sl7t0,
-html[data-theme='dark'] .hoverable.active ._1sl7t0 {
+html[data-theme='dark'] .hoverable:not(:disabled):active ._3njabd,
+html[data-theme='dark'] .hoverable:not(:disabled):active ._1bnbi03,
+html[data-theme='dark'] .hoverable.active ._3njabd,
+html[data-theme='dark'] .hoverable.active ._1bnbi03 {
   fill: #FFFFFF !important;
   fill-opacity: 1 !important;
 }
 
-html[data-theme='dark'] .hoverable:disabled ._1sl7t0,
-html[data-theme='dark'] .hoverable.disabled ._1sl7t0 {
+html[data-theme='dark'] .hoverable:disabled ._3njabd,
+html[data-theme='dark'] .hoverable:disabled ._1bnbi03,
+html[data-theme='dark'] .hoverable.disabled ._3njabd,
+html[data-theme='dark'] .hoverable.disabled ._1bnbi03 {
   fill: #FFFFFF !important;
   fill-opacity: 0.15 !important;
 }

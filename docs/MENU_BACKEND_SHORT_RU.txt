@@ -72,7 +72,7 @@ Content-Type: application/json
 app_id - обязательное поле.
 Стабильный ID приложения. По нему UI-kit выбирает локальную иконку.
 Примеры: dashboard, users, sc, dwh_bridge, transformation, table_manager,
-metadata, navigator, question.
+metadata, navigator, profile, help.
 
 app_name - обязательное поле.
 Название, которое показываем в меню.
@@ -100,7 +100,9 @@ UI-kit его игнорирует, потому что иконки уже за
 - показывает app_name;
 - при клике переходит по link;
 - иконку выбирает локально по app_id;
-- если app_id неизвестен, показывает fallback-иконку.
+- если app_id неизвестен, показывает fallback-иконку;
+- profile и help использует для нижних кнопок профиля и помощи;
+- если profile/help не пришли от backend, соответствующие нижние кнопки не показывает.
 
 Ошибки
 ------

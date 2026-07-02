@@ -141,6 +141,8 @@ Frontend не обязан передавать `Authorization` header. Если
 - Порядок пунктов сохраняется таким, каким backend вернул массив.
 - `app_id` нужен для локального выбора иконки.
 - Если для `app_id` нет локальной иконки, UI-kit покажет fallback-иконку.
+- `profile` и `help` не показываются в верхнем списке приложений: эти записи используются для нижних кнопок профиля и помощи.
+- Если backend не вернул `profile` или `help`, соответствующая нижняя кнопка не отображается.
 - Backend должен возвращать только те приложения, которые доступны текущему пользователю/клиенту по сессии.
 
 ## Известные app_id для иконок
@@ -155,7 +157,8 @@ Frontend не обязан передавать `Authorization` header. Если
 | `table_manager` | TableManager |
 | `metadata` | Metadata |
 | `navigator` | Navigator |
-| `question` | Question |
+| `profile` | UserPick |
+| `help` | Question |
 
 Новые `app_id` можно отдавать сразу: меню отобразится с fallback-иконкой. Чтобы добавить отдельную иконку, нужно обновить маппинг в `src/components/MainMenu/ScMainMenu.tsx`.
 

@@ -119,6 +119,20 @@
             "available": true
           },
           {
+            "app_id": "profile",
+            "app_name": "Профиль пользователя",
+            "link": "http://localhost:5175/profile/",
+            "description": "Личный кабинет пользователя",
+            "available": true
+          },
+          {
+            "app_id": "help",
+            "app_name": "Помощь",
+            "link": "http://localhost:5175/help/",
+            "description": "Справка и поддержка пользователя",
+            "available": true
+          },
+          {
             "app_id": "sc",
             "app_name": "Центр установок",
             "link": "https://ladoga.sberanalytics.ru/sc/",

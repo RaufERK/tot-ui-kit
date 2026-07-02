@@ -190,9 +190,6 @@ html[data-theme='dark'] .my-card {
 | `menuEndpoint` | Путь меню относительно `baseUrl`, по умолчанию `/iam/menu/` |
 | `menuId` | Legacy ID меню. Используется только если `menuEndpoint` содержит `:menuId` |
 | `activeAppId` | ID активного приложения |
-| `profileAppId` | Service ID профиля для нижней кнопки, по умолчанию `profile` |
-| `profileHref` | URL профиля для нижней кнопки, если backend не прислал service item `profile` |
-| `helpHref` | URL помощи для нижней кнопки, если backend не прислал service item `help` |
 | `useMockData` | Использовать встроенные mock-данные |
 | `onLayoutChange` | Callback при переключении layout |
 | `onThemeChange` | Callback при переключении темы |
@@ -210,7 +207,7 @@ Swagger/OpenAPI JSON лежит в [docs/menu.openapi.json](./docs/menu.openapi.
 - frontend ждёт массив `{ app_id, app_name, link, available?, description? }`;
 - порядок пунктов берётся из массива backend;
 - иконки выбираются локально по `app_id`, поле `icon` deprecated.
-- `profile`, `profil`, `help`, `question` считаются service item и не показываются в верхнем списке приложений.
+- `profile` и `help` считаются service items: они не показываются в верхнем списке, а отображаются в нижнем блоке только если backend вернул эти записи.
 
 ## Peer Dependencies
 

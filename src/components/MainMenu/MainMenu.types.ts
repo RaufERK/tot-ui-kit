@@ -36,7 +36,4 @@ export interface BaseMenuProps {
   systemLogoUrl?: string
   centerOverride?: ReactNode
   rightSlot?: ReactNode
-  profileAppId?: string
-  profileHref?: string
-  helpHref?: string
 }

@@ -83,8 +83,7 @@ const appIconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   metadata: MetadataIcon,
   navigator: NavigatorIcon,
   profile: UserPickIcon,
-  profil: UserPickIcon,
-  question: QuestionIcon,
+  help: QuestionIcon,
 }
 
 const resolveIconNode = (item: MenuItem) => {

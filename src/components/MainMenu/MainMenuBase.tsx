@@ -54,9 +54,9 @@ export interface MainMenuBaseProps extends BaseMenuProps {
 const getThemeClassName = (theme: Theme | undefined) =>
   theme === 'dark' ? styles.root_theme_dark : styles.root_theme_light
 
-const DEFAULT_PROFILE_APP_ID = 'profile'
-const DEFAULT_PROFILE_HREF = 'https://profile.ladoga.sberanalytics.ru/'
-const SERVICE_APP_IDS = new Set(['profile', 'profil', 'help', 'question'])
+const PROFILE_APP_ID = 'profile'
+const HELP_APP_ID = 'help'
+const SERVICE_APP_IDS = new Set([PROFILE_APP_ID, HELP_APP_ID])
 
 const getAppId = (app: AppDescriptor) =>
   app.appId ?? app.clientId ?? app.id.split(':')[0]
@@ -73,9 +73,6 @@ const MainMenuBase = ({
   rightSlot,
   centerOverride,
   className,
-  profileAppId = DEFAULT_PROFILE_APP_ID,
-  profileHref = DEFAULT_PROFILE_HREF,
-  helpHref,
   onLayoutToggle,
 }: MainMenuBaseProps) => {
   const rootClassName = [
@@ -103,29 +100,18 @@ const MainMenuBase = ({
     }
   }
 
-  const profileAppIds = Array.from(
-    new Set([profileAppId, 'profile', 'profil'])
-  )
-  const serviceAppIds = new Set([...SERVICE_APP_IDS, ...profileAppIds])
-  const visibleApps = apps.filter((app) => !serviceAppIds.has(getAppId(app)))
+  const visibleApps = apps.filter((app) => !SERVICE_APP_IDS.has(getAppId(app)))
   const findServiceApp = (ids: string[]) =>
     apps.find((app) => {
       const appId = getAppId(app)
       return ids.includes(appId) || ids.some((id) => app.id.startsWith(`${id}:`))
     })
 
-  const profileApp = findServiceApp(profileAppIds)
-  const helpApp = findServiceApp(['help', 'question'])
+  const profileApp = findServiceApp([PROFILE_APP_ID])
+  const helpApp = findServiceApp([HELP_APP_ID])
   const themeToggleLabel = theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'
   const layoutToggleLabel =
     layout === 'compact' ? 'Развернуть меню' : 'Свернуть меню'
-
-  const handleServiceClick = (
-    app: AppDescriptor | undefined,
-    fallback: AppDescriptor
-  ) => {
-    handleAppClick(app ?? fallback)
-  }
 
   return (
     <nav className={rootClassName} aria-label='Главное меню приложений'>
@@ -184,49 +170,40 @@ const MainMenuBase = ({
 
       <div className={styles.right}>
         <div className={styles.controls}>
-          <button
-            type='button'
-            className={styles.controlButton}
-            onClick={() =>
-              handleServiceClick(profileApp, {
-                id: profileAppId,
-                appId: profileAppId,
-                clientId: profileAppId,
-                name: 'Профиль',
-                href: profileHref,
-              })
-            }
-            title='Профиль'
-            aria-label='Профиль'
-          >
-            <span className={styles.controlIcon}>
-              <UserPickIcon width={16} height={16} />
-            </span>
-            <span className={styles.controlText}>Профиль</span>
-          </button>
-
-          {rightSlot ?? (
+          {profileApp && (
             <button
               type='button'
               className={styles.controlButton}
-              onClick={() =>
-                handleServiceClick(helpApp, {
-                  id: 'help',
-                  appId: 'help',
-                  clientId: 'help',
-                  name: 'Помощь',
-                  href: helpHref,
-                })
-              }
-              title='Справка'
-              aria-label='Справка'
+              onClick={() => handleAppClick(profileApp)}
+              title={profileApp.name}
+              aria-label={profileApp.name}
             >
               <span className={styles.controlIcon}>
-                <QuestionIcon width={16} height={16} />
+                <UserPickIcon width={16} height={16} />
               </span>
-              <span className={styles.controlText}>Помощь</span>
+              <span className={styles.controlText}>
+                {profileApp.shortName ?? profileApp.name}
+              </span>
             </button>
           )}
+
+          {rightSlot ??
+            (helpApp ? (
+              <button
+                type='button'
+                className={styles.controlButton}
+                onClick={() => handleAppClick(helpApp)}
+                title={helpApp.name}
+                aria-label={helpApp.name}
+              >
+                <span className={styles.controlIcon}>
+                  <QuestionIcon width={16} height={16} />
+                </span>
+                <span className={styles.controlText}>
+                  {helpApp.shortName ?? helpApp.name}
+                </span>
+              </button>
+            ) : null)}
 
           {onThemeToggle && (
             <>

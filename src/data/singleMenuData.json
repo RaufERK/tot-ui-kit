@@ -21,6 +21,13 @@
     "available": true
   },
   {
+    "app_id": "help",
+    "app_name": "Помощь",
+    "link": "http://localhost:5175/help/",
+    "description": "Справка и поддержка пользователя",
+    "available": true
+  },
+  {
     "app_id": "logging",
     "app_name": "Логирование",
     "link": "",
