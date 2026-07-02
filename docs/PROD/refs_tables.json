@@ -1,0 +1,37 @@
+[
+  {
+    "app_id": "nsi",
+    "app_name": "",
+    "link": "https://ladoga.tot.technology/refs/",
+    "description": "nsi",
+    "available": true
+  },
+  {
+    "app_id": "sc",
+    "app_name": "",
+    "link": "https://ladoga.tot.technology/",
+    "description": "sc",
+    "available": true
+  },
+  {
+    "app_id": "dwh_bridge",
+    "app_name": "",
+    "link": "https://ladoga.tot.technology/bridge/",
+    "description": "bridge",
+    "available": true
+  },
+  {
+    "app_id": "users",
+    "app_name": "",
+    "link": "https://ladoga.tot.technology/users/",
+    "description": "iam",
+    "available": true
+  },
+  {
+    "app_id": "profile",
+    "app_name": "dwh",
+    "link": "https://ladoga.tot.technology/users/profile/",
+    "description": "profile",
+    "available": true
+  }
+]
